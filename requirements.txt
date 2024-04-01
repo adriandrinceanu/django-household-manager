@@ -1,0 +1,28 @@
+# Core
+Django==5.0.3
+django-extensions==3.2.3
+pillow==10.2.0 #for managing attachaments
+python-dotenv==1.0.1
+str2bool==1.1
+
+# UI 
+django-admin-soft-dashboard==1.0.12
+
+# Deployment
+whitenoise==6.6.0
+gunicorn==21.2.0
+
+# psycopg2-binary
+# django-storages==1.14.2
+# django-cors-headers==4.3.1
+# pygraphviz==1.12
+# django-bootstrap5==23.4
+# psycopg2==2.9.9 #for postgres
+# boto3==1.34.47
+# django-debug-toolbar==4.2.0
+# django-tinymce==3.7.1
+# channels==4.0.0
+# channels-redis==4.2.0
+# gunicorn==21.2.0
+# uvicorn==0.28.0
+# djangorestframework==3.14.0

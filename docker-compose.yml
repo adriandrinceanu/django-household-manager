@@ -1,0 +1,30 @@
+services:
+  household-manager:
+    container_name: household-manager
+    restart: always
+    build: .
+    env_file:
+      - .env
+    ports:
+      - 8000:8000
+    networks:
+      - db_network
+      - web_network
+  nginx:
+    container_name: nginx
+    restart: always
+    image: "nginx:latest"
+    ports:
+      - "5085:5085"
+    volumes:
+      - ./nginx:/etc/nginx/conf.d
+    networks:
+      - web_network
+    depends_on: 
+      - household-manager
+networks:
+  db_network:
+    driver: bridge
+  web_network:
+    driver: bridge
+ 
