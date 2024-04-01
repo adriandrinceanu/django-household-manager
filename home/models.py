@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
 class Family(models.Model):
     name = models.CharField(max_length=200, null=True, blank=True)
     created_by = models.ForeignKey(User, related_name='families', on_delete=models.CASCADE)
-    profile_pic = models.ImageField(upload_to='images', null=True, blank=True)
+    profile_pic = models.ImageField(upload_to='', null=True, blank=True)
     
     def __str__(self):
         return self.name
@@ -20,7 +20,8 @@ class Member(models.Model):
     name = models.CharField(max_length=255, null=True, blank=True)
     email = models.CharField(max_length=200, null=True)
     phone = models.CharField(max_length=150, null=True)
-    profile_pic = models.ImageField(upload_to='images',null=True, blank=True)
+    profile_pic = models.ImageField(upload_to='profile_pic',null=True, blank=True)
+    cover_pic = models.ImageField(upload_to='cover_pic',null=True, blank=True)
     family = models.ForeignKey(Family, related_name='family_members', on_delete=models.CASCADE, null=True, blank=True)
     role = models.CharField(max_length=2, choices=ROLE_CHOICES, default='FM')
     created_by = models.ForeignKey(User, related_name='created_members', on_delete=models.CASCADE, null=True, blank=True)

@@ -20,13 +20,14 @@ def generate_unique_username_from_str(name):
 class MemberCreationForm(forms.ModelForm):
     phone = forms.CharField(max_length=150, required=True)
     profile_pic = forms.ImageField()
+    cover_pic = forms.ImageField()
     role = forms.ModelChoiceField(queryset=Group.objects.all())
     name = forms.CharField(max_length=255, required=True)
     email = forms.EmailField(max_length=200, required=True)
 
     class Meta:
         model = User
-        fields = ['name', 'email', 'phone', 'role', 'profile_pic']
+        fields = ['name', 'email', 'phone', 'role', 'profile_pic', 'cover_pic']
         exclude = ('password1', 'password2', )
 
     def __init__(self, *args: Any, **kwargs: Any) -> None:
@@ -48,6 +49,7 @@ class MemberCreationForm(forms.ModelForm):
             email=self.cleaned_data['email'],
             phone=self.cleaned_data['phone'],
             profile_pic=self.cleaned_data['profile_pic'],
+            cover_pic=self.cleaned_data['cover_pic'],
             role = role
         )
         if commit:

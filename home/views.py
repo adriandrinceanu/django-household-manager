@@ -11,12 +11,11 @@ def index(request):
     return render(request, 'pages/index.html')
 
 
-def homepage(request):
-    return render(request, 'home.html')
+
 
 def logoutPage(request):
     logout(request)
-    return redirect('/')
+    return redirect('login')
  
 def loginPage(request):
     if request.user.is_authenticated:
@@ -42,7 +41,7 @@ def loginPage(request):
                     return HttpResponse('You are not part of this Family group.')
         groups = Group.objects.prefetch_related('user_set')    
         context = {'groups': groups}
-        return render(request, 'login.html', context)
+        return render(request, 'accounts/login.html', context)
     
     
 def registerPage(request):
@@ -57,7 +56,7 @@ def registerPage(request):
     context={
         'form':form,
     }
-    return render(request,'register.html',context)
+    return render(request,'accounts/register.html',context)
 
    
 def create_chore_view(request, family_id):
@@ -83,4 +82,4 @@ def familyLeader(request, username):
         'family': family_members,
     }
     
-    return render(request, 'family_leader.html', context)
+    return render(request, 'pages/profile_leader.html', context)
