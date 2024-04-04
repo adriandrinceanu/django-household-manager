@@ -27,19 +27,29 @@
                   </p>
                 </div>
                 <div class="card-body">
-                  <form role="form" method="post" action="#">
+                  <form role="form" method="POST" action="">
                     {% if form.non_field_errors %}
                       {% for error in form.non_field_errors %}
                         <span class="text-danger">{{ error }}</span>
                       {% endfor %}
                     {% endif %}
                     {% csrf_token %}
-                    {% for field in form %}
+                    <!-- {% for field in form %}
                       <label for="{{ field.id_for_label }}">{{ field.label }}</label>
                       <div class="mb-3">
                         {{field}}
                       </div>
-                    {% endfor %}
+                    {% endfor %} -->
+
+                    <div class="form-floating" style="padding-bottom: 20px;">
+                      <input type="text" class="form-control" name="username" placeholder="Username...">
+                      <label for="floatingInput">Username</label>
+                    </div>
+                    <div class="form-floating">
+                      <input type="password" class="form-control" id="floatingPassword" name="password" placeholder="Password...">
+                      <label for="floatingPassword">Password</label>
+                    </div>
+
                     <p class=""> 
                       <a href="{% url 'password_reset' %}" class="text-primary">Forgot password</a>
                     </p>
