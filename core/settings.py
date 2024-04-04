@@ -119,10 +119,21 @@ WSGI_APPLICATION = "core.wsgi.application"
 #         }
 #     }
     
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': 'db.sqlite3',
+    "default": {
+        "ENGINE": "django.db.backends.postgresql_psycopg2",
+        "NAME": os.getenv("POSTGRES_DB"),
+        "USER": os.getenv("POSTGRES_USER"),
+        "PASSWORD": os.getenv("POSTGRES_PASSWORD"),
+        "HOST": os.getenv("POSTGRES_HOST"),
+        "PORT": os.getenv("POSTGRES_PORT", 5432)
     }
 }
 
@@ -180,3 +191,12 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 LOGIN_REDIRECT_URL = '/'
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+
+SESSION_COOKIE_AGE = 1209600  # The age of session cookies, in seconds. The default is 2 weeks.
+SESSION_COOKIE_DOMAIN = 'localhost'  # The domain to use for session cookies. Set this to your domain name in production.
+SESSION_COOKIE_SECURE = False  # Whether to use a secure cookie for the session cookie. If this is set to True, the cookie will be marked as “secure,” which means browsers may ensure that the cookie is only sent with an HTTPS connection.
+SESSION_COOKIE_SAMESITE = 'Lax'  # Whether to use the SameSite flag on the session cookie. This can be set to 'Strict', 'Lax', or None to disable the flag.
+SESSION_SAVE_EVERY_REQUEST = False  # Whether to save the session data on every request. If this is False (default), then the session data will only be saved if it has been modified.
+SESSION_EXPIRE_AT_BROWSER_CLOSE = False  # Whether a user's session cookie expires when the user's Web browser is closed.
+SESSION_ENGINE = 'django.contrib.sessions.backends.db'
