@@ -1,16 +1,17 @@
 from django.shortcuts import render, redirect, get_object_or_404, HttpResponse
 from django.contrib.auth import login,logout,authenticate
+from django.contrib.auth.decorators import login_required, user_passes_test
+from django.contrib import messages
 from .models import Chore, Family, Member
 from django.contrib.auth.models import Group, User
 from .utils import create_chore  # Import the create_chore function
-from .forms import MemberCreationForm
+from .forms import MemberCreationForm, FamilyCreationForm
 
 def index(request):
-
-    # Page from the theme 
-    return render(request, 'pages/index.html')
-
-
+    if request.user.is_authenticated:
+        return render(request, 'pages/index.html')
+    else:    
+        return redirect('login')
 
 
 def logoutPage(request):
@@ -72,6 +73,7 @@ def create_chore_view(request, family_id):
         # Handle successful creation and potentially redirect
     return render(request, 'create_chore.html')
 
+@login_required
 def familyLeader(request, username):
     user = get_object_or_404(User, username=username)
     member = Member.objects.get(user=user)
@@ -83,3 +85,41 @@ def familyLeader(request, username):
     }
     
     return render(request, 'pages/profile_leader.html', context)
+
+
+@login_required
+def create_family(request, username):
+    user = get_object_or_404(User, username=username)
+    member = Member.objects.get(user=user)
+    my_family = member.family
+    family_members = Member.objects.filter(family=member.family)
+    family_form = FamilyCreationForm()
+    member_form = MemberCreationForm()
+
+    if request.method == 'POST':
+        if 'create_family' in request.POST:
+            family_form = FamilyCreationForm(request.POST, request.FILES)
+            if family_form.is_valid():
+                family = family_form.save(commit=False)  # Don't save the form to the database yet
+                family.created_by = request.user  # Set the created_by field to the current user
+                family.save()  # Now you can save it to the database
+                my_family = member.family
+                messages.success(request, 'Family created successfully')
+                return redirect('create_family', username=username)  
+        elif 'create_member' in request.POST:
+            member_form = MemberCreationForm(request.POST, request.FILES)
+            if member_form.is_valid():
+                member = member_form.save(commit=False)
+                member.save()
+                member.family = my_family
+                messages.success(request, 'Member created successfully')
+                return redirect('create_family', username=username)  
+
+    context = {
+        'member': member,
+        'my_family': my_family,
+        'family': family_members,
+        'family_form': family_form,
+        'member_form': member_form
+    }
+    return render(request, 'pages/profile_leader_family_creation.html', context)
