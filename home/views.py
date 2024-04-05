@@ -59,9 +59,10 @@ def registerPage(request):
     }
     return render(request,'accounts/register.html',context)
 
-   
-def create_chore_view(request, family_id):
-    # Your view logic to handle creating a chore...
+### family leader
+
+@login_required
+def create_chore(request, family_id):
     if request.method == 'POST':
         # Get form data
         title = request.POST['title']
@@ -71,7 +72,9 @@ def create_chore_view(request, family_id):
         chore = Chore.objects.create(title=title, assigned_to=assigned_to, family=family)
         create_chore(assigned_to, title, family, chore)  # Call the create_chore function
         # Handle successful creation and potentially redirect
-    return render(request, 'create_chore.html')
+    return render(request, 'profile_leader_create_chore.html')
+
+
 
 @login_required
 def familyLeader(request, username):
@@ -95,12 +98,10 @@ def create_family(request, username):
         messages.error(request, 'Only a Family Leader can create new members.')
         return redirect('/')
     
-    
     my_family = member.family
     family_members = Member.objects.filter(family=member.family)
     family_form = FamilyCreationForm()
     member_form = MemberCreationForm()
-    
 
     if request.method == 'POST':
         if 'create_family' in request.POST:
@@ -132,3 +133,5 @@ def create_family(request, username):
         'member_form': member_form
     }
     return render(request, 'pages/profile_leader_family_creation.html', context)
+
+### end family leader
