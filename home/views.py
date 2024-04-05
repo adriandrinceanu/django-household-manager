@@ -103,6 +103,8 @@ def create_family(request, username):
                 family = family_form.save(commit=False)  # Don't save the form to the database yet
                 family.created_by = request.user  # Set the created_by field to the current user
                 family.save()  # Now you can save it to the database
+                member.family = family  # Add the member to the newly created family
+                member.save()  # Save the updated member object
                 my_family = member.family
                 messages.success(request, 'Family created successfully')
                 return redirect('create_family', username=username)  
