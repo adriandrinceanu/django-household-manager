@@ -2,10 +2,10 @@ from django.shortcuts import render, redirect, get_object_or_404, HttpResponse
 from django.contrib.auth import login,logout,authenticate
 from django.contrib.auth.decorators import login_required, user_passes_test
 from django.contrib import messages
-from .models import Chore, Family, Member
+from .models import Chore, Family, Member, Notification
 from django.contrib.auth.models import Group, User
 from .utils import create_chore  # Import the create_chore function
-from .forms import MemberCreationForm, FamilyCreationForm
+from .forms import MemberCreationForm, FamilyCreationForm, ChoreCreationForm
 
 def index(request):
     if request.user.is_authenticated:
@@ -62,17 +62,38 @@ def registerPage(request):
 ### family leader
 
 @login_required
-def create_chore(request, family_id):
+def create_chore_view(request, username):
+    user = get_object_or_404(User, username=username)
+    # Get the current user's family
+    member = Member.objects.get(user=user)
+    family = member.family
+
+    # Get the family members and chores
+    family_members = Member.objects.filter(family=family)
+    chores = Chore.objects.filter(assigned_to__in=family_members)
+
     if request.method == 'POST':
-        # Get form data
-        title = request.POST['title']
-        assigned_to = request.user  # Assuming you get the assigned user from the request
-        family = Family.objects.get(pk=family_id)
-        # Create the chore object (logic here)
-        chore = Chore.objects.create(title=title, assigned_to=assigned_to, family=family)
-        create_chore(assigned_to, title, family, chore)  # Call the create_chore function
-        # Handle successful creation and potentially redirect
-    return render(request, 'profile_leader_create_chore.html')
+        form = ChoreCreationForm(request.POST)
+        if form.is_valid():
+            chore = form.save(commit=False)
+            if chore.assigned_to.family != family:
+                messages.error(request, 'You can only assign chores to your family members.')
+            else:
+                chore.save()
+                messages.success(request, 'Chore created successfully.')
+                return redirect('create_chore', username=username)
+    else:
+        # Only allow assigning chores to the user's family members
+        form = ChoreCreationForm()
+        form.fields['assigned_to'].queryset = family_members
+    notifications = Notification.objects.filter(user=request.user)
+    
+    context = {
+        'notifications': notifications,
+        'chores': chores,
+        'form': form,
+    }
+    return render(request, 'pages/profile_leader_create_chore.html', context)
 
 
 
