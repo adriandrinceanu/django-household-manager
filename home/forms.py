@@ -51,7 +51,7 @@ class MemberCreationForm(forms.ModelForm):
             phone=self.cleaned_data['phone'],
             profile_pic=self.cleaned_data['profile_pic'],
             cover_pic=self.cleaned_data['cover_pic'],
-            role = role
+            role = role,
             family=self.family
         )
         if commit:
