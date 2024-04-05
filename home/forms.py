@@ -30,8 +30,9 @@ class MemberCreationForm(forms.ModelForm):
         fields = ['name', 'email', 'phone', 'role', 'profile_pic', 'cover_pic']
         exclude = ('password1', 'password2', )
 
-    def __init__(self, *args: Any, **kwargs: Any) -> None:
+    def __init__(self, *args: Any, family=None, **kwargs: Any) -> None:
         super().__init__(*args, **kwargs)
+        self.family = family
         for field_name, field in self.fields.items():
             field.widget.attrs.update({'class': 'form-control'})
 
@@ -51,6 +52,7 @@ class MemberCreationForm(forms.ModelForm):
             profile_pic=self.cleaned_data['profile_pic'],
             cover_pic=self.cleaned_data['cover_pic'],
             role = role
+            family=self.family
         )
         if commit:
             member.save()

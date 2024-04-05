@@ -91,10 +91,16 @@ def familyLeader(request, username):
 def create_family(request, username):
     user = get_object_or_404(User, username=username)
     member = Member.objects.get(user=user)
+    if member.role != 'FL':
+        messages.error(request, 'Only a Family Leader can create new members.')
+        return redirect('/')
+    
+    
     my_family = member.family
     family_members = Member.objects.filter(family=member.family)
     family_form = FamilyCreationForm()
     member_form = MemberCreationForm()
+    
 
     if request.method == 'POST':
         if 'create_family' in request.POST:
@@ -109,11 +115,12 @@ def create_family(request, username):
                 messages.success(request, 'Family created successfully')
                 return redirect('create_family', username=username)  
         elif 'create_member' in request.POST:
-            member_form = MemberCreationForm(request.POST, request.FILES)
+            member_form = MemberCreationForm(request.POST, request.FILES, family=my_family)
             if member_form.is_valid():
-                member = member_form.save(commit=False)
-                member.save()
-                member.family = my_family
+                new_member = member_form.save(commit=False)  # Don't save the form to the database yet
+                new_member.family = my_family  # Set the family of the new member
+                new_member.save()  # Now you can save it to the database
+                family_members = Member.objects.filter(family=my_family)  # Update the family_members variable
                 messages.success(request, 'Member created successfully')
                 return redirect('create_family', username=username)  
 
