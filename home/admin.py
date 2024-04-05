@@ -18,7 +18,8 @@ def generate_unique_username_from_str(name):
     return username
 
 class MemberAdmin(admin.ModelAdmin):
-    exclude = ('user', 'family')
+    exclude = ('user',)
+    readonly_fields = ('family',)
     def save_model(self, request, obj, form, change):
         if not obj.user:  # if the teacher is being created for the first time
             # Create a new user
