@@ -2,10 +2,10 @@ from django.shortcuts import render, redirect, get_object_or_404, HttpResponse
 from django.contrib.auth import login,logout,authenticate
 from django.contrib.auth.decorators import login_required, user_passes_test
 from django.contrib import messages
-from .models import Chore, Family, Member, Notification
+from .models import Chore, Family, Member, Notification, Budget
 from django.contrib.auth.models import Group, User
 from .utils import create_chore  # Import the create_chore function
-from .forms import MemberCreationForm, FamilyCreationForm, ChoreCreationForm
+from .forms import MemberCreationForm, FamilyCreationForm, ChoreCreationForm, BudgetCreationForm
 
 def index(request):
     if request.user.is_authenticated:
@@ -167,3 +167,60 @@ def create_family(request, username):
     return render(request, 'pages/profile_leader_family_creation.html', context)
 
 ### end family leader
+
+
+### start budget logic
+
+def budget_view(request, username):
+    user = get_object_or_404(User, username=username)
+    member = Member.objects.get(user=user)
+    # Get all budgets for the current user's family
+    budgets = Budget.objects.filter(family=member.family)
+
+    # Calculate the yearly budget
+    yearly_budget = sum(budget.amount for budget in budgets)
+
+    # Render the budgets view
+    return render(request, 'pages/profile_leader_create_budget.html', {'budgets': budgets, 'yearly_budget': yearly_budget})
+
+def add_budget(request):
+    if request.method == 'POST':
+        form = BudgetCreationForm(request.POST)
+        if form.is_valid():
+            budget = form.save(commit=False)
+            budget.family = request.user.family
+            budget.save()
+            return redirect('budgets')
+    else:
+        form = BudgetCreationForm()
+    return render(request, 'pages/add_budget.html', {'form': form})
+
+def yearly_budget(request):
+    budgets = Budget.objects.filter(family=request.user.family, year=request.year)
+    total = sum(budget.amount for budget in budgets)
+    return render(request, 'yearly_budget.html', {'total': total})
+
+def category_budget(request):
+    if request.method == 'POST':
+        form = BudgetCreationForm(request.POST)
+        if form.is_valid():
+            budget = form.save(commit=False)
+            budget.family = request.user.family
+            budget.save()
+            return redirect('budgets')
+    else:
+        form = BudgetCreationForm()
+    return render(request, 'category_budget.html', {'form': form})
+
+def edit_budget(request, pk):
+    budget = Budget.objects.get(pk=pk)
+    if request.method == 'POST':
+        form = BudgetCreationForm(request.POST, instance=budget)
+        if form.is_valid():
+            form.save()
+            return redirect('budgets')
+    else:
+        form = BudgetCreationForm(instance=budget)
+    return render(request, 'edit_budget.html', {'form': form})
+
+### end budget logic
