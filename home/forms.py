@@ -73,9 +73,14 @@ class ChoreCreationForm(forms.ModelForm):
 class BudgetCreationForm(forms.ModelForm):
     class Meta:
         model = Budget
-        fields = ['amount', 'category']
+        fields = ['amount', 'category', 'month', 'year']
+        
+    def __init__(self, *args: Any, **kwargs: Any) -> None:
+        super().__init__(*args, **kwargs)
+        for field_name, field in self.fields.items():
+            field.widget.attrs.update({'class': 'form-control'})
 
 class ExpenseCreationForm(forms.ModelForm):
     class Meta:
         model = Expense
-        fields = ['amount', 'description', 'category', 'created_by']
+        fields = ['amount', 'description', 'month', 'year', 'category', 'created_by']
