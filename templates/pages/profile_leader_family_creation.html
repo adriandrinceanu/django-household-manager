@@ -166,8 +166,9 @@
                             {% for field in family_form %}
                                 {{field.errors}}
                                 <div class="form-floating" style="padding-bottom: 15px;">
+                                  <!-- <input type="text" name="{{ field.name }}" id="id_{{ field.name }}" class="form-control" autocomplete="{{ field.name }}"> -->
                                     {{field}}
-                                <label for="floatingInput">{{ field.label }}</label>
+                                  <label for="id_{{ field.name }}">{{ field.label }}</label>
                                 </div>
                             {% endfor %}
                           
@@ -261,7 +262,7 @@
                               {{field.errors}}
                               <div class="form-floating" style="padding-bottom: 15px;">
                                   {{field}}
-                              <label for="floatingInput">{{ field.label }}</label>
+                              <label for="id_{{ field.name }}">{{ field.label }}</label>
                               </div>
                           {% endfor %}
                         
