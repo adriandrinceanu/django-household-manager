@@ -45,11 +45,35 @@ class Expense(models.Model):
         ('food', 'Food'),
         ('clothing', 'Clothing'),
         ('movies', 'Movies'),
-        # will add more categories
+        ('transportation', 'Transportation'),
+        ('groceries', 'Groceries'),
+        ('snacks', 'Snacks'),
+        ('sweets', 'Sweets'),
+        ('utilities', 'Utilities'),
+        ('healthcare', 'Healthcare'),
+        ('entertainment', 'Entertainment'),
+        ('education', 'Education'),
+    ]
+    
+    MONTH_CHOICES = [
+        ('jan', 'January'),
+        ('feb', 'February'),
+        ('mar', 'March'),
+        ('apr', 'April'),
+        ('may', 'May'),
+        ('jun', 'June'),
+        ('jul', 'July'),
+        ('aug', 'August'),
+        ('sep', 'September'),
+        ('oct', 'October'),
+        ('nov', 'November'),
+        ('dec', 'December'),
     ]
     amount = models.DecimalField(max_digits=7, decimal_places=2)
     description = models.CharField(max_length=255)
     category = models.CharField(max_length=50, choices=CATEGORY_CHOICES)
+    month = models.CharField(max_length=3, choices=MONTH_CHOICES,null=True, blank=True)
+    year = models.PositiveIntegerField(null=True, blank=True)
     created_by = models.ForeignKey(Member, related_name='expenses', on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
     
@@ -57,12 +81,28 @@ class Expense(models.Model):
         return f"{self.amount} - {self.description} - Paid by: {self.created_by.username}"
 
 class Budget(models.Model):
+    MONTH_CHOICES = [
+        ('jan', 'January'),
+        ('feb', 'February'),
+        ('mar', 'March'),
+        ('apr', 'April'),
+        ('may', 'May'),
+        ('jun', 'June'),
+        ('jul', 'July'),
+        ('aug', 'August'),
+        ('sep', 'September'),
+        ('oct', 'October'),
+        ('nov', 'November'),
+        ('dec', 'December'),
+    ]
     amount = models.DecimalField(max_digits=7, decimal_places=2)
     category = models.CharField(max_length=50, choices=Expense.CATEGORY_CHOICES)
+    month = models.CharField(max_length=3, choices=MONTH_CHOICES, null=True, blank=True)
+    year = models.PositiveIntegerField(null=True, blank=True)
     family = models.ForeignKey(Family, related_name='budgets', on_delete=models.CASCADE)
     
     def __str__(self):
-        return f"Budget: {self.amount} for {self.family.name}"
+        return f"Budget: {self.amount} for {self.family.name} in {self.get_month_display()}"
     
     
 class Notification(models.Model):
