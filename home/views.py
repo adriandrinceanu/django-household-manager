@@ -96,6 +96,17 @@ def create_chore_view(request, username):
     return render(request, 'pages/profile_leader_create_chore.html', context)
 
 
+@login_required
+def delete_chore_view(request, chore_id, username):
+    user = get_object_or_404(User, username=username)
+    # Get the chore object
+    chore = get_object_or_404(Chore, id=chore_id)
+    chore.delete()
+    messages.success(request, 'Chore deleted successfully.')
+    return redirect('create_chore',username=username)
+
+
+
 
 @login_required
 def familyLeader(request, username):

@@ -95,7 +95,7 @@
              
               </div>
               <div class="ms-auto text-end">
-                <a class="btn btn-link text-danger text-gradient px-3 mb-0" href="javascript:;"><i class="far fa-trash-alt me-2"></i>Delete</a>
+                <a class="btn btn-link text-danger text-gradient px-3 mb-0" href="{% url 'delete_chore' chore_id=chore.id username=request.user.username  %}"><i class="far fa-trash-alt me-2"></i>Delete</a>
               </div>
             </li>
             {% endfor %}

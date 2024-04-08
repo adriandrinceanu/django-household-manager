@@ -9,4 +9,5 @@ urlpatterns = [
     path('profile/leader/<username>/', views.familyLeader, name='family_leader'),
     path('profile/leader/<username>/family', views.create_family, name='create_family'),
     path('profile/leader/<username>/chores', views.create_chore_view, name='create_chore'),
+    path('profile/leader/<username>/<int:chore_id>/chores/delete', views.delete_chore_view, name='delete_chore'),
 ]
