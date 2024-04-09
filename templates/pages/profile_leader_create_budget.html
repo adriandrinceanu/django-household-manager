@@ -1,5 +1,6 @@
 {% extends 'layouts/base.html' %}
 {% load static %}
+{% load my-form-tags %}
 
 {% block content %}
 <div class="container-fluid py-4">
@@ -9,7 +10,7 @@
   <div class="col-12 col-xl-12" >
     <div class="card mb-4">
       <div class="card-header pb-0 p-3">
-        <h6 class="mb-1">Add chore</h6>
+        <h6 class="mb-1">Budget</h6>
       </div>
       <div class="card-body p-3">
         <div class="row" style="justify-content: center;">
@@ -19,22 +20,25 @@
               <div class="card-body d-flex flex-column justify-content-center text-center">
                   <i class="fa fa-plus text-secondary mb-3"></i>
                   <button type="button"  id="addBudgetLink" data-toggle="modal" data-target="#addBudgetModal" class="btn bg-gradient-info w-100 mt-1 mb-0">Add Budget</button>
-                            <!-- Modal for adding a budget -->
-                      <div class="modal fade" id="addBudgetModal" tabindex="-1" role="dialog" aria-labelledby="addBudgetModalLabel" aria-hidden="true">
-                        <div class="modal-dialog" role="document">
-                          <div class="modal-content">
-                            <div class="modal-header pb-0 p-3">
-                              <h6 class="mb-1">Add Budget</h6>
-                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                              </button>
-                            </div>
-                            <div class="modal-body">
-                              {% include 'pages/add_budget.html' %}
-                            </div>
-                          </div>
+                            
+                  <!-- Modal for adding a budget -->
+                  <div class="modal fade" id="addBudgetModal" tabindex="-1" role="dialog" aria-labelledby="budgetModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="budgetModalLabel">Add Budget</h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
                         </div>
-  </div>
+                        <div class="modal-body">
+                          {% budget_form %}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                    
+                  <!-- END Modal for adding a budget -->
                 </div>
             </div>
           </div>
@@ -186,34 +190,20 @@
     </div>
   </div>
 
-    {% include "includes/footer.html" %}
+    <!-- {% include "includes/footer.html" %} -->
     
   </div>
 
    
-<script>
+  <script>
 
     // Add event listeners to open each modal
-  document.getElementById('addBudgetLink').addEventListener('click', function() {
-    $('#addBudgetModal').modal('show');
+    document.addEventListener('DOMContentLoaded', function() {
+    document.getElementById('addBudgetLink').addEventListener('click', function() {
+      $('#addBudgetModal').modal('show');
+    });
   });
-
-  document.getElementById('editBudgetLink').addEventListener('click', function() {
-    $('#editBudgetModal').modal('show');
-  });
-
-  document.getElementById('yearlyBudgetLink').addEventListener('click', function() {
-    $('#yearlyBudgetModal').modal('show');
-  });
-
-  document.getElementById('categoryBudgetLink').addEventListener('click', function() {
-    $('#categoryBudgetModal').modal('show');
-  });
-</script>
+  
+  </script>
 
 {% endblock content %}
-
-<!-- 
-{% for chore in chores %}
-    <p>{{ chore.title }} - {{ chore.assigned_to.name }} - {% if chore.is_done %}Done{% else %}In progress{% endif %}</p>
-{% endfor %} -->

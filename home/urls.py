@@ -11,5 +11,5 @@ urlpatterns = [
     path('profile/leader/<username>/chores', views.create_chore_view, name='create_chore'),
     path('profile/leader/<username>/<int:chore_id>/chores/delete', views.delete_chore_view, name='delete_chore'),
     path('profile/leader/<username>/budgets', views.budget_view, name='budgets'),
-    path('add_budget', views.add_budget, name='add_budget'),
+    path('add_budgets', views.add_budget, name='add_budget'),
 ]
