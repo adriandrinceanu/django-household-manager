@@ -1,6 +1,14 @@
 #!/bin/bash
 export DJANGO_SETTINGS_MODULE=core.settings
 
+# wait for Postgres to start
+until python manage.py makemigrations; do
+  echo >&2 "Postgres is unavailable - sleeping"
+  sleep 1
+done
+
+echo >&2 "Postgres is up - continuing"
+
 python manage.py makemigrations 
 python manage.py migrate 
 python manage.py createsuperuser --no-input
