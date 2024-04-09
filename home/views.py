@@ -2,10 +2,10 @@ from django.shortcuts import render, redirect, get_object_or_404, HttpResponse
 from django.contrib.auth import login,logout,authenticate
 from django.contrib.auth.decorators import login_required, user_passes_test
 from django.contrib import messages
-from .models import Chore, Family, Member, Notification, Budget
+from .models import Chore, Family, Member, Notification, Budget, MonthlyBudget
 from django.contrib.auth.models import Group, User
 from .utils import create_chore  # Import the create_chore function
-from .forms import MemberCreationForm, FamilyCreationForm, ChoreCreationForm, BudgetCreationForm
+from .forms import MemberCreationForm, FamilyCreationForm, ChoreCreationForm, BudgetCreationForm, MonthlyBudgetCreationForm
 
 def index(request):
     if request.user.is_authenticated:
@@ -174,43 +174,69 @@ def create_family(request, username):
 def budget_view(request, username):
     user = get_object_or_404(User, username=username)
     member = Member.objects.get(user=user)
-    # Get all budgets for the current user's family
-    budgets = Budget.objects.filter(family=member.family)
 
-    # Calculate the yearly budget
-    yearly_budget = sum(budget.amount for budget in budgets)
+    # Get all monthly budgets for the current user's family
+    monthly_budgets = MonthlyBudget.objects.filter(family=member.family)
+
+    # Prepare data for each monthly budget
+    monthly_budget_data = []
+    yearly_budget = 0
+    for monthly_budget in monthly_budgets:
+        # Get all budgets associated with the current monthly budget
+        budgets = Budget.objects.filter(monthly_budget=monthly_budget)
+
+        # Calculate the total budget and the remaining amount
+        total_budget = sum(budget.amount for budget in budgets)
+        remaining_amount = monthly_budget.amount - total_budget
+
+        # Add the initial amount to the yearly budget
+        yearly_budget += monthly_budget.amount
+
+        monthly_budget_data.append({
+            'monthly_budget': monthly_budget,
+            'budgets': budgets,
+            'total_budget': total_budget,
+            'remaining_amount': remaining_amount,
+        })
 
     # Render the budgets view
-    return render(request, 'pages/profile_leader_create_budget.html', {'budgets': budgets, 'yearly_budget': yearly_budget})
+    return render(request, 'pages/profile_leader_create_budget.html', \
+        {'monthly_budget_data': monthly_budget_data, 'yearly_budget': yearly_budget})
 
-def add_budget(request):
+
+@login_required
+def add_monthly_budget(request, username):
+    user = get_object_or_404(User, username=username)
+    member = Member.objects.get(user=user)
+    if request.method == 'POST':
+        form = MonthlyBudgetCreationForm(request.POST)
+        if form.is_valid():
+            monthly_budget = form.save(commit=False)
+            monthly_budget.family = member.family  # Associate the budget with the user's family
+            monthly_budget.save()
+            return redirect('budgets', username=username)
+    else:
+        form = MonthlyBudgetCreationForm()
+    return render(request, 'pages/add_monthly_budget.html', {'form': form})
+
+@login_required
+def add_budget(request, username):
+    user = get_object_or_404(User, username=username)
+    member = Member.objects.get(user=user)
     if request.method == 'POST':
         form = BudgetCreationForm(request.POST)
         if form.is_valid():
             budget = form.save(commit=False)
-            budget.family = request.user.family
+            budget.monthly_budget.family = member.family  # Associate the budget with the user's family
             budget.save()
-            return redirect('budgets')
+            return redirect('budgets', username=username)
     else:
         form = BudgetCreationForm()
     return render(request, 'pages/add_budget.html', {'form': form})
 
-def yearly_budget(request):
-    budgets = Budget.objects.filter(family=request.user.family, year=request.year)
-    total = sum(budget.amount for budget in budgets)
-    return render(request, 'yearly_budget.html', {'total': total})
 
-def category_budget(request):
-    if request.method == 'POST':
-        form = BudgetCreationForm(request.POST)
-        if form.is_valid():
-            budget = form.save(commit=False)
-            budget.family = request.user.family
-            budget.save()
-            return redirect('budgets')
-    else:
-        form = BudgetCreationForm()
-    return render(request, 'category_budget.html', {'form': form})
+
+
 
 def edit_budget(request, pk):
     budget = Budget.objects.get(pk=pk)

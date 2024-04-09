@@ -3,7 +3,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User, Group
 from django.contrib.auth import get_user_model
 from django import forms
-from .models import Member, Family, Chore, Budget, Expense
+from .models import Member, Family, Chore, Budget, Expense, MonthlyBudget
 
 def generate_unique_username_from_str(name):
     # Create the initial username
@@ -70,10 +70,20 @@ class ChoreCreationForm(forms.ModelForm):
         model = Chore
         fields = ['title', 'description', 'assigned_to']
 
+class MonthlyBudgetCreationForm(forms.ModelForm):
+    class Meta:
+        model = MonthlyBudget
+        fields = ['amount', 'month', 'year']
+        
+    def __init__(self, *args: Any, **kwargs: Any) -> None:
+        super().__init__(*args, **kwargs)
+        for field_name, field in self.fields.items():
+            field.widget.attrs.update({'class': 'form-control'})
+
 class BudgetCreationForm(forms.ModelForm):
     class Meta:
         model = Budget
-        fields = ['amount', 'category', 'month', 'year']
+        fields = ['amount', 'category', 'monthly_budget']
         
     def __init__(self, *args: Any, **kwargs: Any) -> None:
         super().__init__(*args, **kwargs)

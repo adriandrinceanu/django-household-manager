@@ -80,7 +80,7 @@ class Expense(models.Model):
     def __str__(self):
         return f"{self.amount} - {self.description} - Paid by: {self.created_by.username}"
 
-class Budget(models.Model):
+class MonthlyBudget(models.Model):
     MONTH_CHOICES = [
         ('jan', 'January'),
         ('feb', 'February'),
@@ -96,13 +96,27 @@ class Budget(models.Model):
         ('dec', 'December'),
     ]
     amount = models.DecimalField(max_digits=7, decimal_places=2)
-    category = models.CharField(max_length=50, choices=Expense.CATEGORY_CHOICES)
     month = models.CharField(max_length=3, choices=MONTH_CHOICES, null=True, blank=True)
     year = models.PositiveIntegerField(null=True, blank=True)
-    family = models.ForeignKey(Family, related_name='budgets', on_delete=models.CASCADE)
+    family = models.ForeignKey(Family, related_name='monthly_budgets', on_delete=models.CASCADE)
     
+    def amount_in_ron(self):
+        return f"{self.amount} RON"
+
     def __str__(self):
-        return f"Budget: {self.amount} for {self.family.name} in {self.get_month_display()}"
+        return f"Monthly Budget: {self.amount} for {self.family.name} in {self.get_month_display()}"
+    
+
+class Budget(models.Model):
+    amount = models.DecimalField(max_digits=7, decimal_places=2)
+    category = models.CharField(max_length=50, choices=Expense.CATEGORY_CHOICES)
+    monthly_budget = models.ForeignKey(MonthlyBudget, related_name='budgets', on_delete=models.CASCADE, null=True, blank=True)
+    
+    def amount_in_ron(self):
+        return f"{self.amount} RON"
+
+    def __str__(self):
+        return f"Budget: {self.amount} for category {self.category} in {self.monthly_budget}"
     
     
 class Notification(models.Model):
