@@ -5,54 +5,104 @@
 {% block content %}
 <div class="container-fluid py-4">
   <div class="row">
-  <!-- Create Chore -->
-
-  <div class="col-12 col-xl-12" >
+  <!-- Create monthly budget -->
+  <div class="col-12 col-xl-4" >
     <div class="card mb-4">
       <div class="card-header pb-0 p-3">
-        <h6 class="mb-1">Budget</h6>
+        <h6 class="mb-1">Monthly Budget</h6>
       </div>
       <div class="card-body p-3">
         <div class="row" style="justify-content: center;">
-        
           <div class="col-xl-12 col-md-6 mb-xl-0 mb-4" >
             <div class="card h-100 card-plain border">
               <div class="card-body d-flex flex-column justify-content-center text-center">
                   <i class="fa fa-plus text-secondary mb-3"></i>
-                  <button type="button"  id="addBudgetLink" data-toggle="modal" data-target="#addBudgetModal" class="btn bg-gradient-info w-100 mt-1 mb-0">Add Budget</button>
-                            
+                  <button type="button"  id="addBudgetLink" data-toggle="modal" data-target="#addBudgetModal" class="btn bg-gradient-info w-100 mt-1 mb-0">Add Monthly Budget</button>
                   <!-- Modal for adding a budget -->
                   <div class="modal fade" id="addBudgetModal" tabindex="-1" role="dialog" aria-labelledby="budgetModalLabel" aria-hidden="true">
                     <div class="modal-dialog" role="document">
                       <div class="modal-content">
                         <div class="modal-header">
-                          <h5 class="modal-title" id="budgetModalLabel">Add Budget</h5>
+                          <h5 class="modal-title" id="budgetModalLabel">Add Monthly Budget</h5>
                           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                           </button>
                         </div>
                         <div class="modal-body">
-                          {% budget_form %}
+                          {% monthly_budget_form request.user.username %}
                         </div>
                       </div>
                     </div>
                   </div>
-                    
                   <!-- END Modal for adding a budget -->
                 </div>
             </div>
           </div>
-
-
-
         </div>
       </div>
     </div>
-    
   </div>
+      <!-- End Create monthly budget -->
 
-      <!-- End Create Chore -->
+      <!-- Create  budget -->
+  <div class="col-12 col-xl-4" >
+    <div class="card mb-4">
+      <div class="card-header pb-0 p-3">
+        <h6 class="mb-1">Category Budget</h6>
+      </div>
+      <div class="card-body p-3">
+        <div class="row" style="justify-content: center;">
+          <div class="col-xl-12 col-md-6 mb-xl-0 mb-4" >
+            <div class="card h-100 card-plain border">
+              <div class="card-body d-flex flex-column justify-content-center text-center">
+                  <i class="fa fa-plus text-secondary mb-3"></i>
+                  <button type="button"  id="addMonthlyBudgetLink" data-toggle="modal" data-target="#addMonthlyBudgetModal" class="btn bg-gradient-info w-100 mt-1 mb-0">Add Category Budget</button>
+                  <!-- Modal for adding a budget -->
+                  <div class="modal fade" id="addMonthlyBudgetModal" tabindex="-1" role="dialog" aria-labelledby="MonthlybudgetModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="MonthlybudgetModalLabel">Add Budget</h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                          {% budget_form request.user.username %}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- END Modal for adding a budget -->
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+      <!-- End Create category budget -->
 
+            <!-- Chart -->
+  <div class="col-12 col-xl-4" >
+    <div class="card mb-4">
+      <div class="card-header pb-0 p-3">
+        <h6 class="mb-1">Overview</h6>
+      </div>
+      <div class="card-body p-3">
+  
+        <div class="bg-gradient-dark border-radius-lg py-3 pe-1 mb-3">
+          <div class="chart">
+            <canvas id="chart-bars" class="chart-canvas" height="170"></canvas>
+          </div>
+        </div>
+  
+  
+
+      </div>
+    </div>
+  </div>
+      <!-- End Chart -->
 
   </div>
   <div class="row">
@@ -63,17 +113,17 @@
         </div>
         <div class="card-body pt-4 p-3">
           <ul class="list-group">
-            {% for budget in budgets %}
+            {% for data in monthly_budget_data %}
             <li class="list-group-item border-0 d-flex p-4 mb-2 bg-gray-100 border-radius-lg">
               <div class="d-flex flex-column">
-                <h6 class="mb-3 text-sm">{{ budget.amount }}</h6>
-                <span class="mb-2 text-xs">Month: <span class="text-dark ms-sm-2 font-weight-bold">{{ chore.month }}</span></span>
-                <span class="mb-2 text-xs">Year: <span class="text-dark ms-sm-2 font-weight-bold">{{ chore.year }}</span></span>
-
+                <h6 class="mb-3 text-sm">{{ data.monthly_budget.month }} - {{ data.monthly_budget.year }}</h6>
+                <span class="mb-2 text-xs">Initial Amount: <span class="text-dark ms-sm-2 font-weight-bold">{{ data.monthly_budget.amount_in_ron }}</span></span>
+                <span class="mb-2 text-xs">Total Budget: <span class="text-dark ms-sm-2 font-weight-bold">{{ data.total_budget }} RON</span></span>
+                <span class="mb-2 text-xs">Remaining Amount: <span class="text-dark ms-sm-2 font-weight-bold">{{ data.remaining_amount }} RON</span></span>
              
               </div>
               <div class="ms-auto text-end">
-                <a class="btn btn-link text-danger text-gradient px-3 mb-0" href="{% url 'delete_chore' chore_id=chore.id username=request.user.username  %}"><i class="far fa-trash-alt me-2"></i>Delete</a>
+                <a class="btn btn-link text-danger text-gradient px-3 mb-0" href="#"><i class="far fa-trash-alt me-2"></i>Delete</a>
               </div>
             </li>
             {% endfor %}
@@ -93,41 +143,37 @@
                 <tr>
                   <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">For</th>
                   <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Amount</th>
-                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Status</th>
-                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Created at</th>
+                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Month</th>
+
                   <th class="text-secondary opacity-7"></th>
                 </tr>
               </thead>
               <tbody>
-                {% for chore in chores %}
+                {% for data in monthly_budget_data %}
+                {% for budget in data.budgets %}
                 <tr>
                   <td>
                     <div class="d-flex px-2 py-1">
                       <div>
-                        <img src="{{ chore.assigned_to.profile_pic.url }}" class="avatar avatar-sm me-3" alt="{{ chore.assigned_to.name }}">
                       </div>
                       <div class="d-flex flex-column justify-content-center">
-                        <h6 class="mb-0 text-sm">{{ chore.assigned_to.name }}</h6>
-                        <p class="text-xs text-secondary mb-0">{{ chore.assigned_to.email }}</p>
+                        <h6 class="mb-0 text-sm">{{ budget.category }}</h6>
                       </div>
                     </div>
                   </td>
 
                   <td class="align-middle text-center text-sm">
-                    <p class="text-xs font-weight-bold mb-0">{{ chore.title }}</p>
+                    <p class="text-xs font-weight-bold mb-0">{{ budget.amount }} RON</p>
+                  </td>
+
+                  <td class="align-middle text-center text-sm">
+                    <p class="text-xs font-weight-bold mb-0">{{ budget.monthly_budget.get_month_display }}</p>
                   </td>
                   
-                  <td class="align-middle text-center text-sm">
-                    {% if chore.is_done %}
-                    <span class="badge badge-sm bg-gradient-success">Done</span>
-                    {% else %}
-                    <span class="badge badge-sm bg-gradient-secondary">In progress</span>
-                    {% endif %}
-                  </td>
-                  <td class="align-middle text-center">
-                    <span class="text-secondary text-xs font-weight-bold">{{ chore.created_at }}</span>
-                  </td>
+         
+               
                 </tr>
+                {% endfor %}
                 {% endfor %}
 
               </tbody>
@@ -139,56 +185,7 @@
 
 
 
-  <!-- Modal for editing a budget -->
-  <div class="modal fade" id="editBudgetModal" tabindex="-1" role="dialog" aria-labelledby="editBudgetModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header pb-0 p-3">
-          <h6 class="mb-1">Edit Budget</h6>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          {% include 'pages/edit_budget.html' %}
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Modal for viewing yearly budget -->
-  <div class="modal fade" id="yearlyBudgetModal" tabindex="-1" role="dialog" aria-labelledby="yearlyBudgetModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header pb-0 p-3">
-          <h6 class="mb-1">Yearly Budget</h6>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          {% include 'pages/yearly_budget.html' %}
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Modal for adding a category budget -->
-  <div class="modal fade" id="categoryBudgetModal" tabindex="-1" role="dialog" aria-labelledby="categoryBudgetModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header pb-0 p-3">
-          <h6 class="mb-1">Add Category Budget</h6>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          {% include 'pages/category_budget.html' %}
-        </div>
-      </div>
-    </div>
-  </div>
+  
 
     <!-- {% include "includes/footer.html" %} -->
     
@@ -203,7 +200,99 @@
       $('#addBudgetModal').modal('show');
     });
   });
+
+  //monthly budget
+  document.addEventListener('DOMContentLoaded', function() {
+    document.getElementById('addMonthlyBudgetLink').addEventListener('click', function() {
+      $('#addMonthlyBudgetModal').modal('show');
+    });
+  });
   
   </script>
 
 {% endblock content %}
+
+{% block scripts %}
+
+  <script src="{% static 'js/plugins/chartjs.min.js' %}"></script>
+
+  <script>
+    var ctx = document.getElementById("chart-bars").getContext("2d");
+    
+    var monthlyAmounts = [
+        {% for data in monthly_budget_data %}
+            {{ data.monthly_budget.amount }},
+        {% endfor %}
+    ];
+
+    new Chart(ctx, {
+      type: "bar",
+      data: {
+        labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+        datasets: [{
+          label: "Budget",
+          tension: 0.4,
+          borderWidth: 0,
+          borderRadius: 4,
+          borderSkipped: false,
+          backgroundColor: "#fff",
+          data: monthlyAmounts,
+          maxBarThickness: 6
+        }, ],
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: {
+            display: false,
+          }
+        },
+        interaction: {
+          intersect: false,
+          mode: 'index',
+        },
+        scales: {
+          y: {
+            grid: {
+              drawBorder: false,
+              display: false,
+              drawOnChartArea: false,
+              drawTicks: false,
+            },
+            ticks: {
+              suggestedMin: 0,
+              suggestedMax: 500,
+              beginAtZero: true,
+              padding: 15,
+              font: {
+                size: 14,
+                family: "Open Sans",
+                style: 'normal',
+                lineHeight: 2
+              },
+              color: "#fff"
+            },
+          },
+          x: {
+            grid: {
+              drawBorder: false,
+              display: false,
+              drawOnChartArea: false,
+              drawTicks: false
+            },
+            ticks: {
+              display: false
+            },
+          },
+        },
+      },
+    });
+
+
+ 
+
+    
+  </script>
+
+{% endblock scripts %}

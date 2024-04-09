@@ -1,5 +1,5 @@
 
-    <form role="form" method="POST" action="{% url 'add_budget' username=username %}" enctype="multipart/form-data">
+    <form role="form" method="POST" action="{% url 'add_monthly_budget' username=username %}" enctype="multipart/form-data">
       {% csrf_token %}
       {{ form.errors }}
       {% for field in form %}
@@ -10,7 +10,7 @@
         </div>
       {% endfor %}
       <div class="text-center">
-        <button type="submit"  class="btn bg-gradient-info w-100 mt-1 mb-0">Add budget</button>
+        <button type="submit"  class="btn bg-gradient-info w-100 mt-1 mb-0">Add Monthly budget</button>
       </div>
       {% if messages %}
         <ul class="messages">
