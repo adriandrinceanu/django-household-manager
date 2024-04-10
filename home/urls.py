@@ -15,4 +15,7 @@ urlpatterns = [
     path('profile/leader/<str:username>/add_monthly_budgets', views.add_monthly_budget, name='add_monthly_budget'),
     path('profile/leader/<str:username>/delete_monthly_budget/<int:budget_id>/', views.delete_monthly_budget, name='delete_monthly_budget'),
     path('profile/leader/<str:username>/delete_budget/<int:budget_id>/', views.delete_budget, name='delete_budget'),
+    path('profile/leader/<str:username>/expenses/', views.expense_view, name='expenses'),
+    path('profile/leader/<str:username>/add_expenses/', views.add_expense, name='add_expense'),
 ]
+
