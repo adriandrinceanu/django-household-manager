@@ -1,0 +1,23 @@
+
+    <form role="form" method="POST" action="{% url 'add_expense' username=username %}" enctype="multipart/form-data">
+      {% csrf_token %}
+      {{ form.errors }}
+      {% for field in form %}
+        {{field.errors}}
+        <div class="form-floating" style="padding-bottom: 15px;">
+          {{field}}
+          <label for="id_{{ field.name }}">{{ field.label }}</label>
+        </div>
+      {% endfor %}
+      <div class="text-center">
+        <button type="submit"  class="btn bg-gradient-info w-100 mt-1 mb-0">Add Expense</button>
+      </div>
+      {% if messages %}
+        <ul class="messages">
+          {% for message in messages %}
+            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    </form>
+
