@@ -1,6 +1,6 @@
 # myapp/templatetags/add_budget_tag.py
 from django import template
-from home.forms import MonthlyBudgetCreationForm, BudgetCreationForm
+from home.forms import MonthlyBudgetCreationForm, BudgetCreationForm, ExpenseCreationForm
 
 register = template.Library()
 
@@ -12,4 +12,9 @@ def monthly_budget_form(username):
 @register.inclusion_tag('pages/add_budget.html', name='budget_form')
 def budget_form(username):
     form = BudgetCreationForm()
+    return {'form': form, 'username': username}
+
+@register.inclusion_tag('pages/add_expense.html', name='expense_form')
+def expense_form(username):
+    form = ExpenseCreationForm()
     return {'form': form, 'username': username}
