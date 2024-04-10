@@ -13,4 +13,6 @@ urlpatterns = [
     path('profile/leader/<username>/budgets', views.budget_view, name='budgets'),
     path('profile/leader/<str:username>/add_budgets', views.add_budget, name='add_budget'),
     path('profile/leader/<str:username>/add_monthly_budgets', views.add_monthly_budget, name='add_monthly_budget'),
+    path('profile/leader/<str:username>/delete_monthly_budget/<int:budget_id>/', views.delete_monthly_budget, name='delete_monthly_budget'),
+    path('profile/leader/<str:username>/delete_budget/<int:budget_id>/', views.delete_budget, name='delete_budget'),
 ]

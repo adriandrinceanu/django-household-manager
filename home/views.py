@@ -235,18 +235,20 @@ def add_budget(request, username):
     return render(request, 'pages/add_budget.html', {'form': form})
 
 
+@login_required
+def delete_monthly_budget(request, username, budget_id):
+    user = get_object_or_404(User, username=username)
+    member = Member.objects.get(user=user)
+    monthly_budget = get_object_or_404(MonthlyBudget, id=budget_id, family=member.family)
+    monthly_budget.delete()
+    return redirect('budgets', username=username)
 
-
-
-def edit_budget(request, pk):
-    budget = Budget.objects.get(pk=pk)
-    if request.method == 'POST':
-        form = BudgetCreationForm(request.POST, instance=budget)
-        if form.is_valid():
-            form.save()
-            return redirect('budgets')
-    else:
-        form = BudgetCreationForm(instance=budget)
-    return render(request, 'edit_budget.html', {'form': form})
+@login_required
+def delete_budget(request, username, budget_id):
+    user = get_object_or_404(User, username=username)
+    member = Member.objects.get(user=user)
+    budget = get_object_or_404(Budget, id=budget_id, monthly_budget__family=member.family)
+    budget.delete()
+    return redirect('budgets', username=username)
 
 ### end budget logic
