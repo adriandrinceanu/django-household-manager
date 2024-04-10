@@ -2,10 +2,11 @@ from django.shortcuts import render, redirect, get_object_or_404, HttpResponse
 from django.contrib.auth import login,logout,authenticate
 from django.contrib.auth.decorators import login_required, user_passes_test
 from django.contrib import messages
-from .models import Chore, Family, Member, Notification, Budget, MonthlyBudget
+from django.db.models import Sum
+from .models import Chore, Family, Member, Notification, Budget, MonthlyBudget, Expense
 from django.contrib.auth.models import Group, User
 from .utils import create_chore  # Import the create_chore function
-from .forms import MemberCreationForm, FamilyCreationForm, ChoreCreationForm, BudgetCreationForm, MonthlyBudgetCreationForm
+from .forms import MemberCreationForm, FamilyCreationForm, ChoreCreationForm, BudgetCreationForm, MonthlyBudgetCreationForm, ExpenseCreationForm
 
 def index(request):
     if request.user.is_authenticated:
@@ -252,3 +253,73 @@ def delete_budget(request, username, budget_id):
     return redirect('budgets', username=username)
 
 ### end budget logic
+
+
+### start expense logic
+
+@login_required
+def expense_view(request, username):
+    user = get_object_or_404(User, username=username)
+    member = Member.objects.get(user=user)
+
+    # Get all monthly budgets for the current user's family
+    monthly_budgets = MonthlyBudget.objects.filter(family=member.family)
+
+    # Prepare data for each monthly budget
+    monthly_budget_data = []
+    for monthly_budget in monthly_budgets:
+        # Get all budgets associated with the current monthly budget
+        budgets = Budget.objects.filter(monthly_budget=monthly_budget)
+
+        # Prepare data for each budget
+        budget_data = []
+        for budget in budgets:
+            # Get all expenses associated with the current budget
+            expenses = Expense.objects.filter(budget=budget)
+
+            # Calculate the total expense and the remaining amount
+            total_expense = expenses.aggregate(Sum('amount'))['amount__sum']
+            if total_expense is not None:
+                remaining_amount = budget.amount - total_expense
+            else:
+                remaining_amount = budget.amount
+
+            budget_data.append({
+                'budget': budget,
+                'expenses': expenses,
+                'total_expense': total_expense,
+                'remaining_amount': remaining_amount,
+            })
+
+        monthly_budget_data.append({
+            'monthly_budget': monthly_budget,
+            'budgets': budget_data,
+        })
+
+    # Calculate the total expense for each category
+    category_expenses = {}
+    for category, _ in Expense.CATEGORY_CHOICES:
+        total_expense = Expense.objects.filter(category=category).aggregate(Sum('amount'))['amount__sum']
+        category_expenses[category] = total_expense
+
+    # Render the budgets view
+    return render(request, 'pages/profile_leader_expenses.html', {'monthly_budget_data': monthly_budget_data, \
+        'category_expenses': category_expenses})
+
+
+@login_required
+def add_expense(request, username):
+    user = get_object_or_404(User, username=username)
+    member = Member.objects.get(user=user)
+    if request.method == 'POST':
+        form = ExpenseCreationForm(request.POST)
+        if form.is_valid():
+            expense = form.save(commit=False)
+            expense.created_by = member  # Associate the expense with the user
+            expense.save()
+            return redirect('expenses', username=username)
+    else:
+        form = ExpenseCreationForm()
+    return render(request, 'pages/add_expense.html', {'form': form})
+
+### end expense logic
