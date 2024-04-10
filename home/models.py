@@ -1,5 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.utils import timezone
+
 
 
 class Family(models.Model):
@@ -68,7 +70,7 @@ class Expense(models.Model):
         ('nov', 'November'),
         ('dec', 'December'),
     ]
-    amount = models.DecimalField(max_digits=7, decimal_places=2)
+    amount = models.DecimalField(max_digits=7, decimal_places=0)
     description = models.CharField(max_length=255)
     category = models.CharField(max_length=50, choices=CATEGORY_CHOICES)
     month = models.CharField(max_length=3, choices=MONTH_CHOICES,null=True, blank=True)
@@ -77,7 +79,16 @@ class Expense(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     budget = models.ForeignKey('Budget', related_name='expense', on_delete=models.CASCADE, null=True, blank=True)
     
-    
+    def is_current_month(self):
+        # Get the current date
+        current_date = timezone.now().date()
+
+        # Check if the current month is the same as the created_at field
+        if self.created_at and self.created_at.month == current_date.month:
+            return True
+        else:
+            return False
+        
     def __str__(self):
         return f"{self.amount} - {self.description} - Paid by: {self.created_by.username}"
 
@@ -96,7 +107,7 @@ class MonthlyBudget(models.Model):
         ('nov', 'November'),
         ('dec', 'December'),
     ]
-    amount = models.DecimalField(max_digits=7, decimal_places=2)
+    amount = models.DecimalField(max_digits=7, decimal_places=0)
     month = models.CharField(max_length=3, choices=MONTH_CHOICES, null=True, blank=True)
     year = models.PositiveIntegerField(null=True, blank=True)
     family = models.ForeignKey(Family, related_name='monthly_budgets', on_delete=models.CASCADE)
@@ -110,7 +121,7 @@ class MonthlyBudget(models.Model):
     
 
 class Budget(models.Model):
-    amount = models.DecimalField(max_digits=7, decimal_places=2)
+    amount = models.DecimalField(max_digits=7, decimal_places=0)
     category = models.CharField(max_length=50, choices=Expense.CATEGORY_CHOICES)
     monthly_budget = models.ForeignKey(MonthlyBudget, related_name='budgets', on_delete=models.CASCADE, null=True, blank=True)
     

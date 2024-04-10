@@ -3,6 +3,7 @@ from django.contrib.auth import login,logout,authenticate
 from django.contrib.auth.decorators import login_required, user_passes_test
 from django.contrib import messages
 from django.db.models import Sum
+from datetime import datetime
 from .models import Chore, Family, Member, Notification, Budget, MonthlyBudget, Expense
 from django.contrib.auth.models import Group, User
 from .utils import create_chore  # Import the create_chore function
@@ -262,6 +263,8 @@ def expense_view(request, username):
     user = get_object_or_404(User, username=username)
     member = Member.objects.get(user=user)
 
+    current_month = datetime.now()
+    
     # Get all monthly budgets for the current user's family
     monthly_budgets = MonthlyBudget.objects.filter(family=member.family)
 
@@ -301,10 +304,10 @@ def expense_view(request, username):
     for category, _ in Expense.CATEGORY_CHOICES:
         total_expense = Expense.objects.filter(category=category).aggregate(Sum('amount'))['amount__sum']
         category_expenses[category] = total_expense
-
+    
     # Render the budgets view
     return render(request, 'pages/profile_leader_expenses.html', {'monthly_budget_data': monthly_budget_data, \
-        'category_expenses': category_expenses})
+        'category_expenses': category_expenses, 'current_month': current_month})
 
 
 @login_required
