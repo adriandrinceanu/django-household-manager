@@ -93,4 +93,14 @@ class BudgetCreationForm(forms.ModelForm):
 class ExpenseCreationForm(forms.ModelForm):
     class Meta:
         model = Expense
-        fields = ['amount', 'description', 'month', 'year', 'category', 'created_by']
+        fields = ['amount', 'description', 'month', 'category']
+        
+        def __init__(self, *args: Any, **kwargs: Any) -> None:
+            super().__init__(*args, **kwargs)
+            for field_name, field in self.fields.items():
+                field.widget.attrs.update({'class': 'form-control'})
+            self.fields['category'].widget.attrs['disabled'] = True
+
+        def clean_category(self):
+            # Use the initial value of the category field, because the disabled field value is not submitted
+            return self.initial['category']
