@@ -48,7 +48,6 @@ class Expense(models.Model):
         ('transportation', 'Transportation'),
         ('groceries', 'Groceries'),
         ('snacks', 'Snacks'),
-        ('sweets', 'Sweets'),
         ('utilities', 'Utilities'),
         ('healthcare', 'Healthcare'),
         ('entertainment', 'Entertainment'),
@@ -76,6 +75,8 @@ class Expense(models.Model):
     year = models.PositiveIntegerField(null=True, blank=True)
     created_by = models.ForeignKey(Member, related_name='expenses', on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
+    budget = models.ForeignKey('Budget', related_name='expense', on_delete=models.CASCADE, null=True, blank=True)
+    
     
     def __str__(self):
         return f"{self.amount} - {self.description} - Paid by: {self.created_by.username}"
@@ -99,6 +100,7 @@ class MonthlyBudget(models.Model):
     month = models.CharField(max_length=3, choices=MONTH_CHOICES, null=True, blank=True)
     year = models.PositiveIntegerField(null=True, blank=True)
     family = models.ForeignKey(Family, related_name='monthly_budgets', on_delete=models.CASCADE)
+    
     
     def amount_in_ron(self):
         return f"{self.amount} RON"
