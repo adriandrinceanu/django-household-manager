@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.utils import timezone
+import calendar
 
 
 
@@ -43,6 +44,8 @@ class Chore(models.Model):
         return f"{self.title} - Assigned to: {self.assigned_to.name}"
 
 class Expense(models.Model):
+    CURRENT_YEAR = timezone.now().year
+    YEAR_CHOICES = [(r,r) for r in range(CURRENT_YEAR, CURRENT_YEAR+20)]
     CATEGORY_CHOICES = [
         ('food', 'Food'),
         ('clothing', 'Clothing'),
@@ -74,7 +77,7 @@ class Expense(models.Model):
     description = models.CharField(max_length=255)
     category = models.CharField(max_length=50, choices=CATEGORY_CHOICES)
     month = models.CharField(max_length=3, choices=MONTH_CHOICES,null=True, blank=True)
-    year = models.PositiveIntegerField(null=True, blank=True)
+    year = models.PositiveIntegerField(choices=YEAR_CHOICES, default=CURRENT_YEAR, null=True, blank=True)
     created_by = models.ForeignKey(Member, related_name='expenses', on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
     budget = models.ForeignKey('Budget', related_name='expense', on_delete=models.CASCADE, null=True, blank=True)
@@ -93,6 +96,8 @@ class Expense(models.Model):
         return f"{self.amount} - {self.description} - Paid by: {self.created_by.username}"
 
 class MonthlyBudget(models.Model):
+    CURRENT_YEAR = timezone.now().year
+    YEAR_CHOICES = [(r,r) for r in range(CURRENT_YEAR, CURRENT_YEAR+20)]
     MONTH_CHOICES = [
         ('jan', 'January'),
         ('feb', 'February'),
@@ -109,7 +114,7 @@ class MonthlyBudget(models.Model):
     ]
     amount = models.DecimalField(max_digits=7, decimal_places=0)
     month = models.CharField(max_length=3, choices=MONTH_CHOICES, null=True, blank=True)
-    year = models.PositiveIntegerField(null=True, blank=True)
+    year = models.PositiveIntegerField(choices=YEAR_CHOICES, default=CURRENT_YEAR, null=True, blank=True)
     family = models.ForeignKey(Family, related_name='monthly_budgets', on_delete=models.CASCADE)
     
     
@@ -121,9 +126,12 @@ class MonthlyBudget(models.Model):
     
 
 class Budget(models.Model):
+    CURRENT_YEAR = timezone.now().year
+    YEAR_CHOICES = [(r,r) for r in range(CURRENT_YEAR, CURRENT_YEAR+20)]
     amount = models.DecimalField(max_digits=7, decimal_places=0)
     category = models.CharField(max_length=50, choices=Expense.CATEGORY_CHOICES)
     monthly_budget = models.ForeignKey(MonthlyBudget, related_name='budgets', on_delete=models.CASCADE, null=True, blank=True)
+    year = models.PositiveIntegerField(choices=YEAR_CHOICES, default=CURRENT_YEAR, null=True, blank=True)
     
     def amount_in_ron(self):
         return f"{self.amount} RON"
