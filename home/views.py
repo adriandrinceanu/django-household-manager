@@ -258,15 +258,68 @@ def delete_budget(request, username, budget_id):
 
 ### start expense logic
 
+# @login_required
+# def expense_view(request, username):
+#     user = get_object_or_404(User, username=username)
+#     member = Member.objects.get(user=user)
+
+#     current_month = datetime.now()
+    
+#     # Get all monthly budgets for the current user's family
+#     monthly_budgets = MonthlyBudget.objects.filter(family=member.family)
+
+#     # Prepare data for each monthly budget
+#     monthly_budget_data = []
+#     for monthly_budget in monthly_budgets:
+#         # Get all budgets associated with the current monthly budget
+#         budgets = Budget.objects.filter(monthly_budget=monthly_budget)
+
+#         # Prepare data for each budget
+#         budget_data = []
+#         for budget in budgets:
+#             # Get all expenses associated with the current budget
+#             expenses = Expense.objects.filter(budget=budget)
+
+#             # Calculate the total expense and the remaining amount
+#             total_expense = expenses.aggregate(Sum('amount'))['amount__sum']
+#             if total_expense is not None:
+#                 remaining_amount = budget.amount - total_expense
+#             else:
+#                 remaining_amount = budget.amount
+
+#             budget_data.append({
+#                 'budget': budget,
+#                 'expenses': expenses,
+#                 'total_expense': total_expense,
+#                 'remaining_amount': remaining_amount,
+#             })
+
+#         monthly_budget_data.append({
+#             'monthly_budget': monthly_budget,
+#             'budgets': budget_data,
+#         })
+
+#     # Calculate the total expense for each category
+#     category_expenses = {}
+#     for category, _ in Expense.CATEGORY_CHOICES:
+#         total_expense = Expense.objects.filter(category=category).aggregate(Sum('amount'))['amount__sum']
+#         category_expenses[category] = total_expense
+    
+#     # Render the budgets view
+#     return render(request, 'pages/profile_leader_expenses.html', {'monthly_budget_data': monthly_budget_data, \
+#         'category_expenses': category_expenses, 'current_month': current_month})
+
+
 @login_required
 def expense_view(request, username):
     user = get_object_or_404(User, username=username)
     member = Member.objects.get(user=user)
 
-    current_month = datetime.now()
-    
-    # Get all monthly budgets for the current user's family
-    monthly_budgets = MonthlyBudget.objects.filter(family=member.family)
+    current_month = datetime.now().strftime('%b').lower()
+    current_year = datetime.now().year
+
+    # Get all monthly budgets for the current user's family for the current month
+    monthly_budgets = MonthlyBudget.objects.filter(family=member.family, month=current_month, year=current_year)
 
     # Prepare data for each monthly budget
     monthly_budget_data = []
@@ -302,12 +355,44 @@ def expense_view(request, username):
     # Calculate the total expense for each category
     category_expenses = {}
     for category, _ in Expense.CATEGORY_CHOICES:
-        total_expense = Expense.objects.filter(category=category).aggregate(Sum('amount'))['amount__sum']
+        total_expense = Expense.objects.filter(category=category, month=current_month, year=current_year).aggregate(Sum('amount'))['amount__sum']
         category_expenses[category] = total_expense
-    
+        
+     # Get the budget for each category for the current month
+    category_budgets = {}
+    for category, _ in Expense.CATEGORY_CHOICES:
+        category_budget = Budget.objects.filter(monthly_budget__family=member.family, monthly_budget__month=current_month, monthly_budget__year=current_year, category=category).first()
+        category_budgets[category] = category_budget
+        
+     # Get the expenses for each category for the current month and group them by the created_by field
+    category_expenses_by_member = {}
+    for category, _ in Expense.CATEGORY_CHOICES:
+        expenses_by_member = Expense.objects.filter(created_by__family=member.family, month=current_month, year=current_year, category=category).values('created_by__name', 'created_by__profile_pic').annotate(total_expense=Sum('amount'))
+        category_expenses_by_member[category] = list(expenses_by_member)
+        
+    # Get the budget for each category for the current month and calculate the remaining budget
+    remaining_category_budgets = {}
+    for category, _ in Expense.CATEGORY_CHOICES:
+        category_budget = Budget.objects.filter(monthly_budget__family=member.family, monthly_budget__month=current_month, monthly_budget__year=current_year, category=category).first()
+        total_category_expenses = Expense.objects.filter(created_by=member, month=current_month, year=current_year, category=category).aggregate(Sum('amount'))['amount__sum']
+
+        if category_budget and total_category_expenses:
+            remaining_category_budgets[category] = category_budget.amount - total_category_expenses
+        elif category_budget:
+            remaining_category_budgets[category] = category_budget.amount
+        else:
+            remaining_category_budgets[category] = 0
+
+    # Get all expenses and budgets per year
+    yearly_expenses = Expense.objects.filter(created_by=member).order_by('-year')
+    yearly_budgets = Budget.objects.filter(monthly_budget__family=member.family).order_by('-year')
+
     # Render the budgets view
     return render(request, 'pages/profile_leader_expenses.html', {'monthly_budget_data': monthly_budget_data, \
-        'category_expenses': category_expenses, 'current_month': current_month})
+        'category_expenses': category_expenses, 'current_month': current_month, 'yearly_expenses': yearly_expenses,\
+            'yearly_budgets': yearly_budgets, 'category_budgets': category_budgets, 'remaining_category_budgets': remaining_category_budgets,\
+                'category_expenses_by_member': category_expenses_by_member})
+
 
 
 @login_required
