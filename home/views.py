@@ -172,7 +172,7 @@ def create_family(request, username):
 
 
 ### start budget logic
-
+@login_required
 def budget_view(request, username):
     user = get_object_or_404(User, username=username)
     member = Member.objects.get(user=user)
@@ -219,7 +219,7 @@ def add_monthly_budget(request, username):
             return redirect('budgets', username=username)
     else:
         form = MonthlyBudgetCreationForm()
-    return render(request, 'pages/add_monthly_budget.html', {'form': form})
+    return render(request, 'pages/add_monthly_budget.html', {'form': form,'username': username})
 
 @login_required
 def add_budget(request, username):
@@ -234,7 +234,7 @@ def add_budget(request, username):
             return redirect('budgets', username=username)
     else:
         form = BudgetCreationForm()
-    return render(request, 'pages/add_budget.html', {'form': form})
+    return render(request, 'pages/add_budget.html', {'form': form, 'username': username})
 
 
 @login_required
