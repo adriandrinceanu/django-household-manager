@@ -83,7 +83,7 @@ class MonthlyBudgetCreationForm(forms.ModelForm):
 class BudgetCreationForm(forms.ModelForm):
     class Meta:
         model = Budget
-        fields = ['amount', 'category', 'monthly_budget']
+        fields = ['amount', 'category', 'monthly_budget', 'year']
         
     def __init__(self, *args: Any, **kwargs: Any) -> None:
         super().__init__(*args, **kwargs)
@@ -93,7 +93,7 @@ class BudgetCreationForm(forms.ModelForm):
 class ExpenseCreationForm(forms.ModelForm):
     class Meta:
         model = Expense
-        fields = ['amount', 'description', 'month', 'category']
+        fields = ['amount', 'description', 'month', 'year', 'category']
         
         def __init__(self, *args: Any, **kwargs: Any) -> None:
             super().__init__(*args, **kwargs)
