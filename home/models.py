@@ -78,7 +78,7 @@ class Expense(models.Model):
     category = models.CharField(max_length=50, choices=CATEGORY_CHOICES)
     month = models.CharField(max_length=3, choices=MONTH_CHOICES,null=True, blank=True)
     year = models.PositiveIntegerField(choices=YEAR_CHOICES, default=CURRENT_YEAR, null=True, blank=True)
-    created_by = models.ForeignKey(Member, related_name='expenses', on_delete=models.CASCADE, null=True, blank=True)
+    created_by = models.ManyToManyField(Member, related_name='expenses')
     created_at = models.DateTimeField(auto_now_add=True)
     budget = models.ForeignKey('Budget', related_name='expense', on_delete=models.CASCADE, null=True, blank=True)
     
@@ -93,7 +93,11 @@ class Expense(models.Model):
             return False
         
     def __str__(self):
-        return f"{self.amount} - {self.description} - Paid by: {self.created_by.username}"
+        if self.created_by.exists():
+            members = ", ".join([member.name for member in self.created_by.all()])
+            return f"{self.amount} RON - {self.category} - {self.description} - Paid by: {members}"
+        else:
+            return f"{self.amount} RON - {self.category} - {self.description} - Paid by: Not Assigned" 
 
 class MonthlyBudget(models.Model):
     CURRENT_YEAR = timezone.now().year
