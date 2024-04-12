@@ -300,17 +300,19 @@
 
   <script>
     var ctx = document.getElementById("chart-bars").getContext("2d");
-    
-    var monthlyAmounts = [
-        {% for data in monthly_budget_data %}
-            {{ data.monthly_budget.amount }},
-        {% endfor %}
-    ];
+
+    var labels = [];
+    var data = [];
+
+    {% for month, amount in monthly_budget_dict.items %}
+      labels.push("{{ month|capfirst }}");  // Convert the month to title case
+      data.push("{{ amount }}");
+    {% endfor %}
 
     new Chart(ctx, {
       type: "bar",
       data: {
-        labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+        labels: labels,
         datasets: [{
           label: "Budget",
           tension: 0.4,
@@ -318,7 +320,7 @@
           borderRadius: 4,
           borderSkipped: false,
           backgroundColor: "#fff",
-          data: monthlyAmounts,
+          data: data,
           maxBarThickness: 6
         }, ],
       },
