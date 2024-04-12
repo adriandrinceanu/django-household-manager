@@ -389,11 +389,11 @@ def expense_view(request, username):
         category_budget = Budget.objects.filter(monthly_budget__family=member.family, monthly_budget__month=current_month, monthly_budget__year=current_year, category=category).first()
         category_budgets[category] = category_budget
         
-     # Get the expenses for each category for the current month and group them by the created_by field
-    category_expenses_by_member = {}
-    for category, _ in Expense.CATEGORY_CHOICES:
-        expenses_by_member = Expense.objects.filter(created_by__family=member.family, month=current_month, year=current_year, category=category).values('created_by__name', 'created_by__profile_pic').annotate(total_expense=Sum('amount'))
-        category_expenses_by_member[category] = list(expenses_by_member)
+    #  # Get the expenses for each category for the current month and group them by the created_by field
+    # category_expenses_by_member = {}
+    # for category, _ in Expense.CATEGORY_CHOICES:
+    #     expenses_by_member = Expense.objects.filter(created_by__family=member.family, month=current_month, year=current_year, category=category).values('created_by__name', 'created_by__profile_pic').annotate(total_expense=Sum('amount'))
+    #     category_expenses_by_member[category] = list(expenses_by_member)
         
     
     # Get all expenses and budgets per year
@@ -429,12 +429,25 @@ def expense_view(request, username):
             'expenses': total_expense,
         })
 
+    table_data = []
+    for category, _ in Expense.CATEGORY_CHOICES:
+        budget = category_budgets.get(category)
+        expenses = category_expenses.get(category, 0)
+        remaining = remaining_category_budgets.get(category, '0')
+        spenders = Expense.objects.filter(category=category, created_by__family=member.family)
+        table_data.append({
+            'category': category,
+            'budget': budget.amount if budget else '0',
+            'expenses': expenses,
+            'remaining': remaining,
+            'spenders': spenders,
+    })
     # Render the expenses view
     return render(request, 'pages/profile_leader_expenses.html', {'monthly_budget_data': monthly_budget_data, \
         'category_expenses': category_expenses, 'current_month': current_month, 'yearly_expenses': yearly_expenses,\
             'yearly_budgets': yearly_budgets, 'category_budgets': category_budgets, 'remaining_category_budgets': remaining_category_budgets,\
-                'category_expenses_by_member': category_expenses_by_member, 'monthly_budget_dict': monthly_budget_dict, 'monthly_data': monthly_data,\
-                   'chart_data': chart_data })
+                 'monthly_budget_dict': monthly_budget_dict, 'monthly_data': monthly_data,\
+                   'chart_data': chart_data, 'table_data': table_data })
 
 
 
@@ -446,8 +459,8 @@ def add_expense(request, username):
         form = ExpenseCreationForm(request.POST)
         if form.is_valid():
             expense = form.save(commit=False)
-            expense.created_by = member  # Associate the expense with the user
-            expense.save()
+            expense.save()  # Save the expense instance to the database
+            expense.created_by.add(member)  # Now you can add the member to the created_by field
             return redirect('expenses', username=username)
     else:
         form = ExpenseCreationForm()
