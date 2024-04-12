@@ -78,7 +78,7 @@ class Expense(models.Model):
     category = models.CharField(max_length=50, choices=CATEGORY_CHOICES)
     month = models.CharField(max_length=3, choices=MONTH_CHOICES,null=True, blank=True)
     year = models.PositiveIntegerField(choices=YEAR_CHOICES, default=CURRENT_YEAR, null=True, blank=True)
-    created_by = models.ForeignKey(Member, related_name='expenses', on_delete=models.CASCADE)
+    created_by = models.ForeignKey(Member, related_name='expenses', on_delete=models.CASCADE, null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     budget = models.ForeignKey('Budget', related_name='expense', on_delete=models.CASCADE, null=True, blank=True)
     
