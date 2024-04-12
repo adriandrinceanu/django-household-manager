@@ -94,6 +94,7 @@ def create_chore_view(request, username):
         'notifications': notifications,
         'chores': chores,
         'form': form,
+        'segment': 'create_chore'
     }
     return render(request, 'pages/profile_leader_create_chore.html', context)
 
@@ -119,6 +120,8 @@ def familyLeader(request, username):
     context = {
         'member': member,
         'family': family_members,
+        'segment': 'family_leader',
+        
     }
     
     return render(request, 'pages/profile_leader.html', context)
@@ -164,7 +167,8 @@ def create_family(request, username):
         'my_family': my_family,
         'family': family_members,
         'family_form': family_form,
-        'member_form': member_form
+        'member_form': member_form,
+        'segment': 'create_family',
     }
     return render(request, 'pages/profile_leader_family_creation.html', context)
 
@@ -214,7 +218,7 @@ def budget_view(request, username):
     # Render the budgets view
     return render(request, 'pages/profile_leader_create_budget.html', \
         {'monthly_budget_data': monthly_budget_data, 'yearly_budget': yearly_budget, 'months': months, \
-            'monthly_budget_dict': monthly_budget_dict})
+            'monthly_budget_dict': monthly_budget_dict, 'segment': 'budgets',})
 
 
 @login_required
@@ -410,7 +414,7 @@ def expense_view(request, username):
         'category_expenses': category_expenses, 'current_month': current_month, 'yearly_expenses': yearly_expenses,\
             'yearly_budgets': yearly_budgets, 'category_budgets': category_budgets, 'remaining_category_budgets': remaining_category_budgets,\
                  'monthly_budget_dict': monthly_budget_dict, 'monthly_data': monthly_data,\
-                   'chart_data': chart_data, 'table_data': table_data, 'expense_data': expense_data })
+                   'chart_data': chart_data, 'table_data': table_data, 'expense_data': expense_data,'segment': 'expenses', })
 
 
 
