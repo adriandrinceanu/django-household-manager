@@ -18,3 +18,8 @@ def budget_form(username):
 def expense_form(username):
     form = ExpenseCreationForm()
     return {'form': form, 'username': username}
+
+
+@register.filter
+def get_item(dictionary, key):
+    return dictionary.get(key)
