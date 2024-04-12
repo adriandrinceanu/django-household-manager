@@ -436,46 +436,59 @@
                     <tr>
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Category</th>
                       <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Initial Budget</th>
-                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Expense so far</th>
+                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Amount spent</th>
                       <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Remaining amount</th>
+                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Spenders</th>
                     </tr>
                   </thead>
                   <tbody>
 
-                    
+                    {% for data in table_data %}
 
                         <tr>
                           <td>
                             <div class="d-flex px-2 py-1">
                               <div>
-                                <img src="{% static 'img/small-logos/logo-xd.svg' %}" class="avatar avatar-sm me-3" alt="xd">
+                                <i class="ni ni-cart text-info text-gradient avatar avatar-sm me-3"></i>
                               </div>
                               <div class="d-flex flex-column justify-content-center">
-                                <h6 class="mb-0 text-sm">text</h6>
+                                <h6 class="mb-0 text-sm">{{ data.category }}</h6>
                               </div>
                             </div>
                           </td>
                    
                           <td class="align-middle text-center text-sm">
                             <span class="text-xs font-weight-bold"> 
-                             text
+                              {{ data.budget }} RON
                              </span>
                           </td>
                           <td class="align-middle text-center text-sm">
                             <span class="text-xs font-weight-bold"> 
-                             
-                            text
+                              {{ data.expenses }} RON
                              </span>
                           </td>
                           <td class="align-middle text-center text-sm">
                             <span class="text-xs font-weight-bold"> 
-                             text
-                   
+                              {{ data.remaining }} RON
                             </span>
                           </td>
-                         
+
+                          <td>
+                            <div class="avatar-group mt-2">
+                              {% for expense in data.spenders %}
+                                {% for member in expense.created_by.all %}
+                                <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="{{ member.name }}">
+                                  <img src="{{ member.profile_pic.url }}" alt="{{ member.name }}">
+                                </a>
+                                {% endfor %}
+                              {% endfor %}
+                              
+                              
+                            </div>
+                          </td>
+
                         </tr>
-                 
+                         {% endfor %}
                   </tbody>
                 </table>
               </div>
