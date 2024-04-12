@@ -399,12 +399,42 @@ def expense_view(request, username):
     # Get all expenses and budgets per year
     yearly_expenses = Expense.objects.filter(created_by=member).order_by('-year')
     yearly_budgets = Budget.objects.filter(monthly_budget__family=member.family).order_by('-year')
+    
+    # Create a list of dictionaries where each dictionary contains the month, budget, and expenses FOR THE CHART
+    months = [month[0] for month in Expense.MONTH_CHOICES]
+    # Create a dictionary where the keys are the months and the values are the budgets
+    monthly_budget_dict = {budget.month: budget for budget in monthly_budgets}
+    monthly_data = []
+    for month in months:
+        budget = monthly_budget_dict.get(month)
+        expenses = category_expenses.get(month, 0)
+        monthly_data.append({'month': month, 'budget': budget, 'expenses': expenses})
+        
+        
+    # Prepare data for the chart lines
+    chart_data = []
+    for month in months:
+        # Get the monthly budget for the current month, or None if it doesn't exist
+        monthly_budget = MonthlyBudget.objects.filter(family=member.family, month=month, year=current_year).first()
 
-    # Render the budgets view
+        # Calculate the total expense for the current month
+        total_expense = Expense.objects.filter(created_by=member, month=month, year=current_year).aggregate(Sum('amount'))['amount__sum'] or 0
+
+        # If a monthly budget exists for the current month, use its amount, otherwise use 0
+        budget = monthly_budget.amount if monthly_budget else 0
+
+        chart_data.append({
+            'month': month,
+            'budget': budget,
+            'expenses': total_expense,
+        })
+
+    # Render the expenses view
     return render(request, 'pages/profile_leader_expenses.html', {'monthly_budget_data': monthly_budget_data, \
         'category_expenses': category_expenses, 'current_month': current_month, 'yearly_expenses': yearly_expenses,\
             'yearly_budgets': yearly_budgets, 'category_budgets': category_budgets, 'remaining_category_budgets': remaining_category_budgets,\
-                'category_expenses_by_member': category_expenses_by_member})
+                'category_expenses_by_member': category_expenses_by_member, 'monthly_budget_dict': monthly_budget_dict, 'monthly_data': monthly_data,\
+                   'chart_data': chart_data })
 
 
 
