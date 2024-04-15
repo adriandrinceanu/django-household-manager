@@ -261,11 +261,13 @@ def add_budget(request, username):
         form = BudgetCreationForm(request.POST)
         if form.is_valid():
             budget = form.save(commit=False)
-            budget.monthly_budget.family = member.family  # Associate the budget with the user's family
+            budget.monthly_budgets.family = member.family  # Associate the budget with the user's family
             budget.save()
             return redirect('budgets', username=username)
     else:
         form = BudgetCreationForm()
+        # Get only the monthly budgets of the user's family
+        form.fields['monthly_budgets'].queryset = MonthlyBudget.objects.filter(family=member.family)
     return render(request, 'pages/add_budget.html', {'form': form, 'username': username})
 
 
