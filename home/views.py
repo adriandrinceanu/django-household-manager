@@ -11,7 +11,7 @@ from .forms import MemberCreationForm, FamilyCreationForm, ChoreCreationForm, Bu
 
 def index(request):
     if request.user.is_authenticated:
-        return render(request, 'pages/index.html')
+        return render(request, 'pages/home.html')
     else:    
         return redirect('login')
 
@@ -449,3 +449,21 @@ def delete_expense(request, username, expense_id):
 
 
 ### end expense logic
+
+### Family Member logic 
+
+@login_required
+def familyMember(request, username):
+    user = get_object_or_404(User, username=username)
+    member = Member.objects.get(user=user)
+    family_members = Member.objects.filter(family=member.family)
+    my_family = member.family
+    context = {
+        'member': member,
+        'family': family_members,
+        'my_family': my_family,
+        'segment': 'family_member',
+        
+    }
+    
+    return render(request, 'pages/profile_member.html', context)
