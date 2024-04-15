@@ -18,5 +18,6 @@ urlpatterns = [
     path('profile/leader/<str:username>/expenses/', views.expense_view, name='expenses'),
     path('profile/leader/<str:username>/add_expenses/', views.add_expense, name='add_expense'),
     path('profile/leader/<str:username>/delete_expense/<int:expense_id>/', views.delete_expense, name='delete_expense'),
+    path('profile/member/<str:username>/', views.familyMember, name='family_member'),
 ]
 
