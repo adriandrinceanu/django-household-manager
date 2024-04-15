@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect, get_object_or_404, HttpResponse
 from django.contrib.auth import login,logout,authenticate
 from django.contrib.auth.decorators import login_required, user_passes_test
+from django.contrib.auth import get_user_model
+from django.contrib.auth.models import Group
 from django.contrib import messages
 from django.db.models import Sum
 from datetime import datetime
@@ -110,8 +112,6 @@ def delete_chore_view(request, chore_id, username):
     return redirect('create_chore',username=username)
 
 
-
-
 @login_required
 def familyLeader(request, username):
     user = get_object_or_404(User, username=username)
@@ -217,9 +217,14 @@ def budget_view(request, username):
         })
 
     # Render the budgets view
-    return render(request, 'pages/profile_leader_create_budget.html', \
-        {'monthly_budget_data': monthly_budget_data, 'yearly_budget': yearly_budget, 'months': months, \
-            'monthly_budget_dict': monthly_budget_dict, 'segment': 'budgets',})
+    if request.user.groups.filter(name='Family Leader').exists():
+        return render(request, 'pages/profile_leader_create_budget.html', \
+            {'monthly_budget_data': monthly_budget_data, 'yearly_budget': yearly_budget, 'months': months, \
+                'monthly_budget_dict': monthly_budget_dict, 'segment': 'budgets',})
+    else:
+        return render(request, 'pages/profile_member_view_budget.html', \
+            {'monthly_budget_data': monthly_budget_data, 'yearly_budget': yearly_budget, 'months': months, \
+                'monthly_budget_dict': monthly_budget_dict, 'segment': 'view_budgets',})
 
 
 @login_required
