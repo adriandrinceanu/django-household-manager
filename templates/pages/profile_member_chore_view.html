@@ -1,0 +1,76 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container-fluid py-4">
+
+  <div class="row">
+
+    <div class="col-md-12 mt-4">
+      <div class="card mb-4">
+        <div class="card-header pb-0">
+          <h6>What do I have to do &#128529;</h6>
+        </div>
+        <div class="card-body px-0 pt-0 pb-2">
+          <div class="table-responsive p-0">
+            <table class="table align-items-center mb-0">
+              <thead>
+                <tr>
+                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Type</th>
+                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Message</th>
+                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Status</th>
+                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Assigned to you by</th>
+                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Created at</th>
+                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Mark as done</th>
+                  <th class="text-secondary opacity-7"></th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for chore in chores %}
+                <tr>
+                    <td class="align-middle text-center text-sm">
+                        <h6 class="text-xs font-weight-bold mb-0">{{ chore.title }}</h6>
+                    </td>
+                    <td class="align-middle text-center text-sm">
+                      <h6 class="text-xs font-weight-bold mb-0">{{ chore.description }}</h6>
+                  </td>
+                    <td class="align-middle text-center text-sm">
+                        {% if chore.is_done %}
+                        <span class="badge badge-sm bg-gradient-success">Done</span>
+                        {% else %}
+                        <span class="badge badge-sm bg-gradient-secondary">In progress</span>
+                        {% endif %}
+                    </td>
+                    <td class="align-middle text-center text-sm">
+                        <p class="text-xs font-weight-bold mb-0">{{ chore.created_by.username }}</p>
+                    </td>
+                    <td class="align-middle text-center">
+                        <span class="text-secondary text-xs font-weight-bold">{{ chore.created_at }}</span>
+                    </td>
+                    <td class="align-middle text-center text-sm">
+                        {% if not chore.is_done %}
+                        <a href="{% url 'chore_done' chore.id %}" class="btn btn-sm bg-gradient-primary">Mark as Done</a>
+                        {% endif %}
+                    </td>
+                </tr>
+                {% endfor %}
+
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {% include "includes/footer.html" %}
+    
+  </div>
+
+
+
+{% endblock content %}
+
+<!-- 
+{% for chore in chores %}
+    <p>{{ chore.title }} - {{ chore.assigned_to.name }} - {% if chore.is_done %}Done{% else %}In progress{% endif %}</p>
+{% endfor %} -->
