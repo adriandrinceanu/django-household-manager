@@ -19,5 +19,8 @@ urlpatterns = [
     path('profile/leader/<str:username>/add_expenses/', views.add_expense, name='add_expense'),
     path('profile/leader/<str:username>/delete_expense/<int:expense_id>/', views.delete_expense, name='delete_expense'),
     path('profile/member/<str:username>/', views.familyMember, name='family_member'),
+    path('profile/member/<str:username>/chores', views.chore_view, name='chore_view'),
+    path('chore_done/<int:chore_id>/', views.chore_done, name='chore_done'),
+
 ]
 
