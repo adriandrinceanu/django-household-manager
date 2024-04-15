@@ -497,9 +497,9 @@
                       <h6 class="text-dark text-sm font-weight-bold mb-0">
                         {{ data.amount }} RON spent on {{ data.category }}</h6>
                       <p class="text-secondary font-weight-bold text-xs mt-1 mb-0">Spent by: {{ data.spenders }}</p>
-                      <a href="{% url 'delete_expense' username=user.username expense_id=data.id %}" class="btn-link text-secondary font-weight-bold text-xs mt-1 mb-0">
-                        <i class="far fa-trash-alt me-2"></i>Delete
-                      </a>
+                        <a href="{% url 'delete_expense' username=user.username expense_id=data.id %}" class="btn-link text-secondary font-weight-bold text-xs mt-1 mb-0">
+                            <i class="far fa-trash-alt me-2"></i>Delete
+                        </a>
                     </div>
                   </div>
                 {% endfor %}
