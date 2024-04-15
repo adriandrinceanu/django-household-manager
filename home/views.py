@@ -53,7 +53,18 @@ def registerPage(request):
     if request.method == 'POST':
         form = MemberCreationForm(request.POST, request.FILES)
         if form.is_valid():
-            form.save()
+            user = form.save()
+
+            # Get the username
+            username = user.username
+
+            # Authenticate the user
+            user = authenticate(request, username=username, password=username)  # The password is the same as the username
+
+            # Log in the user
+            if user is not None:
+                login(request, user)
+            
             return redirect('/')
     else:
         form = MemberCreationForm()
