@@ -38,6 +38,7 @@ class Chore(models.Model):
     description = models.TextField(blank=True)
     assigned_to = models.ForeignKey(Member, related_name='chores', on_delete=models.CASCADE)
     is_done = models.BooleanField(default=False)
+    created_by = models.ForeignKey(User, related_name='assigned_chores', on_delete=models.CASCADE, null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     
     def __str__(self):
