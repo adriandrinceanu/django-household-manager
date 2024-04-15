@@ -22,6 +22,7 @@ urlpatterns = [
     path('profile/member/<str:username>/chores', views.chore_view, name='chore_view'),
     path('chore_done/<int:chore_id>/', views.chore_done, name='chore_done'),
     path('profile/member/<str:username>/view_budgets', views.budget_view, name='view_budgets'),
+    path('profile/member/<str:username>/expenses', views.expense_view, name='member_expenses'),
 
 ]
 

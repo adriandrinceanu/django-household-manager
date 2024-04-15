@@ -370,8 +370,7 @@ def expense_view(request, username):
         budget = monthly_budget_dict.get(month)
         expenses = category_expenses.get(month, 0)
         monthly_data.append({'month': month, 'budget': budget, 'expenses': expenses})
-        
-      
+           
     # Prepare data for the chart lines
     chart_data = []
     for month in months:
@@ -415,7 +414,9 @@ def expense_view(request, username):
             'description': expense.description,
             'spenders': spenders,
         })
-        
+    
+    # Calculate the total expenses for the current month
+    total_expenses_current_month = Expense.objects.filter(created_by__family=member.family, month=current_month, year=current_year).aggregate(Sum('amount'))['amount__sum'] or 0
     context = {
         
         'monthly_budget_data': monthly_budget_data,
@@ -430,6 +431,7 @@ def expense_view(request, username):
         'chart_data': chart_data, 
         'table_data': table_data, 
         'expense_data': expense_data,
+        'total_expenses_current_month': total_expenses_current_month,
         'segment': 'expenses',
                     }
     # Render the expenses view
