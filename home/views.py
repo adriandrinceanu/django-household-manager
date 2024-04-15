@@ -378,7 +378,7 @@ def expense_view(request, username):
         monthly_budget = MonthlyBudget.objects.filter(family=member.family, month=month, year=current_year).first()
 
         # Calculate the total expense for the current month
-        total_expense = Expense.objects.filter(created_by=member, month=month, year=current_year).aggregate(Sum('amount'))['amount__sum'] or 0
+        total_expense = Expense.objects.filter(created_by__family=member.family, month=month, year=current_year).aggregate(Sum('amount'))['amount__sum'] or 0
 
         # If a monthly budget exists for the current month, use its amount, otherwise use 0
         budget = monthly_budget.amount if monthly_budget else 0
