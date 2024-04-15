@@ -81,6 +81,7 @@ def create_chore_view(request, username):
             if chore.assigned_to.family != family:
                 messages.error(request, 'You can only assign chores to your family members.')
             else:
+                chore.created_by = request.user  # Set the created_by field to the current user
                 chore.save()
                 messages.success(request, 'Chore created successfully.')
                 return redirect('create_chore', username=username)
@@ -458,12 +459,50 @@ def familyMember(request, username):
     member = Member.objects.get(user=user)
     family_members = Member.objects.filter(family=member.family)
     my_family = member.family
+
+    # Get the current month and year
+    current_month = datetime.now().strftime('%b').lower()
+    current_year = datetime.now().year
+
+    # Get the budgets for the current month
+    monthly_budgets = MonthlyBudget.objects.filter(family=my_family, month=current_month, year=current_year)
+    budgets = Budget.objects.filter(monthly_budget__in=monthly_budgets)
+
     context = {
         'member': member,
         'family': family_members,
         'my_family': my_family,
+        'budgets': budgets,  # Add budgets to the context
+        'current_month': current_month,
         'segment': 'family_member',
-        
     }
     
     return render(request, 'pages/profile_member.html', context)
+
+
+@login_required
+def chore_view(request, username):
+    user = get_object_or_404(User, username=username)
+    # Get the current user's member instance
+    member = Member.objects.get(user=user)
+    # Get the chores assigned to the user
+    chores = Chore.objects.filter(assigned_to=member)
+    context = {
+        'chores': chores,
+        'segment': 'chore_view'
+    }
+    return render(request, 'pages/profile_member_chore_view.html', context)
+
+@login_required
+def chore_done(request, chore_id):
+    # Get the Member object for the current user
+    member = get_object_or_404(Member, user=request.user)
+
+    # Get the Chore object for the given id that is assigned to the current member
+    chore = get_object_or_404(Chore, id=chore_id, assigned_to=member)
+
+    # Mark the chore as done
+    chore.is_done = True
+    chore.save()
+
+    return redirect('chore_view', username=request.user.username)
