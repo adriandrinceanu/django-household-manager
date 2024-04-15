@@ -415,12 +415,28 @@ def expense_view(request, username):
             'description': expense.description,
             'spenders': spenders,
         })
+        
+    context = {
+        
+        'monthly_budget_data': monthly_budget_data,
+        'category_expenses': category_expenses, 
+        'current_month': current_month, 
+        'yearly_expenses': yearly_expenses,
+        'yearly_budgets': yearly_budgets, 
+        'category_budgets': category_budgets, 
+        'remaining_category_budgets': remaining_category_budgets,
+        'monthly_budget_dict': monthly_budget_dict, 
+        'monthly_data': monthly_data,
+        'chart_data': chart_data, 
+        'table_data': table_data, 
+        'expense_data': expense_data,
+        'segment': 'expenses',
+                    }
     # Render the expenses view
-    return render(request, 'pages/profile_leader_expenses.html', {'monthly_budget_data': monthly_budget_data, \
-        'category_expenses': category_expenses, 'current_month': current_month, 'yearly_expenses': yearly_expenses,\
-            'yearly_budgets': yearly_budgets, 'category_budgets': category_budgets, 'remaining_category_budgets': remaining_category_budgets,\
-                 'monthly_budget_dict': monthly_budget_dict, 'monthly_data': monthly_data,\
-                   'chart_data': chart_data, 'table_data': table_data, 'expense_data': expense_data,'segment': 'expenses', })
+    if request.user.groups.filter(name='Family Leader').exists():
+        return render(request, 'pages/profile_leader_expenses.html', context)
+    else:
+        return render(request, 'pages/profile_member_expenses.html', context)
 
 
 
