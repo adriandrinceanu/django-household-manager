@@ -62,6 +62,9 @@ class FamilyCreationForm(forms.ModelForm):
     class Meta:
         model = Family
         fields = ['name', 'profile_pic']
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['profile_pic'].widget.attrs.update({'required': True})
         
         
         
@@ -84,11 +87,14 @@ class BudgetCreationForm(forms.ModelForm):
     class Meta:
         model = Budget
         fields = ['amount', 'category', 'monthly_budget', 'year']
-        
-    def __init__(self, *args: Any, **kwargs: Any) -> None:
-        super().__init__(*args, **kwargs)
+
+    def __init__(self, *args, **kwargs):
+        self.family = kwargs.pop('family', None)
+        super(BudgetCreationForm, self).__init__(*args, **kwargs)
         for field_name, field in self.fields.items():
             field.widget.attrs.update({'class': 'form-control'})
+        if self.family is not None:
+            self.fields['monthly_budget'].queryset = MonthlyBudget.objects.filter(family=self.family)
 
 class ExpenseCreationForm(forms.ModelForm):
     class Meta:

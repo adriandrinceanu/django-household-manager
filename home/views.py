@@ -242,11 +242,14 @@ def budget_view(request, username):
 def add_monthly_budget(request, username):
     user = get_object_or_404(User, username=username)
     member = Member.objects.get(user=user)
+    if member.family is None:
+        messages.error(request, "The user does not have a family yet.")
+        return redirect('budgets', username=username)
     if request.method == 'POST':
         form = MonthlyBudgetCreationForm(request.POST)
         if form.is_valid():
             monthly_budget = form.save(commit=False)
-            monthly_budget.family = member.family  # Associate the budget with the user's family
+            monthly_budget.family = member.family  
             monthly_budget.save()
             return redirect('budgets', username=username)
     else:
@@ -257,17 +260,18 @@ def add_monthly_budget(request, username):
 def add_budget(request, username):
     user = get_object_or_404(User, username=username)
     member = Member.objects.get(user=user)
+    family = member.family
+    if member.family is None:
+        messages.error(request, "You don't have a family yet.")
+        return redirect('budgets', username=username)
     if request.method == 'POST':
-        form = BudgetCreationForm(request.POST)
+        form = BudgetCreationForm(request.POST, family=family)
         if form.is_valid():
             budget = form.save(commit=False)
-            budget.monthly_budgets.family = member.family  # Associate the budget with the user's family
             budget.save()
             return redirect('budgets', username=username)
     else:
-        form = BudgetCreationForm()
-        # Get only the monthly budgets of the user's family
-        form.fields['monthly_budgets'].queryset = MonthlyBudget.objects.filter(family=member.family)
+        form = BudgetCreationForm(family=family)
     return render(request, 'pages/add_budget.html', {'form': form, 'username': username})
 
 

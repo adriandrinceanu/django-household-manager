@@ -123,6 +123,7 @@ class MonthlyBudget(models.Model):
     family = models.ForeignKey(Family, related_name='monthly_budgets', on_delete=models.CASCADE)
     
     
+    
     def amount_in_ron(self):
         return f"{self.amount} RON"
 
