@@ -410,15 +410,17 @@ def expense_view(request, username):
     for category, _ in Expense.CATEGORY_CHOICES:
         budget = category_budgets.get(category)
         expenses = category_expenses.get(category, 0)
-        remaining = remaining_category_budgets.get(category, '0')
+        budget_amount = budget.amount if budget else 0
+        remaining = budget_amount - expenses
+
         spenders = Expense.objects.filter(category=category, created_by__family=member.family)
         table_data.append({
             'category': category,
-            'budget': budget.amount if budget else '0',
+            'budget': budget_amount,
             'expenses': expenses,
             'remaining': remaining,
             'spenders': spenders,
-    })
+        })
         
     expenses = Expense.objects.filter(created_by__family=member.family).order_by('-created_at')
     expense_data = []
