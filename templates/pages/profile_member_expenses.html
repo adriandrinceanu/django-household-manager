@@ -414,7 +414,7 @@
                     <span class="font-weight-bold ms-1">{{ monthly_data.monthly_budget.amount }}</span> available this month
                   </p>
                 </div>
-                {% endfor %}
+        {% endfor %}
               </div>
             </div>
             <div class="card-body px-0 pb-2">
@@ -430,46 +430,46 @@
                     </tr>
                   </thead>
                   <tbody>
-                    {% for data in table_data %}
-                        <tr>
-                          <td>
-                            <div class="d-flex px-2 py-1">
-                              <div>
-                                <i class="ni ni-cart text-info text-gradient avatar avatar-sm me-3"></i>
-                              </div>
-                              <div class="d-flex flex-column justify-content-center">
-                                <h6 class="mb-0 text-sm">{{ data.category }}</h6>
-                              </div>
+                  {% for data in table_data %}
+                      <tr>
+                        <td>
+                          <div class="d-flex px-2 py-1">
+                            <div>
+                              <i class="ni ni-cart text-info text-gradient avatar avatar-sm me-3"></i>
                             </div>
-                          </td>
-                          <td class="align-middle text-center text-sm">
-                            <span class="text-xs font-weight-bold"> 
-                              {{ data.budget }} RON
-                             </span>
-                          </td>
-                          <td class="align-middle text-center text-sm">
-                            <span class="text-xs font-weight-bold"> 
-                              {{ data.expenses }} RON
-                             </span>
-                          </td>
-                          <td class="align-middle text-center text-sm">
-                            <span class="text-xs font-weight-bold"> 
-                              {{ data.remaining }} RON
+                            <div class="d-flex flex-column justify-content-center">
+                              <h6 class="mb-0 text-sm">{{ data.category }}</h6>
+                            </div>
+                          </div>
+                        </td>
+                        <td class="align-middle text-center text-sm">
+                          <span class="text-xs font-weight-bold"> 
+                            {{ data.budget }} RON
                             </span>
-                          </td>
-                          <td>
-                            <div class="avatar-group mt-2">
-                              {% for expense in data.spenders %}
-                                {% for member in expense.created_by.all %}
-                                <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="{{ member.name }}">
-                                  <img src="{{ member.profile_pic.url }}" alt="{{ member.name }}">
-                                </a>
-                                {% endfor %}
+                        </td>
+                        <td class="align-middle text-center text-sm">
+                          <span class="text-xs font-weight-bold"> 
+                            {{ data.expenses }} RON
+                            </span>
+                        </td>
+                        <td class="align-middle text-center text-sm">
+                          <span class="text-xs font-weight-bold"> 
+                            {{ data.remaining }} RON
+                          </span>
+                        </td>
+                        <td>
+                          <div class="avatar-group mt-2">
+                            {% for expense in data.spenders %}
+                              {% for member in expense.created_by.all %}
+                              <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="{{ member.name }}">
+                                <img src="{{ member.profile_pic.url }}" alt="{{ member.name }}">
+                              </a>
                               {% endfor %}
-                            </div>
-                          </td>
-                        </tr>
-                         {% endfor %}
+                            {% endfor %}
+                          </div>
+                        </td>
+                      </tr>
+                  {% endfor %}
                   </tbody>
                 </table>
               </div>
