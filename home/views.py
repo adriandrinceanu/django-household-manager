@@ -348,25 +348,47 @@ def expense_view(request, username):
         total_expense = Expense.objects.filter(category=category, month=current_month, year=current_year).aggregate(Sum('amount'))['amount__sum'] or 0
         category_expenses[category] = total_expense
         
-    # Get the budget for each category for the current month and calculate the remaining budget
-    remaining_category_budgets = {}
+    # category_budgets = {}
+    # for category, _ in Expense.CATEGORY_CHOICES:
+    #     category_budget = Budget.objects.filter(monthly_budget__family=member.family, monthly_budget__month=current_month, monthly_budget__year=current_year, category=category).first()
+    #     if category_budget:
+    #         category_budgets[category] = category_budget.amount
+        
+    # # Get the budget for each category for the current month and calculate the remaining budget v1
+    # remaining_category_budgets = {}
+    # for category, _ in Expense.CATEGORY_CHOICES:
+    #     category_budget = Budget.objects.filter(monthly_budget__family=member.family, monthly_budget__month=current_month, monthly_budget__year=current_year, category=category).first()
+    #     total_category_expenses = Expense.objects.filter(created_by=member, month=current_month, year=current_year, category=category).aggregate(Sum('amount'))['amount__sum'] or 0
+
+    #     if category_budget and total_category_expenses:
+    #         remaining_category_budgets[category] = category_budget.amount - total_category_expenses
+    #     elif category_budget:
+    #         remaining_category_budgets[category] = category_budget.amount
+    #     else:
+    #         remaining_category_budgets[category] = 0
+            
+            
+         # Get the budget for each category for the current month
+    category_budgets = {}
     for category, _ in Expense.CATEGORY_CHOICES:
         category_budget = Budget.objects.filter(monthly_budget__family=member.family, monthly_budget__month=current_month, monthly_budget__year=current_year, category=category).first()
-        total_category_expenses = Expense.objects.filter(created_by=member, month=current_month, year=current_year, category=category).aggregate(Sum('amount'))['amount__sum'] or 0
+        category_budgets[category] = category_budget        
+            
+    # Get the budget for each category for the current month and calculate the remaining budget v2        
+    remaining_category_budgets = {}
+    for category, _ in Expense.CATEGORY_CHOICES:
+        category_budget = category_budgets.get(category)
+        total_category_expenses = category_expenses.get(category, 0)
 
         if category_budget and total_category_expenses:
             remaining_category_budgets[category] = category_budget.amount - total_category_expenses
         elif category_budget:
             remaining_category_budgets[category] = category_budget.amount
         else:
-            remaining_category_budgets[category] = 0
+            remaining_category_budgets[category] = -total_category_expenses
 
         
-     # Get the budget for each category for the current month
-    category_budgets = {}
-    for category, _ in Expense.CATEGORY_CHOICES:
-        category_budget = Budget.objects.filter(monthly_budget__family=member.family, monthly_budget__month=current_month, monthly_budget__year=current_year, category=category).first()
-        category_budgets[category] = category_budget
+
         
     #  # Get the expenses for each category for the current month and group them by the created_by field
     # category_expenses_by_member = {}
