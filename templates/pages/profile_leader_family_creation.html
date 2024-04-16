@@ -22,6 +22,15 @@
               <p class="mb-0 font-weight-bold text-sm">
                 {{ member.get_role_display }}
               </p>
+              <p class="mb-0 font-weight-bold text-sm"></p>
+                        {% if messages %}
+                            <ul class="messages">
+                                {% for message in messages %}
+                                <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                                {% endfor %}
+                            </ul>
+                        {% endif %}
+              </p>
             </div>
           </div>
 
@@ -105,13 +114,7 @@
                             <button type="submit" name="create_family" class="btn bg-gradient-info w-100 mt-1 mb-0">Create Family</button>
                        
                           </div>
-                          {% if messages %}
-                              <ul class="messages">
-                                  {% for message in messages %}
-                                  <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
-                                  {% endfor %}
-                              </ul>
-                          {% endif %}
+                 
                         </form>
                       </div>
                     </div>
@@ -199,13 +202,7 @@
                           <button type="submit" name="create_member" class="btn bg-gradient-info w-100 mt-1 mb-0">Add Member</button>
                      
                         </div>
-                        {% if messages %}
-                            <ul class="messages">
-                                {% for message in messages %}
-                                <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
-                                {% endfor %}
-                            </ul>
-                        {% endif %}
+                        
                       </form>
                     </div>
                   </div>
