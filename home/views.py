@@ -10,6 +10,8 @@ from .models import Chore, Family, Member, Notification, Budget, MonthlyBudget, 
 from django.contrib.auth.models import Group, User
 from .utils import create_chore  # Import the create_chore function
 from .forms import MemberCreationForm, FamilyCreationForm, ChoreCreationForm, BudgetCreationForm, MonthlyBudgetCreationForm, ExpenseCreationForm
+from django.core.mail import send_mail
+import logging
 
 def index(request):
     if request.user.is_authenticated:
@@ -78,6 +80,7 @@ def registerPage(request):
 
 @login_required
 def create_chore_view(request, username):
+    logger = logging.getLogger(__name__)
     user = get_object_or_404(User, username=username)
     # Get the current user's family
     member = Member.objects.get(user=user)
@@ -97,12 +100,32 @@ def create_chore_view(request, username):
                 chore.created_by = request.user  # Set the created_by field to the current user
                 chore.save()
                 messages.success(request, 'Chore created successfully.')
+                
+                # Get the email of the member to whom the chore is assigned
+                assigned_member_email = chore.assigned_to.user.email
+                
+                # Log the email details
+                logger.info(f'Sending email to {assigned_member_email} about chore: {chore.title}')
+
+                # Send the email
+                send_mail(
+                    'Chore Assignment :)',  # subject
+                    f'Heads up, {member.name} assigned the chore: {chore.title}, to you.',  # message
+                    'drinceanuadrian@gmail.com',  # from email
+                    [assigned_member_email],  # to email
+                    fail_silently=False,
+                )
+                 # Log a success message
+                logger.info('Email sent successfully.')
+                
                 return redirect('create_chore', username=username)
     else:
         # Only allow assigning chores to the user's family members
         form = ChoreCreationForm()
         form.fields['assigned_to'].queryset = family_members
     notifications = Notification.objects.filter(user=request.user)
+    
+   
     
     context = {
         'notifications': notifications,
