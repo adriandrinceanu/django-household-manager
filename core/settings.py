@@ -201,3 +201,11 @@ SESSION_COOKIE_SAMESITE = 'Lax'  # Whether to use the SameSite flag on the sessi
 SESSION_SAVE_EVERY_REQUEST = False  # Whether to save the session data on every request. If this is False (default), then the session data will only be saved if it has been modified.
 SESSION_EXPIRE_AT_BROWSER_CLOSE = False  # Whether a user's session cookie expires when the user's Web browser is closed.
 SESSION_ENGINE = 'django.contrib.sessions.backends.db'
+
+EMAIL_BACKEND = os.getenv('EMAIL_BACKEND')
+EMAIL_HOST = os.getenv('EMAIL_HOST')
+EMAIL_PORT = os.getenv('EMAIL_PORT')
+EMAIL_USE_TLS = os.getenv('EMAIL_USE_TLS') == 'True'
+EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
+DEFAULT_FROM_EMAIL = os.getenv('DEFAULT_FROM_EMAIL')
