@@ -202,3 +202,43 @@ Not Found: /static/js/_site_dashboard_free/assets/js/dashboard-free.js.map
 Not Found: /static/js/_site_dashboard_free/assets/js/dashboard-free.js.map
 Sending email to iulia.c.drinceanu@gmail.com about chore: gatit 2
 Email sent successfully.
+Not Found: /static/img/icon-unknown.svg
+Not Found: /static/img/search.svg
+Not Found: /static/img/selector-icons.svg
+Not Found: /static/img/icon-unknown-alt.svg
+Sending email to iulia.c.drinceanu@gmail.com about chore: vase 2
+Email sent successfully.
+Sending email to iulia.c.drinceanu@gmail.com about chore: sss
+Email sent successfully.
+Not Found: /static/img/icon-unknown.svg
+Not Found: /static/img/selector-icons.svg
+Not Found: /static/img/icon-unknown-alt.svg
+Not Found: /static/img/search.svg
+Internal Server Error: /profile/leader/drinceanu_adrian/chores
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/contrib/auth/decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/household-manager/home/views.py", line 101, in create_chore_view
+    chore.save()
+  File "/usr/local/lib/python3.12/site-packages/django/db/models/base.py", line 822, in save
+    self.save_base(
+  File "/usr/local/lib/python3.12/site-packages/django/db/models/base.py", line 924, in save_base
+    post_save.send(
+  File "/usr/local/lib/python3.12/site-packages/django/dispatch/dispatcher.py", line 189, in send
+    response = receiver(signal=self, sender=sender, **named)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/household-manager/home/signals.py", line 20, in create_chore_notification
+    family_members = instance.assigned_to.family.members.all()
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Family' object has no attribute 'members'
+Sending email to iulia.c.drinceanu@gmail.com about chore: vase
+Email sent successfully.
+Not Found: /static/js/_site_dashboard_free/assets/js/dashboard-free.js.map
+Not Found: /static/js/_site_dashboard_free/assets/js/dashboard-free.js.map

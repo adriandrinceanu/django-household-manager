@@ -23,6 +23,7 @@ urlpatterns = [
     path('chore_done/<int:chore_id>/', views.chore_done, name='chore_done'),
     path('profile/member/<str:username>/view_budgets', views.budget_view, name='view_budgets'),
     path('profile/member/<str:username>/expenses', views.expense_view, name='member_expenses'),
+    path('notifications/<int:notification_id>/read/', views.mark_notification_as_read, name='mark_notification_as_read'),
 
 ]
 
