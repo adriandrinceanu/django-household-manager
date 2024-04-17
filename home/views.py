@@ -77,10 +77,10 @@ def registerPage(request):
     return render(request,'accounts/register.html',context)
 
 ### family leader
+logger = logging.getLogger(__name__)
 
 @login_required
 def create_chore_view(request, username):
-    logger = logging.getLogger(__name__)
     user = get_object_or_404(User, username=username)
     # Get the current user's family
     member = Member.objects.get(user=user)
@@ -110,13 +110,15 @@ def create_chore_view(request, username):
                 # Send the email
                 send_mail(
                     'Chore Assignment :)',  # subject
-                    f'Heads up, {member.name} assigned the chore: {chore.title}, to you.',  # message
+                    f'Heads up, {member.name} assigned the chore: {chore.title}, to you. YAY! Details: {chore.description}',  # message
                     'drinceanuadrian@gmail.com',  # from email
                     [assigned_member_email],  # to email
                     fail_silently=False,
                 )
                  # Log a success message
                 logger.info('Email sent successfully.')
+                
+                messages.success(request, 'An email was sent to the family member about its chore.')
                 
                 return redirect('create_chore', username=username)
     else:
