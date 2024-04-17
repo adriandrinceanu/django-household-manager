@@ -27,13 +27,27 @@ def create_chore_notification(sender, instance, created, **kwargs):
                 family=instance.assigned_to.family,
             )
             
-@receiver(post_save, sender=Expense)
-def create_expense_notification(sender, instance, created, **kwargs):
-    if created:
-        # Get the names of all members who created the expense
-        members = ", ".join([member.name for member in instance.created_by.all()])
-        Notification.objects.create(
-            user=instance.created_by.first().user,  # Assuming you want to send the notification to the first member
-            message=f"{members} spent {instance.amount} on {instance.category}.",
-            family=instance.created_by.first().family,  # Assuming all members belong to the same family
-        )
+            
+# 'NoneType' object has no attribute 'user' - error           
+# @receiver(post_save, sender=Expense)
+# def create_expense_notification(sender, instance, created, **kwargs):
+#     if created:
+#         # Get the names of all members who created the expense
+#         members = ", ".join([member.name for member in instance.created_by.all()])
+#         Notification.objects.create(
+#             user=instance.created_by.first().user,  # Assuming you want to send the notification to the first member
+#             message=f"{members} spent {instance.amount} on {instance.category}.",
+#             family=instance.created_by.first().family,  # Assuming all members belong to the same family
+#         )
+
+
+#untested, might work:
+# @receiver(post_save, sender=Expense)
+# def create_expense_notification(sender, instance, created, **kwargs):
+#     if created:
+#         for member in instance.created_by.all():
+#             Notification.objects.create(
+#                 user=member.user,
+#                 message=f"{member.name} spent {instance.amount} on {instance.category}.",
+#                 family=member.family,
+#             )
