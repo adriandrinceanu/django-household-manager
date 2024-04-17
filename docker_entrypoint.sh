@@ -15,5 +15,7 @@ python manage.py createsuperuser --no-input
 # python manage.py collectstatic --no-input
 # python manage.py runserver 0.0.0.0:8000
 # gunicorn core.asgi:application -k uvicorn.workers.UvicornWorker -b 0.0.0.0:8000
-gunicorn --reload --config gunicorn-cfg.py core.wsgi -b 0.0.0.0:8000
+# #switch to asgi
+gunicorn core.asgi:application -k uvicorn.workers.UvicornWorker --reload --config gunicorn-cfg.py -b 0.0.0.0:8000
+
 
