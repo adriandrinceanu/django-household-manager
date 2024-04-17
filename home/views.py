@@ -8,7 +8,6 @@ from django.db.models import Sum
 from datetime import datetime
 from .models import Chore, Family, Member, Notification, Budget, MonthlyBudget, Expense
 from django.contrib.auth.models import Group, User
-from .utils import create_chore  # Import the create_chore function
 from .forms import MemberCreationForm, FamilyCreationForm, ChoreCreationForm, BudgetCreationForm, MonthlyBudgetCreationForm, ExpenseCreationForm
 from django.core.mail import send_mail
 import logging
