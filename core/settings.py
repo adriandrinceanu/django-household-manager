@@ -35,7 +35,7 @@ DEBUG = str2bool(os.environ.get('DEBUG'))
 
 ALLOWED_HOSTS = ['*']
 
-CSRF_TRUSTED_ORIGINS = ['http://localhost:8000', 'http://localhost:5085', 'http://127.0.0.1:8000', 'http://127.0.0.1:5085']
+CSRF_TRUSTED_ORIGINS = ['http://localhost:8000', 'http://localhost:5085', 'http://127.0.0.1:8000', 'http://127.0.0.1:5085' ]
 
 RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
 if RENDER_EXTERNAL_HOSTNAME:    
@@ -55,12 +55,15 @@ INSTALLED_APPS = [
     'django.contrib.humanize',
 
     "home",
+    'channels',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "whitenoise.middleware.WhiteNoiseMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
+    'corsheaders.middleware.CorsMiddleware',
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
@@ -225,3 +228,47 @@ LOGGING = {
         'level': 'DEBUG',
     },
 }
+
+# #display logger messages to check connections in consumers.py
+# LOGGING = {
+#     'version': 1,
+#     'disable_existing_loggers': False,
+#     'handlers': {
+#         'console': {
+#             'class': 'logging.StreamHandler',
+#         },
+#     },
+#     'root': {
+#         'handlers': ['console'],
+#         'level': 'INFO',
+#     },
+# }
+
+# for chat functionality and notifications
+
+ASGI_APPLICATION = 'core.routing.application'
+
+#switch to redis
+CHANNEL_LAYERS = {
+    'default': {
+        'BACKEND': 'channels_redis.core.RedisChannelLayer',
+        'CONFIG': {
+            "hosts": [('redis', 6379)],  # Used service name defined in docker-compose.yml
+        },
+        'MIDDLEWARE': [
+            'channels.sessions.SessionMiddleware',  # Channels' SessionMiddleware
+            'channels.middleware.AuthMiddlewareStack',  # Channels' AuthenticationMiddleware
+            'channels.middleware.CookieMiddleware',  # Channels' CookieMiddleware
+        ],
+    },
+}
+
+CORS_ORIGIN_WHITELIST = [
+    "http://localhost:8000",
+    "http://127.0.0.1:9000",
+    "http://172.19.0.1",
+    "http://0.0.0.0:8000",
+ 
+]
+CORS_ALLOW_CREDENTIALS = True
+
