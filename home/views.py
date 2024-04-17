@@ -600,10 +600,10 @@ def chore_done(request, chore_id):
 
 ###notifications
 
-def mark_notification_as_read(request, notification_id):
-    notification = get_object_or_404(Notification, id=notification_id)
-    notification.is_read = True
-    notification.save()
-    # Redirect to the page where you want to go after marking the notification as read
-    return redirect('/')
+# def mark_notification_as_read(request, notification_id):
+#     notification = get_object_or_404(Notification, id=notification_id)
+#     notification.is_read = True
+#     notification.save()
+#     # Redirect to the page where you want to go after marking the notification as read
+#     return redirect('/')
 
