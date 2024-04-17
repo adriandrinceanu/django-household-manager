@@ -293,3 +293,2135 @@ Traceback (most recent call last):
          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 AttributeError: 'NoneType' object has no attribute 'user'
 Not Found: /favicon.ico
+Future exception was never retrieved
+future: <Future finished exception=gaierror(-2, 'Name or service not known')>
+socket.gaierror: [Errno -2] Name or service not known
+Task exception was never retrieved
+future: <Task finished name='Task-123' coro=<WebSocketProtocol.run_asgi() done, defined at /usr/local/lib/python3.12/site-packages/uvicorn/protocols/websockets/websockets_impl.py:234> exception=RuntimeError('unable to perform operation on <TCPTransport closed=True reading=False 0x563ca472b550>; the handler is closed')>
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/redis/asyncio/connection.py", line 274, in connect
+    await self.retry.call_with_retry(
+  File "/usr/local/lib/python3.12/site-packages/redis/asyncio/retry.py", line 59, in call_with_retry
+    return await do()
+           ^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/asyncio/connection.py", line 681, in _connect
+    reader, writer = await asyncio.open_connection(
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/asyncio/streams.py", line 48, in open_connection
+    transport, _ = await loop.create_connection(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "uvloop/loop.pyx", line 1978, in create_connection
+socket.gaierror: [Errno -2] Name or service not known
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/uvicorn/protocols/websockets/websockets_impl.py", line 240, in run_asgi
+    result = await self.app(self.scope, self.asgi_receive, self.asgi_send)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/uvicorn/middleware/proxy_headers.py", line 69, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/channels/routing.py", line 62, in __call__
+    return await application(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/channels/sessions.py", line 47, in __call__
+    return await self.inner(dict(scope, cookies=cookies), receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/channels/sessions.py", line 263, in __call__
+    return await self.inner(wrapper.scope, receive, wrapper.send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/channels/auth.py", line 185, in __call__
+    return await super().__call__(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/channels/middleware.py", line 24, in __call__
+    return await self.inner(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/channels/routing.py", line 116, in __call__
+    return await application(
+           ^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/channels/consumer.py", line 94, in app
+    return await consumer(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/channels/consumer.py", line 58, in __call__
+    await await_many_dispatch(
+  File "/usr/local/lib/python3.12/site-packages/channels/utils.py", line 50, in await_many_dispatch
+    await dispatch(result)
+  File "/usr/local/lib/python3.12/site-packages/channels/consumer.py", line 73, in dispatch
+    await handler(message)
+  File "/usr/local/lib/python3.12/site-packages/channels/generic/websocket.py", line 173, in websocket_connect
+    await self.connect()
+  File "/household-manager/home/consumers.py", line 22, in connect
+    await self.channel_layer.group_add(
+  File "/usr/local/lib/python3.12/site-packages/channels_redis/core.py", line 504, in group_add
+    await connection.zadd(group_key, {channel: time.time()})
+  File "/usr/local/lib/python3.12/site-packages/redis/asyncio/client.py", line 605, in execute_command
+    conn = self.connection or await pool.get_connection(command_name, **options)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/asyncio/connection.py", line 1076, in get_connection
+    await self.ensure_connection(connection)
+  File "/usr/local/lib/python3.12/site-packages/redis/asyncio/connection.py", line 1109, in ensure_connection
+    await connection.connect()
+  File "/usr/local/lib/python3.12/site-packages/redis/asyncio/connection.py", line 282, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error -2 connecting to redis:6379. -2.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/uvicorn/protocols/websockets/websockets_impl.py", line 249, in run_asgi
+    self.send_500_response()
+  File "/usr/local/lib/python3.12/site-packages/uvicorn/protocols/websockets/websockets_impl.py", line 218, in send_500_response
+    self.transport.write(b"".join(content))
+  File "uvloop/handles/stream.pyx", line 674, in uvloop.loop.UVStream.write
+  File "uvloop/handles/handle.pyx", line 159, in uvloop.loop.UVHandle._ensure_alive
+RuntimeError: unable to perform operation on <TCPTransport closed=True reading=False 0x563ca472b550>; the handler is closed
+Task exception was never retrieved
+future: <Task finished name='Task-186' coro=<WebSocketProtocol.run_asgi() done, defined at /usr/local/lib/python3.12/site-packages/uvicorn/protocols/websockets/websockets_impl.py:234> exception=RuntimeError('unable to perform operation on <TCPTransport closed=True reading=False 0x563ca4877e30>; the handler is closed')>
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/redis/asyncio/connection.py", line 274, in connect
+    await self.retry.call_with_retry(
+  File "/usr/local/lib/python3.12/site-packages/redis/asyncio/retry.py", line 59, in call_with_retry
+    return await do()
+           ^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/asyncio/connection.py", line 681, in _connect
+    reader, writer = await asyncio.open_connection(
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/asyncio/streams.py", line 48, in open_connection
+    transport, _ = await loop.create_connection(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "uvloop/loop.pyx", line 1978, in create_connection
+socket.gaierror: [Errno -2] Name or service not known
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/channels/utils.py", line 50, in await_many_dispatch
+    await dispatch(result)
+  File "/usr/local/lib/python3.12/site-packages/channels/consumer.py", line 73, in dispatch
+    await handler(message)
+  File "/usr/local/lib/python3.12/site-packages/channels/generic/websocket.py", line 173, in websocket_connect
+    await self.connect()
+  File "/household-manager/home/consumers.py", line 22, in connect
+    await self.channel_layer.group_add(
+  File "/usr/local/lib/python3.12/site-packages/channels_redis/core.py", line 504, in group_add
+    await connection.zadd(group_key, {channel: time.time()})
+  File "/usr/local/lib/python3.12/site-packages/redis/asyncio/client.py", line 605, in execute_command
+    conn = self.connection or await pool.get_connection(command_name, **options)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/asyncio/connection.py", line 1076, in get_connection
+    await self.ensure_connection(connection)
+  File "/usr/local/lib/python3.12/site-packages/redis/asyncio/connection.py", line 1109, in ensure_connection
+    await connection.connect()
+  File "/usr/local/lib/python3.12/site-packages/redis/asyncio/connection.py", line 282, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error -2 connecting to redis:6379. -2.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/uvicorn/protocols/websockets/websockets_impl.py", line 240, in run_asgi
+    result = await self.app(self.scope, self.asgi_receive, self.asgi_send)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/uvicorn/middleware/proxy_headers.py", line 69, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/channels/routing.py", line 62, in __call__
+    return await application(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/channels/sessions.py", line 47, in __call__
+    return await self.inner(dict(scope, cookies=cookies), receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/channels/sessions.py", line 263, in __call__
+    return await self.inner(wrapper.scope, receive, wrapper.send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/channels/auth.py", line 185, in __call__
+    return await super().__call__(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/channels/middleware.py", line 24, in __call__
+    return await self.inner(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/channels/routing.py", line 116, in __call__
+    return await application(
+           ^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/channels/consumer.py", line 94, in app
+    return await consumer(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/channels/consumer.py", line 58, in __call__
+    await await_many_dispatch(
+  File "/usr/local/lib/python3.12/site-packages/channels/utils.py", line 57, in await_many_dispatch
+    await task
+  File "/usr/local/lib/python3.12/site-packages/channels_redis/core.py", line 353, in receive
+    message_channel, message = await self.receive_single(
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/channels_redis/core.py", line 408, in receive_single
+    content = await self._brpop_with_clean(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/channels_redis/core.py", line 244, in _brpop_with_clean
+    await connection.eval(cleanup_script, 0, channel, backup_queue)
+  File "/usr/local/lib/python3.12/site-packages/redis/asyncio/client.py", line 605, in execute_command
+    conn = self.connection or await pool.get_connection(command_name, **options)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/asyncio/connection.py", line 1076, in get_connection
+    await self.ensure_connection(connection)
+  File "/usr/local/lib/python3.12/site-packages/redis/asyncio/connection.py", line 1109, in ensure_connection
+    await connection.connect()
+  File "/usr/local/lib/python3.12/site-packages/redis/asyncio/connection.py", line 282, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error -2 connecting to redis:6379. -2.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/uvicorn/protocols/websockets/websockets_impl.py", line 249, in run_asgi
+    self.send_500_response()
+  File "/usr/local/lib/python3.12/site-packages/uvicorn/protocols/websockets/websockets_impl.py", line 218, in send_500_response
+    self.transport.write(b"".join(content))
+  File "uvloop/handles/stream.pyx", line 674, in uvloop.loop.UVStream.write
+  File "uvloop/handles/handle.pyx", line 159, in uvloop.loop.UVHandle._ensure_alive
+RuntimeError: unable to perform operation on <TCPTransport closed=True reading=False 0x563ca4877e30>; the handler is closed
+Task exception was never retrieved
+future: <Task finished name='Task-249' coro=<WebSocketProtocol.run_asgi() done, defined at /usr/local/lib/python3.12/site-packages/uvicorn/protocols/websockets/websockets_impl.py:234> exception=RuntimeError('unable to perform operation on <TCPTransport closed=True reading=False 0x563ca474cfc0>; the handler is closed')>
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/redis/asyncio/connection.py", line 274, in connect
+    await self.retry.call_with_retry(
+  File "/usr/local/lib/python3.12/site-packages/redis/asyncio/retry.py", line 59, in call_with_retry
+    return await do()
+           ^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/asyncio/connection.py", line 681, in _connect
+    reader, writer = await asyncio.open_connection(
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/asyncio/streams.py", line 48, in open_connection
+    transport, _ = await loop.create_connection(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "uvloop/loop.pyx", line 1978, in create_connection
+socket.gaierror: [Errno -2] Name or service not known
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/channels/utils.py", line 50, in await_many_dispatch
+    await dispatch(result)
+  File "/usr/local/lib/python3.12/site-packages/channels/consumer.py", line 73, in dispatch
+    await handler(message)
+  File "/usr/local/lib/python3.12/site-packages/channels/generic/websocket.py", line 173, in websocket_connect
+    await self.connect()
+  File "/household-manager/home/consumers.py", line 22, in connect
+    await self.channel_layer.group_add(
+  File "/usr/local/lib/python3.12/site-packages/channels_redis/core.py", line 504, in group_add
+    await connection.zadd(group_key, {channel: time.time()})
+  File "/usr/local/lib/python3.12/site-packages/redis/asyncio/client.py", line 605, in execute_command
+    conn = self.connection or await pool.get_connection(command_name, **options)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/asyncio/connection.py", line 1076, in get_connection
+    await self.ensure_connection(connection)
+  File "/usr/local/lib/python3.12/site-packages/redis/asyncio/connection.py", line 1109, in ensure_connection
+    await connection.connect()
+  File "/usr/local/lib/python3.12/site-packages/redis/asyncio/connection.py", line 282, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error -2 connecting to redis:6379. -2.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/uvicorn/protocols/websockets/websockets_impl.py", line 240, in run_asgi
+    result = await self.app(self.scope, self.asgi_receive, self.asgi_send)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/uvicorn/middleware/proxy_headers.py", line 69, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/channels/routing.py", line 62, in __call__
+    return await application(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/channels/sessions.py", line 47, in __call__
+    return await self.inner(dict(scope, cookies=cookies), receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/channels/sessions.py", line 263, in __call__
+    return await self.inner(wrapper.scope, receive, wrapper.send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/channels/auth.py", line 185, in __call__
+    return await super().__call__(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/channels/middleware.py", line 24, in __call__
+    return await self.inner(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/channels/routing.py", line 116, in __call__
+    return await application(
+           ^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/channels/consumer.py", line 94, in app
+    return await consumer(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/channels/consumer.py", line 58, in __call__
+    await await_many_dispatch(
+  File "/usr/local/lib/python3.12/site-packages/channels/utils.py", line 57, in await_many_dispatch
+    await task
+  File "/usr/local/lib/python3.12/site-packages/channels_redis/core.py", line 353, in receive
+    message_channel, message = await self.receive_single(
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/channels_redis/core.py", line 408, in receive_single
+    content = await self._brpop_with_clean(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/channels_redis/core.py", line 244, in _brpop_with_clean
+    await connection.eval(cleanup_script, 0, channel, backup_queue)
+  File "/usr/local/lib/python3.12/site-packages/redis/asyncio/client.py", line 605, in execute_command
+    conn = self.connection or await pool.get_connection(command_name, **options)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/asyncio/connection.py", line 1076, in get_connection
+    await self.ensure_connection(connection)
+  File "/usr/local/lib/python3.12/site-packages/redis/asyncio/connection.py", line 1109, in ensure_connection
+    await connection.connect()
+  File "/usr/local/lib/python3.12/site-packages/redis/asyncio/connection.py", line 282, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error -2 connecting to redis:6379. -2.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/uvicorn/protocols/websockets/websockets_impl.py", line 249, in run_asgi
+    self.send_500_response()
+  File "/usr/local/lib/python3.12/site-packages/uvicorn/protocols/websockets/websockets_impl.py", line 218, in send_500_response
+    self.transport.write(b"".join(content))
+  File "uvloop/handles/stream.pyx", line 674, in uvloop.loop.UVStream.write
+  File "uvloop/handles/handle.pyx", line 159, in uvloop.loop.UVHandle._ensure_alive
+RuntimeError: unable to perform operation on <TCPTransport closed=True reading=False 0x563ca474cfc0>; the handler is closed
+Future exception was never retrieved
+future: <Future finished exception=gaierror(-2, 'Name or service not known')>
+socket.gaierror: [Errno -2] Name or service not known
+Internal Server Error: /profile/leader/drinceanu_adrian/chores
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.12/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.12/site-packages/django/core/handlers/base.py", line 253, in _get_response_async
+    response = await wrapped_callback(
+               ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/asgiref/sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/asgiref/current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/asgiref/sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/contrib/auth/decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/household-manager/home/views.py", line 101, in create_chore_view
+    chore.save()
+  File "/usr/local/lib/python3.12/site-packages/django/db/models/base.py", line 822, in save
+    self.save_base(
+  File "/usr/local/lib/python3.12/site-packages/django/db/models/base.py", line 924, in save_base
+    post_save.send(
+  File "/usr/local/lib/python3.12/site-packages/django/dispatch/dispatcher.py", line 189, in send
+    response = receiver(signal=self, sender=sender, **named)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/household-manager/home/signals.py", line 38, in create_chore_notification
+    "text": str(notification),
+                ^^^^^^^^^^^^
+NameError: name 'notification' is not defined. Did you mean: 'Notification'?
+Task exception was never retrieved
+future: <Task finished name='Task-388' coro=<WebSocketProtocol.run_asgi() done, defined at /usr/local/lib/python3.12/site-packages/uvicorn/protocols/websockets/websockets_impl.py:234> exception=RuntimeError('unable to perform operation on <TCPTransport closed=True reading=False 0x563ca47dfe00>; the handler is closed')>
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/redis/asyncio/connection.py", line 274, in connect
+    await self.retry.call_with_retry(
+  File "/usr/local/lib/python3.12/site-packages/redis/asyncio/retry.py", line 59, in call_with_retry
+    return await do()
+           ^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/asyncio/connection.py", line 681, in _connect
+    reader, writer = await asyncio.open_connection(
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/asyncio/streams.py", line 48, in open_connection
+    transport, _ = await loop.create_connection(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "uvloop/loop.pyx", line 1978, in create_connection
+socket.gaierror: [Errno -2] Name or service not known
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/uvicorn/protocols/websockets/websockets_impl.py", line 240, in run_asgi
+    result = await self.app(self.scope, self.asgi_receive, self.asgi_send)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/uvicorn/middleware/proxy_headers.py", line 69, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/channels/routing.py", line 62, in __call__
+    return await application(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/channels/sessions.py", line 47, in __call__
+    return await self.inner(dict(scope, cookies=cookies), receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/channels/sessions.py", line 263, in __call__
+    return await self.inner(wrapper.scope, receive, wrapper.send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/channels/auth.py", line 185, in __call__
+    return await super().__call__(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/channels/middleware.py", line 24, in __call__
+    return await self.inner(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/channels/routing.py", line 116, in __call__
+    return await application(
+           ^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/channels/consumer.py", line 94, in app
+    return await consumer(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/channels/consumer.py", line 58, in __call__
+    await await_many_dispatch(
+  File "/usr/local/lib/python3.12/site-packages/channels/utils.py", line 50, in await_many_dispatch
+    await dispatch(result)
+  File "/usr/local/lib/python3.12/site-packages/channels/consumer.py", line 73, in dispatch
+    await handler(message)
+  File "/usr/local/lib/python3.12/site-packages/channels/generic/websocket.py", line 173, in websocket_connect
+    await self.connect()
+  File "/household-manager/home/consumers.py", line 22, in connect
+    await self.channel_layer.group_add(
+  File "/usr/local/lib/python3.12/site-packages/channels_redis/core.py", line 504, in group_add
+    await connection.zadd(group_key, {channel: time.time()})
+  File "/usr/local/lib/python3.12/site-packages/redis/asyncio/client.py", line 605, in execute_command
+    conn = self.connection or await pool.get_connection(command_name, **options)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/asyncio/connection.py", line 1076, in get_connection
+    await self.ensure_connection(connection)
+  File "/usr/local/lib/python3.12/site-packages/redis/asyncio/connection.py", line 1109, in ensure_connection
+    await connection.connect()
+  File "/usr/local/lib/python3.12/site-packages/redis/asyncio/connection.py", line 282, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error -2 connecting to redis:6379. -2.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/uvicorn/protocols/websockets/websockets_impl.py", line 249, in run_asgi
+    self.send_500_response()
+  File "/usr/local/lib/python3.12/site-packages/uvicorn/protocols/websockets/websockets_impl.py", line 218, in send_500_response
+    self.transport.write(b"".join(content))
+  File "uvloop/handles/stream.pyx", line 674, in uvloop.loop.UVStream.write
+  File "uvloop/handles/handle.pyx", line 159, in uvloop.loop.UVHandle._ensure_alive
+RuntimeError: unable to perform operation on <TCPTransport closed=True reading=False 0x563ca47dfe00>; the handler is closed
+Future exception was never retrieved
+future: <Future finished exception=gaierror(-2, 'Name or service not known')>
+socket.gaierror: [Errno -2] Name or service not known
+Task exception was never retrieved
+future: <Task finished name='Task-489' coro=<WebSocketProtocol.run_asgi() done, defined at /usr/local/lib/python3.12/site-packages/uvicorn/protocols/websockets/websockets_impl.py:234> exception=RuntimeError('unable to perform operation on <TCPTransport closed=True reading=False 0x563ca485dd00>; the handler is closed')>
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/redis/asyncio/connection.py", line 274, in connect
+    await self.retry.call_with_retry(
+  File "/usr/local/lib/python3.12/site-packages/redis/asyncio/retry.py", line 59, in call_with_retry
+    return await do()
+           ^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/asyncio/connection.py", line 681, in _connect
+    reader, writer = await asyncio.open_connection(
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/asyncio/streams.py", line 48, in open_connection
+    transport, _ = await loop.create_connection(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "uvloop/loop.pyx", line 1978, in create_connection
+socket.gaierror: [Errno -2] Name or service not known
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/channels/utils.py", line 50, in await_many_dispatch
+    await dispatch(result)
+  File "/usr/local/lib/python3.12/site-packages/channels/consumer.py", line 73, in dispatch
+    await handler(message)
+  File "/usr/local/lib/python3.12/site-packages/channels/generic/websocket.py", line 173, in websocket_connect
+    await self.connect()
+  File "/household-manager/home/consumers.py", line 22, in connect
+    await self.channel_layer.group_add(
+  File "/usr/local/lib/python3.12/site-packages/channels_redis/core.py", line 504, in group_add
+    await connection.zadd(group_key, {channel: time.time()})
+  File "/usr/local/lib/python3.12/site-packages/redis/asyncio/client.py", line 605, in execute_command
+    conn = self.connection or await pool.get_connection(command_name, **options)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/asyncio/connection.py", line 1076, in get_connection
+    await self.ensure_connection(connection)
+  File "/usr/local/lib/python3.12/site-packages/redis/asyncio/connection.py", line 1109, in ensure_connection
+    await connection.connect()
+  File "/usr/local/lib/python3.12/site-packages/redis/asyncio/connection.py", line 282, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error -2 connecting to redis:6379. -2.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/uvicorn/protocols/websockets/websockets_impl.py", line 240, in run_asgi
+    result = await self.app(self.scope, self.asgi_receive, self.asgi_send)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/uvicorn/middleware/proxy_headers.py", line 69, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/channels/routing.py", line 62, in __call__
+    return await application(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/channels/sessions.py", line 47, in __call__
+    return await self.inner(dict(scope, cookies=cookies), receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/channels/sessions.py", line 263, in __call__
+    return await self.inner(wrapper.scope, receive, wrapper.send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/channels/auth.py", line 185, in __call__
+    return await super().__call__(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/channels/middleware.py", line 24, in __call__
+    return await self.inner(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/channels/routing.py", line 116, in __call__
+    return await application(
+           ^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/channels/consumer.py", line 94, in app
+    return await consumer(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/channels/consumer.py", line 58, in __call__
+    await await_many_dispatch(
+  File "/usr/local/lib/python3.12/site-packages/channels/utils.py", line 57, in await_many_dispatch
+    await task
+  File "/usr/local/lib/python3.12/site-packages/channels_redis/core.py", line 353, in receive
+    message_channel, message = await self.receive_single(
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/channels_redis/core.py", line 408, in receive_single
+    content = await self._brpop_with_clean(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/channels_redis/core.py", line 244, in _brpop_with_clean
+    await connection.eval(cleanup_script, 0, channel, backup_queue)
+  File "/usr/local/lib/python3.12/site-packages/redis/asyncio/client.py", line 605, in execute_command
+    conn = self.connection or await pool.get_connection(command_name, **options)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/asyncio/connection.py", line 1076, in get_connection
+    await self.ensure_connection(connection)
+  File "/usr/local/lib/python3.12/site-packages/redis/asyncio/connection.py", line 1109, in ensure_connection
+    await connection.connect()
+  File "/usr/local/lib/python3.12/site-packages/redis/asyncio/connection.py", line 282, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error -2 connecting to redis:6379. -2.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/uvicorn/protocols/websockets/websockets_impl.py", line 249, in run_asgi
+    self.send_500_response()
+  File "/usr/local/lib/python3.12/site-packages/uvicorn/protocols/websockets/websockets_impl.py", line 218, in send_500_response
+    self.transport.write(b"".join(content))
+  File "uvloop/handles/stream.pyx", line 674, in uvloop.loop.UVStream.write
+  File "uvloop/handles/handle.pyx", line 159, in uvloop.loop.UVHandle._ensure_alive
+RuntimeError: unable to perform operation on <TCPTransport closed=True reading=False 0x563ca485dd00>; the handler is closed
+Task exception was never retrieved
+future: <Task finished name='Task-548' coro=<WebSocketProtocol.run_asgi() done, defined at /usr/local/lib/python3.12/site-packages/uvicorn/protocols/websockets/websockets_impl.py:234> exception=RuntimeError('unable to perform operation on <TCPTransport closed=True reading=False 0x563ca4876240>; the handler is closed')>
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/redis/asyncio/connection.py", line 274, in connect
+    await self.retry.call_with_retry(
+  File "/usr/local/lib/python3.12/site-packages/redis/asyncio/retry.py", line 59, in call_with_retry
+    return await do()
+           ^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/asyncio/connection.py", line 681, in _connect
+    reader, writer = await asyncio.open_connection(
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/asyncio/streams.py", line 48, in open_connection
+    transport, _ = await loop.create_connection(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "uvloop/loop.pyx", line 1978, in create_connection
+socket.gaierror: [Errno -2] Name or service not known
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/uvicorn/protocols/websockets/websockets_impl.py", line 240, in run_asgi
+    result = await self.app(self.scope, self.asgi_receive, self.asgi_send)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/uvicorn/middleware/proxy_headers.py", line 69, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/channels/routing.py", line 62, in __call__
+    return await application(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/channels/sessions.py", line 47, in __call__
+    return await self.inner(dict(scope, cookies=cookies), receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/channels/sessions.py", line 263, in __call__
+    return await self.inner(wrapper.scope, receive, wrapper.send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/channels/auth.py", line 185, in __call__
+    return await super().__call__(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/channels/middleware.py", line 24, in __call__
+    return await self.inner(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/channels/routing.py", line 116, in __call__
+    return await application(
+           ^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/channels/consumer.py", line 94, in app
+    return await consumer(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/channels/consumer.py", line 58, in __call__
+    await await_many_dispatch(
+  File "/usr/local/lib/python3.12/site-packages/channels/utils.py", line 50, in await_many_dispatch
+    await dispatch(result)
+  File "/usr/local/lib/python3.12/site-packages/channels/consumer.py", line 73, in dispatch
+    await handler(message)
+  File "/usr/local/lib/python3.12/site-packages/channels/generic/websocket.py", line 173, in websocket_connect
+    await self.connect()
+  File "/household-manager/home/consumers.py", line 22, in connect
+    await self.channel_layer.group_add(
+  File "/usr/local/lib/python3.12/site-packages/channels_redis/core.py", line 504, in group_add
+    await connection.zadd(group_key, {channel: time.time()})
+  File "/usr/local/lib/python3.12/site-packages/redis/asyncio/client.py", line 605, in execute_command
+    conn = self.connection or await pool.get_connection(command_name, **options)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/asyncio/connection.py", line 1076, in get_connection
+    await self.ensure_connection(connection)
+  File "/usr/local/lib/python3.12/site-packages/redis/asyncio/connection.py", line 1109, in ensure_connection
+    await connection.connect()
+  File "/usr/local/lib/python3.12/site-packages/redis/asyncio/connection.py", line 282, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error -2 connecting to redis:6379. -2.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/uvicorn/protocols/websockets/websockets_impl.py", line 249, in run_asgi
+    self.send_500_response()
+  File "/usr/local/lib/python3.12/site-packages/uvicorn/protocols/websockets/websockets_impl.py", line 218, in send_500_response
+    self.transport.write(b"".join(content))
+  File "uvloop/handles/stream.pyx", line 674, in uvloop.loop.UVStream.write
+  File "uvloop/handles/handle.pyx", line 159, in uvloop.loop.UVHandle._ensure_alive
+RuntimeError: unable to perform operation on <TCPTransport closed=True reading=False 0x563ca4876240>; the handler is closed
+Internal Server Error: /profile/leader/drinceanu_adrian/chores
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.12/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.12/site-packages/django/core/handlers/base.py", line 253, in _get_response_async
+    response = await wrapped_callback(
+               ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/asgiref/sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/asgiref/current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/asgiref/sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/contrib/auth/decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/household-manager/home/views.py", line 101, in create_chore_view
+    chore.save()
+  File "/usr/local/lib/python3.12/site-packages/django/db/models/base.py", line 822, in save
+    self.save_base(
+  File "/usr/local/lib/python3.12/site-packages/django/db/models/base.py", line 924, in save_base
+    post_save.send(
+  File "/usr/local/lib/python3.12/site-packages/django/dispatch/dispatcher.py", line 189, in send
+    response = receiver(signal=self, sender=sender, **named)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/household-manager/home/signals.py", line 38, in create_chore_notification
+    "text": str(notification),
+                ^^^^^^^^^^^^
+NameError: name 'notification' is not defined. Did you mean: 'Notification'?
+Future exception was never retrieved
+future: <Future finished exception=gaierror(-2, 'Name or service not known')>
+socket.gaierror: [Errno -2] Name or service not known
+Task exception was never retrieved
+future: <Task finished name='Task-9' coro=<WebSocketProtocol.run_asgi() done, defined at /usr/local/lib/python3.12/site-packages/uvicorn/protocols/websockets/websockets_impl.py:234> exception=RuntimeError('unable to perform operation on <TCPTransport closed=True reading=False 0x55dabfcacd80>; the handler is closed')>
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/redis/asyncio/connection.py", line 274, in connect
+    await self.retry.call_with_retry(
+  File "/usr/local/lib/python3.12/site-packages/redis/asyncio/retry.py", line 59, in call_with_retry
+    return await do()
+           ^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/asyncio/connection.py", line 681, in _connect
+    reader, writer = await asyncio.open_connection(
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/asyncio/streams.py", line 48, in open_connection
+    transport, _ = await loop.create_connection(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "uvloop/loop.pyx", line 1978, in create_connection
+socket.gaierror: [Errno -2] Name or service not known
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/uvicorn/protocols/websockets/websockets_impl.py", line 240, in run_asgi
+    result = await self.app(self.scope, self.asgi_receive, self.asgi_send)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/uvicorn/middleware/proxy_headers.py", line 69, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/channels/routing.py", line 62, in __call__
+    return await application(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/channels/sessions.py", line 47, in __call__
+    return await self.inner(dict(scope, cookies=cookies), receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/channels/sessions.py", line 263, in __call__
+    return await self.inner(wrapper.scope, receive, wrapper.send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/channels/auth.py", line 185, in __call__
+    return await super().__call__(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/channels/middleware.py", line 24, in __call__
+    return await self.inner(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/channels/routing.py", line 116, in __call__
+    return await application(
+           ^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/channels/consumer.py", line 94, in app
+    return await consumer(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/channels/consumer.py", line 58, in __call__
+    await await_many_dispatch(
+  File "/usr/local/lib/python3.12/site-packages/channels/utils.py", line 50, in await_many_dispatch
+    await dispatch(result)
+  File "/usr/local/lib/python3.12/site-packages/channels/consumer.py", line 73, in dispatch
+    await handler(message)
+  File "/usr/local/lib/python3.12/site-packages/channels/generic/websocket.py", line 173, in websocket_connect
+    await self.connect()
+  File "/household-manager/home/consumers.py", line 22, in connect
+    await self.channel_layer.group_add(
+  File "/usr/local/lib/python3.12/site-packages/channels_redis/core.py", line 504, in group_add
+    await connection.zadd(group_key, {channel: time.time()})
+  File "/usr/local/lib/python3.12/site-packages/redis/asyncio/client.py", line 605, in execute_command
+    conn = self.connection or await pool.get_connection(command_name, **options)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/asyncio/connection.py", line 1076, in get_connection
+    await self.ensure_connection(connection)
+  File "/usr/local/lib/python3.12/site-packages/redis/asyncio/connection.py", line 1109, in ensure_connection
+    await connection.connect()
+  File "/usr/local/lib/python3.12/site-packages/redis/asyncio/connection.py", line 282, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error -2 connecting to redis:6379. -2.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/uvicorn/protocols/websockets/websockets_impl.py", line 249, in run_asgi
+    self.send_500_response()
+  File "/usr/local/lib/python3.12/site-packages/uvicorn/protocols/websockets/websockets_impl.py", line 218, in send_500_response
+    self.transport.write(b"".join(content))
+  File "uvloop/handles/stream.pyx", line 674, in uvloop.loop.UVStream.write
+  File "uvloop/handles/handle.pyx", line 159, in uvloop.loop.UVHandle._ensure_alive
+RuntimeError: unable to perform operation on <TCPTransport closed=True reading=False 0x55dabfcacd80>; the handler is closed
+Future exception was never retrieved
+future: <Future finished exception=gaierror(-2, 'Name or service not known')>
+socket.gaierror: [Errno -2] Name or service not known
+Task exception was never retrieved
+future: <Task finished name='Task-68' coro=<WebSocketProtocol.run_asgi() done, defined at /usr/local/lib/python3.12/site-packages/uvicorn/protocols/websockets/websockets_impl.py:234> exception=RuntimeError('unable to perform operation on <TCPTransport closed=True reading=False 0x55dabfdc1df0>; the handler is closed')>
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/redis/asyncio/connection.py", line 274, in connect
+    await self.retry.call_with_retry(
+  File "/usr/local/lib/python3.12/site-packages/redis/asyncio/retry.py", line 59, in call_with_retry
+    return await do()
+           ^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/asyncio/connection.py", line 681, in _connect
+    reader, writer = await asyncio.open_connection(
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/asyncio/streams.py", line 48, in open_connection
+    transport, _ = await loop.create_connection(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "uvloop/loop.pyx", line 1978, in create_connection
+socket.gaierror: [Errno -2] Name or service not known
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/uvicorn/protocols/websockets/websockets_impl.py", line 240, in run_asgi
+    result = await self.app(self.scope, self.asgi_receive, self.asgi_send)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/uvicorn/middleware/proxy_headers.py", line 69, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/channels/routing.py", line 62, in __call__
+    return await application(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/channels/sessions.py", line 47, in __call__
+    return await self.inner(dict(scope, cookies=cookies), receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/channels/sessions.py", line 263, in __call__
+    return await self.inner(wrapper.scope, receive, wrapper.send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/channels/auth.py", line 185, in __call__
+    return await super().__call__(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/channels/middleware.py", line 24, in __call__
+    return await self.inner(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/channels/routing.py", line 116, in __call__
+    return await application(
+           ^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/channels/consumer.py", line 94, in app
+    return await consumer(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/channels/consumer.py", line 58, in __call__
+    await await_many_dispatch(
+  File "/usr/local/lib/python3.12/site-packages/channels/utils.py", line 50, in await_many_dispatch
+    await dispatch(result)
+  File "/usr/local/lib/python3.12/site-packages/channels/consumer.py", line 73, in dispatch
+    await handler(message)
+  File "/usr/local/lib/python3.12/site-packages/channels/generic/websocket.py", line 173, in websocket_connect
+    await self.connect()
+  File "/household-manager/home/consumers.py", line 22, in connect
+    await self.channel_layer.group_add(
+  File "/usr/local/lib/python3.12/site-packages/channels_redis/core.py", line 504, in group_add
+    await connection.zadd(group_key, {channel: time.time()})
+  File "/usr/local/lib/python3.12/site-packages/redis/asyncio/client.py", line 605, in execute_command
+    conn = self.connection or await pool.get_connection(command_name, **options)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/asyncio/connection.py", line 1076, in get_connection
+    await self.ensure_connection(connection)
+  File "/usr/local/lib/python3.12/site-packages/redis/asyncio/connection.py", line 1109, in ensure_connection
+    await connection.connect()
+  File "/usr/local/lib/python3.12/site-packages/redis/asyncio/connection.py", line 282, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error -2 connecting to redis:6379. -2.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/uvicorn/protocols/websockets/websockets_impl.py", line 249, in run_asgi
+    self.send_500_response()
+  File "/usr/local/lib/python3.12/site-packages/uvicorn/protocols/websockets/websockets_impl.py", line 218, in send_500_response
+    self.transport.write(b"".join(content))
+  File "uvloop/handles/stream.pyx", line 674, in uvloop.loop.UVStream.write
+  File "uvloop/handles/handle.pyx", line 159, in uvloop.loop.UVHandle._ensure_alive
+RuntimeError: unable to perform operation on <TCPTransport closed=True reading=False 0x55dabfdc1df0>; the handler is closed
+Task exception was never retrieved
+future: <Task finished name='Task-140' coro=<WebSocketProtocol.run_asgi() done, defined at /usr/local/lib/python3.12/site-packages/uvicorn/protocols/websockets/websockets_impl.py:234> exception=RuntimeError('unable to perform operation on <TCPTransport closed=True reading=False 0x55dabfddca20>; the handler is closed')>
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/redis/asyncio/connection.py", line 274, in connect
+    await self.retry.call_with_retry(
+  File "/usr/local/lib/python3.12/site-packages/redis/asyncio/retry.py", line 59, in call_with_retry
+    return await do()
+           ^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/asyncio/connection.py", line 681, in _connect
+    reader, writer = await asyncio.open_connection(
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/asyncio/streams.py", line 48, in open_connection
+    transport, _ = await loop.create_connection(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "uvloop/loop.pyx", line 1978, in create_connection
+socket.gaierror: [Errno -2] Name or service not known
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/uvicorn/protocols/websockets/websockets_impl.py", line 240, in run_asgi
+    result = await self.app(self.scope, self.asgi_receive, self.asgi_send)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/uvicorn/middleware/proxy_headers.py", line 69, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/channels/routing.py", line 62, in __call__
+    return await application(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/channels/sessions.py", line 47, in __call__
+    return await self.inner(dict(scope, cookies=cookies), receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/channels/sessions.py", line 263, in __call__
+    return await self.inner(wrapper.scope, receive, wrapper.send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/channels/auth.py", line 185, in __call__
+    return await super().__call__(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/channels/middleware.py", line 24, in __call__
+    return await self.inner(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/channels/routing.py", line 116, in __call__
+    return await application(
+           ^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/channels/consumer.py", line 94, in app
+    return await consumer(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/channels/consumer.py", line 58, in __call__
+    await await_many_dispatch(
+  File "/usr/local/lib/python3.12/site-packages/channels/utils.py", line 50, in await_many_dispatch
+    await dispatch(result)
+  File "/usr/local/lib/python3.12/site-packages/channels/consumer.py", line 73, in dispatch
+    await handler(message)
+  File "/usr/local/lib/python3.12/site-packages/channels/generic/websocket.py", line 173, in websocket_connect
+    await self.connect()
+  File "/household-manager/home/consumers.py", line 22, in connect
+    await self.channel_layer.group_add(
+  File "/usr/local/lib/python3.12/site-packages/channels_redis/core.py", line 504, in group_add
+    await connection.zadd(group_key, {channel: time.time()})
+  File "/usr/local/lib/python3.12/site-packages/redis/asyncio/client.py", line 605, in execute_command
+    conn = self.connection or await pool.get_connection(command_name, **options)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/asyncio/connection.py", line 1076, in get_connection
+    await self.ensure_connection(connection)
+  File "/usr/local/lib/python3.12/site-packages/redis/asyncio/connection.py", line 1109, in ensure_connection
+    await connection.connect()
+  File "/usr/local/lib/python3.12/site-packages/redis/asyncio/connection.py", line 282, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error -2 connecting to redis:6379. -2.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/uvicorn/protocols/websockets/websockets_impl.py", line 249, in run_asgi
+    self.send_500_response()
+  File "/usr/local/lib/python3.12/site-packages/uvicorn/protocols/websockets/websockets_impl.py", line 218, in send_500_response
+    self.transport.write(b"".join(content))
+  File "uvloop/handles/stream.pyx", line 674, in uvloop.loop.UVStream.write
+  File "uvloop/handles/handle.pyx", line 159, in uvloop.loop.UVHandle._ensure_alive
+RuntimeError: unable to perform operation on <TCPTransport closed=True reading=False 0x55dabfddca20>; the handler is closed
+Future exception was never retrieved
+future: <Future finished exception=gaierror(-2, 'Name or service not known')>
+socket.gaierror: [Errno -2] Name or service not known
+Internal Server Error: /profile/leader/drinceanu_adrian/chores
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/redis/asyncio/connection.py", line 274, in connect
+    await self.retry.call_with_retry(
+  File "/usr/local/lib/python3.12/site-packages/redis/asyncio/retry.py", line 59, in call_with_retry
+    return await do()
+           ^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/asyncio/connection.py", line 681, in _connect
+    reader, writer = await asyncio.open_connection(
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/asyncio/streams.py", line 48, in open_connection
+    transport, _ = await loop.create_connection(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "uvloop/loop.pyx", line 1978, in create_connection
+socket.gaierror: [Errno -2] Name or service not known
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.12/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.12/site-packages/django/core/handlers/base.py", line 253, in _get_response_async
+    response = await wrapped_callback(
+               ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/asgiref/sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/asgiref/current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/asgiref/sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/contrib/auth/decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/household-manager/home/views.py", line 101, in create_chore_view
+    chore.save()
+  File "/usr/local/lib/python3.12/site-packages/django/db/models/base.py", line 822, in save
+    self.save_base(
+  File "/usr/local/lib/python3.12/site-packages/django/db/models/base.py", line 924, in save_base
+    post_save.send(
+  File "/usr/local/lib/python3.12/site-packages/django/dispatch/dispatcher.py", line 189, in send
+    response = receiver(signal=self, sender=sender, **named)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/household-manager/home/signals.py", line 34, in create_chore_notification
+    async_to_sync(channel_layer.group_send)(
+  File "/usr/local/lib/python3.12/site-packages/asgiref/sync.py", line 254, in __call__
+    return call_result.result()
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/concurrent/futures/_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+  File "/usr/local/lib/python3.12/site-packages/asgiref/sync.py", line 331, in main_wrap
+    result = await self.awaitable(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/channels_redis/core.py", line 529, in group_send
+    await connection.zremrangebyscore(
+  File "/usr/local/lib/python3.12/site-packages/redis/asyncio/client.py", line 605, in execute_command
+    conn = self.connection or await pool.get_connection(command_name, **options)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/asyncio/connection.py", line 1076, in get_connection
+    await self.ensure_connection(connection)
+  File "/usr/local/lib/python3.12/site-packages/redis/asyncio/connection.py", line 1109, in ensure_connection
+    await connection.connect()
+  File "/usr/local/lib/python3.12/site-packages/redis/asyncio/connection.py", line 282, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error -2 connecting to redis:6379. -2.
+Task exception was never retrieved
+future: <Task finished name='Task-4' coro=<WebSocketProtocol.run_asgi() done, defined at /usr/local/lib/python3.12/site-packages/uvicorn/protocols/websockets/websockets_impl.py:234> exception=RuntimeError('unable to perform operation on <TCPTransport closed=True reading=False 0x55e490219d60>; the handler is closed')>
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/redis/asyncio/connection.py", line 274, in connect
+    await self.retry.call_with_retry(
+  File "/usr/local/lib/python3.12/site-packages/redis/asyncio/retry.py", line 59, in call_with_retry
+    return await do()
+           ^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/asyncio/connection.py", line 681, in _connect
+    reader, writer = await asyncio.open_connection(
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/asyncio/streams.py", line 48, in open_connection
+    transport, _ = await loop.create_connection(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "uvloop/loop.pyx", line 1978, in create_connection
+socket.gaierror: [Errno -2] Name or service not known
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/channels/utils.py", line 50, in await_many_dispatch
+    await dispatch(result)
+  File "/usr/local/lib/python3.12/site-packages/channels/consumer.py", line 73, in dispatch
+    await handler(message)
+  File "/usr/local/lib/python3.12/site-packages/channels/generic/websocket.py", line 173, in websocket_connect
+    await self.connect()
+  File "/household-manager/home/consumers.py", line 22, in connect
+    await self.channel_layer.group_add(
+  File "/usr/local/lib/python3.12/site-packages/channels_redis/core.py", line 504, in group_add
+    await connection.zadd(group_key, {channel: time.time()})
+  File "/usr/local/lib/python3.12/site-packages/redis/asyncio/client.py", line 605, in execute_command
+    conn = self.connection or await pool.get_connection(command_name, **options)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/asyncio/connection.py", line 1076, in get_connection
+    await self.ensure_connection(connection)
+  File "/usr/local/lib/python3.12/site-packages/redis/asyncio/connection.py", line 1109, in ensure_connection
+    await connection.connect()
+  File "/usr/local/lib/python3.12/site-packages/redis/asyncio/connection.py", line 282, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error -2 connecting to redis:6379. -2.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/uvicorn/protocols/websockets/websockets_impl.py", line 240, in run_asgi
+    result = await self.app(self.scope, self.asgi_receive, self.asgi_send)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/uvicorn/middleware/proxy_headers.py", line 69, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/channels/routing.py", line 62, in __call__
+    return await application(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/channels/sessions.py", line 47, in __call__
+    return await self.inner(dict(scope, cookies=cookies), receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/channels/sessions.py", line 263, in __call__
+    return await self.inner(wrapper.scope, receive, wrapper.send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/channels/auth.py", line 185, in __call__
+    return await super().__call__(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/channels/middleware.py", line 24, in __call__
+    return await self.inner(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/channels/routing.py", line 116, in __call__
+    return await application(
+           ^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/channels/consumer.py", line 94, in app
+    return await consumer(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/channels/consumer.py", line 58, in __call__
+    await await_many_dispatch(
+  File "/usr/local/lib/python3.12/site-packages/channels/utils.py", line 57, in await_many_dispatch
+    await task
+  File "/usr/local/lib/python3.12/site-packages/channels_redis/core.py", line 353, in receive
+    message_channel, message = await self.receive_single(
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/channels_redis/core.py", line 408, in receive_single
+    content = await self._brpop_with_clean(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/channels_redis/core.py", line 244, in _brpop_with_clean
+    await connection.eval(cleanup_script, 0, channel, backup_queue)
+  File "/usr/local/lib/python3.12/site-packages/redis/asyncio/client.py", line 605, in execute_command
+    conn = self.connection or await pool.get_connection(command_name, **options)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/asyncio/connection.py", line 1076, in get_connection
+    await self.ensure_connection(connection)
+  File "/usr/local/lib/python3.12/site-packages/redis/asyncio/connection.py", line 1109, in ensure_connection
+    await connection.connect()
+  File "/usr/local/lib/python3.12/site-packages/redis/asyncio/connection.py", line 282, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error -2 connecting to redis:6379. -2.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/uvicorn/protocols/websockets/websockets_impl.py", line 249, in run_asgi
+    self.send_500_response()
+  File "/usr/local/lib/python3.12/site-packages/uvicorn/protocols/websockets/websockets_impl.py", line 218, in send_500_response
+    self.transport.write(b"".join(content))
+  File "uvloop/handles/stream.pyx", line 674, in uvloop.loop.UVStream.write
+  File "uvloop/handles/handle.pyx", line 159, in uvloop.loop.UVHandle._ensure_alive
+RuntimeError: unable to perform operation on <TCPTransport closed=True reading=False 0x55e490219d60>; the handler is closed
+Future exception was never retrieved
+future: <Future finished exception=gaierror(-2, 'Name or service not known')>
+socket.gaierror: [Errno -2] Name or service not known
+Task exception was never retrieved
+future: <Task finished name='Task-67' coro=<WebSocketProtocol.run_asgi() done, defined at /usr/local/lib/python3.12/site-packages/uvicorn/protocols/websockets/websockets_impl.py:234> exception=RuntimeError('unable to perform operation on <TCPTransport closed=True reading=False 0x55e490417b10>; the handler is closed')>
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/redis/asyncio/connection.py", line 274, in connect
+    await self.retry.call_with_retry(
+  File "/usr/local/lib/python3.12/site-packages/redis/asyncio/retry.py", line 59, in call_with_retry
+    return await do()
+           ^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/asyncio/connection.py", line 681, in _connect
+    reader, writer = await asyncio.open_connection(
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/asyncio/streams.py", line 48, in open_connection
+    transport, _ = await loop.create_connection(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "uvloop/loop.pyx", line 1978, in create_connection
+socket.gaierror: [Errno -2] Name or service not known
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/uvicorn/protocols/websockets/websockets_impl.py", line 240, in run_asgi
+    result = await self.app(self.scope, self.asgi_receive, self.asgi_send)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/uvicorn/middleware/proxy_headers.py", line 69, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/channels/routing.py", line 62, in __call__
+    return await application(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/channels/sessions.py", line 47, in __call__
+    return await self.inner(dict(scope, cookies=cookies), receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/channels/sessions.py", line 263, in __call__
+    return await self.inner(wrapper.scope, receive, wrapper.send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/channels/auth.py", line 185, in __call__
+    return await super().__call__(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/channels/middleware.py", line 24, in __call__
+    return await self.inner(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/channels/routing.py", line 116, in __call__
+    return await application(
+           ^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/channels/consumer.py", line 94, in app
+    return await consumer(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/channels/consumer.py", line 58, in __call__
+    await await_many_dispatch(
+  File "/usr/local/lib/python3.12/site-packages/channels/utils.py", line 50, in await_many_dispatch
+    await dispatch(result)
+  File "/usr/local/lib/python3.12/site-packages/channels/consumer.py", line 73, in dispatch
+    await handler(message)
+  File "/usr/local/lib/python3.12/site-packages/channels/generic/websocket.py", line 173, in websocket_connect
+    await self.connect()
+  File "/household-manager/home/consumers.py", line 22, in connect
+    await self.channel_layer.group_add(
+  File "/usr/local/lib/python3.12/site-packages/channels_redis/core.py", line 504, in group_add
+    await connection.zadd(group_key, {channel: time.time()})
+  File "/usr/local/lib/python3.12/site-packages/redis/asyncio/client.py", line 605, in execute_command
+    conn = self.connection or await pool.get_connection(command_name, **options)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/asyncio/connection.py", line 1076, in get_connection
+    await self.ensure_connection(connection)
+  File "/usr/local/lib/python3.12/site-packages/redis/asyncio/connection.py", line 1109, in ensure_connection
+    await connection.connect()
+  File "/usr/local/lib/python3.12/site-packages/redis/asyncio/connection.py", line 282, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error -2 connecting to redis:6379. -2.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/uvicorn/protocols/websockets/websockets_impl.py", line 249, in run_asgi
+    self.send_500_response()
+  File "/usr/local/lib/python3.12/site-packages/uvicorn/protocols/websockets/websockets_impl.py", line 218, in send_500_response
+    self.transport.write(b"".join(content))
+  File "uvloop/handles/stream.pyx", line 674, in uvloop.loop.UVStream.write
+  File "uvloop/handles/handle.pyx", line 159, in uvloop.loop.UVHandle._ensure_alive
+RuntimeError: unable to perform operation on <TCPTransport closed=True reading=False 0x55e490417b10>; the handler is closed
+Task exception was never retrieved
+future: <Task finished name='Task-121' coro=<WebSocketProtocol.run_asgi() done, defined at /usr/local/lib/python3.12/site-packages/uvicorn/protocols/websockets/websockets_impl.py:234> exception=RuntimeError('unable to perform operation on <TCPTransport closed=True reading=False 0x55e490417dc0>; the handler is closed')>
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/redis/asyncio/connection.py", line 274, in connect
+    await self.retry.call_with_retry(
+  File "/usr/local/lib/python3.12/site-packages/redis/asyncio/retry.py", line 59, in call_with_retry
+    return await do()
+           ^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/asyncio/connection.py", line 681, in _connect
+    reader, writer = await asyncio.open_connection(
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/asyncio/streams.py", line 48, in open_connection
+    transport, _ = await loop.create_connection(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "uvloop/loop.pyx", line 1978, in create_connection
+socket.gaierror: [Errno -2] Name or service not known
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/uvicorn/protocols/websockets/websockets_impl.py", line 240, in run_asgi
+    result = await self.app(self.scope, self.asgi_receive, self.asgi_send)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/uvicorn/middleware/proxy_headers.py", line 69, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/channels/routing.py", line 62, in __call__
+    return await application(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/channels/sessions.py", line 47, in __call__
+    return await self.inner(dict(scope, cookies=cookies), receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/channels/sessions.py", line 263, in __call__
+    return await self.inner(wrapper.scope, receive, wrapper.send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/channels/auth.py", line 185, in __call__
+    return await super().__call__(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/channels/middleware.py", line 24, in __call__
+    return await self.inner(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/channels/routing.py", line 116, in __call__
+    return await application(
+           ^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/channels/consumer.py", line 94, in app
+    return await consumer(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/channels/consumer.py", line 58, in __call__
+    await await_many_dispatch(
+  File "/usr/local/lib/python3.12/site-packages/channels/utils.py", line 50, in await_many_dispatch
+    await dispatch(result)
+  File "/usr/local/lib/python3.12/site-packages/channels/consumer.py", line 73, in dispatch
+    await handler(message)
+  File "/usr/local/lib/python3.12/site-packages/channels/generic/websocket.py", line 173, in websocket_connect
+    await self.connect()
+  File "/household-manager/home/consumers.py", line 22, in connect
+    await self.channel_layer.group_add(
+  File "/usr/local/lib/python3.12/site-packages/channels_redis/core.py", line 504, in group_add
+    await connection.zadd(group_key, {channel: time.time()})
+  File "/usr/local/lib/python3.12/site-packages/redis/asyncio/client.py", line 605, in execute_command
+    conn = self.connection or await pool.get_connection(command_name, **options)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/asyncio/connection.py", line 1076, in get_connection
+    await self.ensure_connection(connection)
+  File "/usr/local/lib/python3.12/site-packages/redis/asyncio/connection.py", line 1109, in ensure_connection
+    await connection.connect()
+  File "/usr/local/lib/python3.12/site-packages/redis/asyncio/connection.py", line 282, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error -2 connecting to redis:6379. -2.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/uvicorn/protocols/websockets/websockets_impl.py", line 249, in run_asgi
+    self.send_500_response()
+  File "/usr/local/lib/python3.12/site-packages/uvicorn/protocols/websockets/websockets_impl.py", line 218, in send_500_response
+    self.transport.write(b"".join(content))
+  File "uvloop/handles/stream.pyx", line 674, in uvloop.loop.UVStream.write
+  File "uvloop/handles/handle.pyx", line 159, in uvloop.loop.UVHandle._ensure_alive
+RuntimeError: unable to perform operation on <TCPTransport closed=True reading=False 0x55e490417dc0>; the handler is closed
+Future exception was never retrieved
+future: <Future finished exception=gaierror(-2, 'Name or service not known')>
+socket.gaierror: [Errno -2] Name or service not known
+Internal Server Error: /profile/leader/drinceanu_adrian/chores
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/redis/asyncio/connection.py", line 274, in connect
+    await self.retry.call_with_retry(
+  File "/usr/local/lib/python3.12/site-packages/redis/asyncio/retry.py", line 59, in call_with_retry
+    return await do()
+           ^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/asyncio/connection.py", line 681, in _connect
+    reader, writer = await asyncio.open_connection(
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/asyncio/streams.py", line 48, in open_connection
+    transport, _ = await loop.create_connection(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "uvloop/loop.pyx", line 1978, in create_connection
+socket.gaierror: [Errno -2] Name or service not known
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.12/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.12/site-packages/django/core/handlers/base.py", line 253, in _get_response_async
+    response = await wrapped_callback(
+               ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/asgiref/sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/asgiref/current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/asgiref/sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/contrib/auth/decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/household-manager/home/views.py", line 101, in create_chore_view
+    chore.save()
+  File "/usr/local/lib/python3.12/site-packages/django/db/models/base.py", line 822, in save
+    self.save_base(
+  File "/usr/local/lib/python3.12/site-packages/django/db/models/base.py", line 924, in save_base
+    post_save.send(
+  File "/usr/local/lib/python3.12/site-packages/django/dispatch/dispatcher.py", line 189, in send
+    response = receiver(signal=self, sender=sender, **named)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/household-manager/home/signals.py", line 34, in create_chore_notification
+    async_to_sync(channel_layer.group_send)(
+  File "/usr/local/lib/python3.12/site-packages/asgiref/sync.py", line 254, in __call__
+    return call_result.result()
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/concurrent/futures/_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+  File "/usr/local/lib/python3.12/site-packages/asgiref/sync.py", line 331, in main_wrap
+    result = await self.awaitable(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/channels_redis/core.py", line 529, in group_send
+    await connection.zremrangebyscore(
+  File "/usr/local/lib/python3.12/site-packages/redis/asyncio/client.py", line 605, in execute_command
+    conn = self.connection or await pool.get_connection(command_name, **options)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/asyncio/connection.py", line 1076, in get_connection
+    await self.ensure_connection(connection)
+  File "/usr/local/lib/python3.12/site-packages/redis/asyncio/connection.py", line 1109, in ensure_connection
+    await connection.connect()
+  File "/usr/local/lib/python3.12/site-packages/redis/asyncio/connection.py", line 282, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error -2 connecting to redis:6379. -2.
+Future exception was never retrieved
+future: <Future finished exception=gaierror(-2, 'Name or service not known')>
+socket.gaierror: [Errno -2] Name or service not known
+Task exception was never retrieved
+future: <Task finished name='Task-9' coro=<WebSocketProtocol.run_asgi() done, defined at /usr/local/lib/python3.12/site-packages/uvicorn/protocols/websockets/websockets_impl.py:234> exception=RuntimeError('unable to perform operation on <TCPTransport closed=True reading=False 0x55b5840b7540>; the handler is closed')>
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/redis/asyncio/connection.py", line 274, in connect
+    await self.retry.call_with_retry(
+  File "/usr/local/lib/python3.12/site-packages/redis/asyncio/retry.py", line 59, in call_with_retry
+    return await do()
+           ^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/asyncio/connection.py", line 681, in _connect
+    reader, writer = await asyncio.open_connection(
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/asyncio/streams.py", line 48, in open_connection
+    transport, _ = await loop.create_connection(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "uvloop/loop.pyx", line 1978, in create_connection
+socket.gaierror: [Errno -2] Name or service not known
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/channels/utils.py", line 50, in await_many_dispatch
+    await dispatch(result)
+  File "/usr/local/lib/python3.12/site-packages/channels/consumer.py", line 73, in dispatch
+    await handler(message)
+  File "/usr/local/lib/python3.12/site-packages/channels/generic/websocket.py", line 173, in websocket_connect
+    await self.connect()
+  File "/household-manager/home/consumers.py", line 22, in connect
+    await self.channel_layer.group_add(
+  File "/usr/local/lib/python3.12/site-packages/channels_redis/core.py", line 504, in group_add
+    await connection.zadd(group_key, {channel: time.time()})
+  File "/usr/local/lib/python3.12/site-packages/redis/asyncio/client.py", line 605, in execute_command
+    conn = self.connection or await pool.get_connection(command_name, **options)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/asyncio/connection.py", line 1076, in get_connection
+    await self.ensure_connection(connection)
+  File "/usr/local/lib/python3.12/site-packages/redis/asyncio/connection.py", line 1109, in ensure_connection
+    await connection.connect()
+  File "/usr/local/lib/python3.12/site-packages/redis/asyncio/connection.py", line 282, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error -2 connecting to redis:6379. -2.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/uvicorn/protocols/websockets/websockets_impl.py", line 240, in run_asgi
+    result = await self.app(self.scope, self.asgi_receive, self.asgi_send)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/uvicorn/middleware/proxy_headers.py", line 69, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/channels/routing.py", line 62, in __call__
+    return await application(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/channels/sessions.py", line 47, in __call__
+    return await self.inner(dict(scope, cookies=cookies), receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/channels/sessions.py", line 263, in __call__
+    return await self.inner(wrapper.scope, receive, wrapper.send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/channels/auth.py", line 185, in __call__
+    return await super().__call__(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/channels/middleware.py", line 24, in __call__
+    return await self.inner(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/channels/routing.py", line 116, in __call__
+    return await application(
+           ^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/channels/consumer.py", line 94, in app
+    return await consumer(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/channels/consumer.py", line 58, in __call__
+    await await_many_dispatch(
+  File "/usr/local/lib/python3.12/site-packages/channels/utils.py", line 57, in await_many_dispatch
+    await task
+  File "/usr/local/lib/python3.12/site-packages/channels_redis/core.py", line 353, in receive
+    message_channel, message = await self.receive_single(
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/channels_redis/core.py", line 408, in receive_single
+    content = await self._brpop_with_clean(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/channels_redis/core.py", line 244, in _brpop_with_clean
+    await connection.eval(cleanup_script, 0, channel, backup_queue)
+  File "/usr/local/lib/python3.12/site-packages/redis/asyncio/client.py", line 605, in execute_command
+    conn = self.connection or await pool.get_connection(command_name, **options)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/asyncio/connection.py", line 1076, in get_connection
+    await self.ensure_connection(connection)
+  File "/usr/local/lib/python3.12/site-packages/redis/asyncio/connection.py", line 1109, in ensure_connection
+    await connection.connect()
+  File "/usr/local/lib/python3.12/site-packages/redis/asyncio/connection.py", line 282, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error -2 connecting to redis:6379. -2.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/uvicorn/protocols/websockets/websockets_impl.py", line 249, in run_asgi
+    self.send_500_response()
+  File "/usr/local/lib/python3.12/site-packages/uvicorn/protocols/websockets/websockets_impl.py", line 218, in send_500_response
+    self.transport.write(b"".join(content))
+  File "uvloop/handles/stream.pyx", line 674, in uvloop.loop.UVStream.write
+  File "uvloop/handles/handle.pyx", line 159, in uvloop.loop.UVHandle._ensure_alive
+RuntimeError: unable to perform operation on <TCPTransport closed=True reading=False 0x55b5840b7540>; the handler is closed
+Future exception was never retrieved
+future: <Future finished exception=gaierror(-2, 'Name or service not known')>
+socket.gaierror: [Errno -2] Name or service not known
+Task exception was never retrieved
+future: <Task finished name='Task-68' coro=<WebSocketProtocol.run_asgi() done, defined at /usr/local/lib/python3.12/site-packages/uvicorn/protocols/websockets/websockets_impl.py:234> exception=RuntimeError('unable to perform operation on <TCPTransport closed=True reading=False 0x55b5842731b0>; the handler is closed')>
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/redis/asyncio/connection.py", line 274, in connect
+    await self.retry.call_with_retry(
+  File "/usr/local/lib/python3.12/site-packages/redis/asyncio/retry.py", line 59, in call_with_retry
+    return await do()
+           ^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/asyncio/connection.py", line 681, in _connect
+    reader, writer = await asyncio.open_connection(
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/asyncio/streams.py", line 48, in open_connection
+    transport, _ = await loop.create_connection(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "uvloop/loop.pyx", line 1978, in create_connection
+socket.gaierror: [Errno -2] Name or service not known
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/uvicorn/protocols/websockets/websockets_impl.py", line 240, in run_asgi
+    result = await self.app(self.scope, self.asgi_receive, self.asgi_send)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/uvicorn/middleware/proxy_headers.py", line 69, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/channels/routing.py", line 62, in __call__
+    return await application(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/channels/sessions.py", line 47, in __call__
+    return await self.inner(dict(scope, cookies=cookies), receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/channels/sessions.py", line 263, in __call__
+    return await self.inner(wrapper.scope, receive, wrapper.send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/channels/auth.py", line 185, in __call__
+    return await super().__call__(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/channels/middleware.py", line 24, in __call__
+    return await self.inner(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/channels/routing.py", line 116, in __call__
+    return await application(
+           ^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/channels/consumer.py", line 94, in app
+    return await consumer(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/channels/consumer.py", line 58, in __call__
+    await await_many_dispatch(
+  File "/usr/local/lib/python3.12/site-packages/channels/utils.py", line 50, in await_many_dispatch
+    await dispatch(result)
+  File "/usr/local/lib/python3.12/site-packages/channels/consumer.py", line 73, in dispatch
+    await handler(message)
+  File "/usr/local/lib/python3.12/site-packages/channels/generic/websocket.py", line 173, in websocket_connect
+    await self.connect()
+  File "/household-manager/home/consumers.py", line 22, in connect
+    await self.channel_layer.group_add(
+  File "/usr/local/lib/python3.12/site-packages/channels_redis/core.py", line 504, in group_add
+    await connection.zadd(group_key, {channel: time.time()})
+  File "/usr/local/lib/python3.12/site-packages/redis/asyncio/client.py", line 605, in execute_command
+    conn = self.connection or await pool.get_connection(command_name, **options)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/asyncio/connection.py", line 1076, in get_connection
+    await self.ensure_connection(connection)
+  File "/usr/local/lib/python3.12/site-packages/redis/asyncio/connection.py", line 1109, in ensure_connection
+    await connection.connect()
+  File "/usr/local/lib/python3.12/site-packages/redis/asyncio/connection.py", line 282, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error -2 connecting to redis:6379. -2.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/uvicorn/protocols/websockets/websockets_impl.py", line 249, in run_asgi
+    self.send_500_response()
+  File "/usr/local/lib/python3.12/site-packages/uvicorn/protocols/websockets/websockets_impl.py", line 218, in send_500_response
+    self.transport.write(b"".join(content))
+  File "uvloop/handles/stream.pyx", line 674, in uvloop.loop.UVStream.write
+  File "uvloop/handles/handle.pyx", line 159, in uvloop.loop.UVHandle._ensure_alive
+RuntimeError: unable to perform operation on <TCPTransport closed=True reading=False 0x55b5842731b0>; the handler is closed
+Task exception was never retrieved
+future: <Task finished name='Task-192' coro=<WebSocketProtocol.run_asgi() done, defined at /usr/local/lib/python3.12/site-packages/uvicorn/protocols/websockets/websockets_impl.py:234> exception=RuntimeError('unable to perform operation on <TCPTransport closed=True reading=False 0x55b584247f40>; the handler is closed')>
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/redis/asyncio/connection.py", line 274, in connect
+    await self.retry.call_with_retry(
+  File "/usr/local/lib/python3.12/site-packages/redis/asyncio/retry.py", line 59, in call_with_retry
+    return await do()
+           ^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/asyncio/connection.py", line 681, in _connect
+    reader, writer = await asyncio.open_connection(
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/asyncio/streams.py", line 48, in open_connection
+    transport, _ = await loop.create_connection(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "uvloop/loop.pyx", line 1978, in create_connection
+socket.gaierror: [Errno -2] Name or service not known
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/channels/utils.py", line 50, in await_many_dispatch
+    await dispatch(result)
+  File "/usr/local/lib/python3.12/site-packages/channels/consumer.py", line 73, in dispatch
+    await handler(message)
+  File "/usr/local/lib/python3.12/site-packages/channels/generic/websocket.py", line 173, in websocket_connect
+    await self.connect()
+  File "/household-manager/home/consumers.py", line 22, in connect
+    await self.channel_layer.group_add(
+  File "/usr/local/lib/python3.12/site-packages/channels_redis/core.py", line 504, in group_add
+    await connection.zadd(group_key, {channel: time.time()})
+  File "/usr/local/lib/python3.12/site-packages/redis/asyncio/client.py", line 605, in execute_command
+    conn = self.connection or await pool.get_connection(command_name, **options)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/asyncio/connection.py", line 1076, in get_connection
+    await self.ensure_connection(connection)
+  File "/usr/local/lib/python3.12/site-packages/redis/asyncio/connection.py", line 1109, in ensure_connection
+    await connection.connect()
+  File "/usr/local/lib/python3.12/site-packages/redis/asyncio/connection.py", line 282, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error -2 connecting to redis:6379. -2.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/uvicorn/protocols/websockets/websockets_impl.py", line 240, in run_asgi
+    result = await self.app(self.scope, self.asgi_receive, self.asgi_send)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/uvicorn/middleware/proxy_headers.py", line 69, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/channels/routing.py", line 62, in __call__
+    return await application(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/channels/sessions.py", line 47, in __call__
+    return await self.inner(dict(scope, cookies=cookies), receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/channels/sessions.py", line 263, in __call__
+    return await self.inner(wrapper.scope, receive, wrapper.send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/channels/auth.py", line 185, in __call__
+    return await super().__call__(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/channels/middleware.py", line 24, in __call__
+    return await self.inner(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/channels/routing.py", line 116, in __call__
+    return await application(
+           ^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/channels/consumer.py", line 94, in app
+    return await consumer(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/channels/consumer.py", line 58, in __call__
+    await await_many_dispatch(
+  File "/usr/local/lib/python3.12/site-packages/channels/utils.py", line 57, in await_many_dispatch
+    await task
+  File "/usr/local/lib/python3.12/site-packages/channels_redis/core.py", line 353, in receive
+    message_channel, message = await self.receive_single(
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/channels_redis/core.py", line 408, in receive_single
+    content = await self._brpop_with_clean(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/channels_redis/core.py", line 244, in _brpop_with_clean
+    await connection.eval(cleanup_script, 0, channel, backup_queue)
+  File "/usr/local/lib/python3.12/site-packages/redis/asyncio/client.py", line 605, in execute_command
+    conn = self.connection or await pool.get_connection(command_name, **options)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/asyncio/connection.py", line 1076, in get_connection
+    await self.ensure_connection(connection)
+  File "/usr/local/lib/python3.12/site-packages/redis/asyncio/connection.py", line 1109, in ensure_connection
+    await connection.connect()
+  File "/usr/local/lib/python3.12/site-packages/redis/asyncio/connection.py", line 282, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error -2 connecting to redis:6379. -2.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/uvicorn/protocols/websockets/websockets_impl.py", line 249, in run_asgi
+    self.send_500_response()
+  File "/usr/local/lib/python3.12/site-packages/uvicorn/protocols/websockets/websockets_impl.py", line 218, in send_500_response
+    self.transport.write(b"".join(content))
+  File "uvloop/handles/stream.pyx", line 674, in uvloop.loop.UVStream.write
+  File "uvloop/handles/handle.pyx", line 159, in uvloop.loop.UVHandle._ensure_alive
+RuntimeError: unable to perform operation on <TCPTransport closed=True reading=False 0x55b584247f40>; the handler is closed
+Internal Server Error: /profile/leader/drinceanu_adrian/chores
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/redis/asyncio/connection.py", line 274, in connect
+    await self.retry.call_with_retry(
+  File "/usr/local/lib/python3.12/site-packages/redis/asyncio/retry.py", line 59, in call_with_retry
+    return await do()
+           ^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/asyncio/connection.py", line 681, in _connect
+    reader, writer = await asyncio.open_connection(
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/asyncio/streams.py", line 48, in open_connection
+    transport, _ = await loop.create_connection(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "uvloop/loop.pyx", line 1978, in create_connection
+socket.gaierror: [Errno -2] Name or service not known
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.12/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.12/site-packages/django/core/handlers/base.py", line 253, in _get_response_async
+    response = await wrapped_callback(
+               ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/asgiref/sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/asgiref/current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/asgiref/sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/contrib/auth/decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/household-manager/home/views.py", line 101, in create_chore_view
+    chore.save()
+  File "/usr/local/lib/python3.12/site-packages/django/db/models/base.py", line 822, in save
+    self.save_base(
+  File "/usr/local/lib/python3.12/site-packages/django/db/models/base.py", line 924, in save_base
+    post_save.send(
+  File "/usr/local/lib/python3.12/site-packages/django/dispatch/dispatcher.py", line 189, in send
+    response = receiver(signal=self, sender=sender, **named)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/household-manager/home/signals.py", line 34, in create_chore_notification
+    async_to_sync(channel_layer.group_send)(
+  File "/usr/local/lib/python3.12/site-packages/asgiref/sync.py", line 254, in __call__
+    return call_result.result()
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/concurrent/futures/_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+  File "/usr/local/lib/python3.12/site-packages/asgiref/sync.py", line 331, in main_wrap
+    result = await self.awaitable(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/channels_redis/core.py", line 529, in group_send
+    await connection.zremrangebyscore(
+  File "/usr/local/lib/python3.12/site-packages/redis/asyncio/client.py", line 605, in execute_command
+    conn = self.connection or await pool.get_connection(command_name, **options)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/asyncio/connection.py", line 1076, in get_connection
+    await self.ensure_connection(connection)
+  File "/usr/local/lib/python3.12/site-packages/redis/asyncio/connection.py", line 1109, in ensure_connection
+    await connection.connect()
+  File "/usr/local/lib/python3.12/site-packages/redis/asyncio/connection.py", line 282, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error -2 connecting to redis:6379. -2.
+Future exception was never retrieved
+future: <Future finished exception=gaierror(-2, 'Name or service not known')>
+socket.gaierror: [Errno -2] Name or service not known
+Future exception was never retrieved
+future: <Future finished exception=gaierror(-2, 'Name or service not known')>
+socket.gaierror: [Errno -2] Name or service not known
+Task exception was never retrieved
+future: <Task finished name='Task-4' coro=<WebSocketProtocol.run_asgi() done, defined at /usr/local/lib/python3.12/site-packages/uvicorn/protocols/websockets/websockets_impl.py:234> exception=RuntimeError('unable to perform operation on <TCPTransport closed=True reading=False 0x559190b27910>; the handler is closed')>
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/redis/asyncio/connection.py", line 274, in connect
+    await self.retry.call_with_retry(
+  File "/usr/local/lib/python3.12/site-packages/redis/asyncio/retry.py", line 59, in call_with_retry
+    return await do()
+           ^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/asyncio/connection.py", line 681, in _connect
+    reader, writer = await asyncio.open_connection(
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/asyncio/streams.py", line 48, in open_connection
+    transport, _ = await loop.create_connection(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "uvloop/loop.pyx", line 1978, in create_connection
+socket.gaierror: [Errno -2] Name or service not known
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/uvicorn/protocols/websockets/websockets_impl.py", line 240, in run_asgi
+    result = await self.app(self.scope, self.asgi_receive, self.asgi_send)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/uvicorn/middleware/proxy_headers.py", line 69, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/channels/routing.py", line 62, in __call__
+    return await application(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/channels/sessions.py", line 47, in __call__
+    return await self.inner(dict(scope, cookies=cookies), receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/channels/sessions.py", line 263, in __call__
+    return await self.inner(wrapper.scope, receive, wrapper.send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/channels/auth.py", line 185, in __call__
+    return await super().__call__(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/channels/middleware.py", line 24, in __call__
+    return await self.inner(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/channels/routing.py", line 116, in __call__
+    return await application(
+           ^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/channels/consumer.py", line 94, in app
+    return await consumer(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/channels/consumer.py", line 58, in __call__
+    await await_many_dispatch(
+  File "/usr/local/lib/python3.12/site-packages/channels/utils.py", line 50, in await_many_dispatch
+    await dispatch(result)
+  File "/usr/local/lib/python3.12/site-packages/channels/consumer.py", line 73, in dispatch
+    await handler(message)
+  File "/usr/local/lib/python3.12/site-packages/channels/generic/websocket.py", line 173, in websocket_connect
+    await self.connect()
+  File "/household-manager/home/consumers.py", line 22, in connect
+    await self.channel_layer.group_add(
+  File "/usr/local/lib/python3.12/site-packages/channels_redis/core.py", line 504, in group_add
+    await connection.zadd(group_key, {channel: time.time()})
+  File "/usr/local/lib/python3.12/site-packages/redis/asyncio/client.py", line 605, in execute_command
+    conn = self.connection or await pool.get_connection(command_name, **options)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/asyncio/connection.py", line 1076, in get_connection
+    await self.ensure_connection(connection)
+  File "/usr/local/lib/python3.12/site-packages/redis/asyncio/connection.py", line 1109, in ensure_connection
+    await connection.connect()
+  File "/usr/local/lib/python3.12/site-packages/redis/asyncio/connection.py", line 282, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error -2 connecting to redis:6379. -2.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/uvicorn/protocols/websockets/websockets_impl.py", line 249, in run_asgi
+    self.send_500_response()
+  File "/usr/local/lib/python3.12/site-packages/uvicorn/protocols/websockets/websockets_impl.py", line 218, in send_500_response
+    self.transport.write(b"".join(content))
+  File "uvloop/handles/stream.pyx", line 674, in uvloop.loop.UVStream.write
+  File "uvloop/handles/handle.pyx", line 159, in uvloop.loop.UVHandle._ensure_alive
+RuntimeError: unable to perform operation on <TCPTransport closed=True reading=False 0x559190b27910>; the handler is closed
+Task exception was never retrieved
+future: <Task finished name='Task-63' coro=<WebSocketProtocol.run_asgi() done, defined at /usr/local/lib/python3.12/site-packages/uvicorn/protocols/websockets/websockets_impl.py:234> exception=RuntimeError('unable to perform operation on <TCPTransport closed=True reading=False 0x559190c27350>; the handler is closed')>
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/redis/asyncio/connection.py", line 274, in connect
+    await self.retry.call_with_retry(
+  File "/usr/local/lib/python3.12/site-packages/redis/asyncio/retry.py", line 59, in call_with_retry
+    return await do()
+           ^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/asyncio/connection.py", line 681, in _connect
+    reader, writer = await asyncio.open_connection(
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/asyncio/streams.py", line 48, in open_connection
+    transport, _ = await loop.create_connection(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "uvloop/loop.pyx", line 1978, in create_connection
+socket.gaierror: [Errno -2] Name or service not known
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/uvicorn/protocols/websockets/websockets_impl.py", line 240, in run_asgi
+    result = await self.app(self.scope, self.asgi_receive, self.asgi_send)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/uvicorn/middleware/proxy_headers.py", line 69, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/channels/routing.py", line 62, in __call__
+    return await application(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/channels/sessions.py", line 47, in __call__
+    return await self.inner(dict(scope, cookies=cookies), receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/channels/sessions.py", line 263, in __call__
+    return await self.inner(wrapper.scope, receive, wrapper.send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/channels/auth.py", line 185, in __call__
+    return await super().__call__(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/channels/middleware.py", line 24, in __call__
+    return await self.inner(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/channels/routing.py", line 116, in __call__
+    return await application(
+           ^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/channels/consumer.py", line 94, in app
+    return await consumer(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/channels/consumer.py", line 58, in __call__
+    await await_many_dispatch(
+  File "/usr/local/lib/python3.12/site-packages/channels/utils.py", line 50, in await_many_dispatch
+    await dispatch(result)
+  File "/usr/local/lib/python3.12/site-packages/channels/consumer.py", line 73, in dispatch
+    await handler(message)
+  File "/usr/local/lib/python3.12/site-packages/channels/generic/websocket.py", line 173, in websocket_connect
+    await self.connect()
+  File "/household-manager/home/consumers.py", line 22, in connect
+    await self.channel_layer.group_add(
+  File "/usr/local/lib/python3.12/site-packages/channels_redis/core.py", line 504, in group_add
+    await connection.zadd(group_key, {channel: time.time()})
+  File "/usr/local/lib/python3.12/site-packages/redis/asyncio/client.py", line 605, in execute_command
+    conn = self.connection or await pool.get_connection(command_name, **options)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/asyncio/connection.py", line 1076, in get_connection
+    await self.ensure_connection(connection)
+  File "/usr/local/lib/python3.12/site-packages/redis/asyncio/connection.py", line 1109, in ensure_connection
+    await connection.connect()
+  File "/usr/local/lib/python3.12/site-packages/redis/asyncio/connection.py", line 282, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error -2 connecting to redis:6379. -2.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/uvicorn/protocols/websockets/websockets_impl.py", line 249, in run_asgi
+    self.send_500_response()
+  File "/usr/local/lib/python3.12/site-packages/uvicorn/protocols/websockets/websockets_impl.py", line 218, in send_500_response
+    self.transport.write(b"".join(content))
+  File "uvloop/handles/stream.pyx", line 674, in uvloop.loop.UVStream.write
+  File "uvloop/handles/handle.pyx", line 159, in uvloop.loop.UVHandle._ensure_alive
+RuntimeError: unable to perform operation on <TCPTransport closed=True reading=False 0x559190c27350>; the handler is closed
+Internal Server Error: /profile/leader/drinceanu_adrian/chores
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/redis/asyncio/connection.py", line 274, in connect
+    await self.retry.call_with_retry(
+  File "/usr/local/lib/python3.12/site-packages/redis/asyncio/retry.py", line 59, in call_with_retry
+    return await do()
+           ^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/asyncio/connection.py", line 681, in _connect
+    reader, writer = await asyncio.open_connection(
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/asyncio/streams.py", line 48, in open_connection
+    transport, _ = await loop.create_connection(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "uvloop/loop.pyx", line 1978, in create_connection
+socket.gaierror: [Errno -2] Name or service not known
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.12/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.12/site-packages/django/core/handlers/base.py", line 253, in _get_response_async
+    response = await wrapped_callback(
+               ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/asgiref/sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/asgiref/current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/asgiref/sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/contrib/auth/decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/household-manager/home/views.py", line 101, in create_chore_view
+    chore.save()
+  File "/usr/local/lib/python3.12/site-packages/django/db/models/base.py", line 822, in save
+    self.save_base(
+  File "/usr/local/lib/python3.12/site-packages/django/db/models/base.py", line 924, in save_base
+    post_save.send(
+  File "/usr/local/lib/python3.12/site-packages/django/dispatch/dispatcher.py", line 189, in send
+    response = receiver(signal=self, sender=sender, **named)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/household-manager/home/signals.py", line 34, in create_chore_notification
+    async_to_sync(channel_layer.group_send)(
+  File "/usr/local/lib/python3.12/site-packages/asgiref/sync.py", line 254, in __call__
+    return call_result.result()
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/concurrent/futures/_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+  File "/usr/local/lib/python3.12/site-packages/asgiref/sync.py", line 331, in main_wrap
+    result = await self.awaitable(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/channels_redis/core.py", line 529, in group_send
+    await connection.zremrangebyscore(
+  File "/usr/local/lib/python3.12/site-packages/redis/asyncio/client.py", line 605, in execute_command
+    conn = self.connection or await pool.get_connection(command_name, **options)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/redis/asyncio/connection.py", line 1076, in get_connection
+    await self.ensure_connection(connection)
+  File "/usr/local/lib/python3.12/site-packages/redis/asyncio/connection.py", line 1109, in ensure_connection
+    await connection.connect()
+  File "/usr/local/lib/python3.12/site-packages/redis/asyncio/connection.py", line 282, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error -2 connecting to redis:6379. -2.
+Sending email to iulia.c.drinceanu@gmail.com about chore: test2
+Email sent successfully.
+Sending email to iulia.c.drinceanu@gmail.com about chore: sdf
+Email sent successfully.
+Sending email to iulia.c.drinceanu@gmail.com about chore: ostropel
+Email sent successfully.
+Sending email to iulia.c.drinceanu@gmail.com about chore: asdasd
+Email sent successfully.
+Not Found: /static/js/_site_dashboard_free/assets/js/dashboard-free.js.map
+Not Found: /static/js/_site_dashboard_free/assets/js/dashboard-free.js.map
+Sending email to iulia.c.drinceanu@gmail.com about chore: xcc
+Email sent successfully.
+Not Found: /static/js/_site_dashboard_free/assets/js/dashboard-free.js.map
+Not Found: /static/js/_site_dashboard_free/assets/js/dashboard-free.js.map
+Not Found: /static/js/_site_dashboard_free/assets/js/dashboard-free.js.map
+Not Found: /static/js/_site_dashboard_free/assets/js/dashboard-free.js.map
+Not Found: /static/js/_site_dashboard_free/assets/js/dashboard-free.js.map
+Not Found: /static/js/_site_dashboard_free/assets/js/dashboard-free.js.map
+Sending email to iulia.c.drinceanu@gmail.com about chore: asd
+Email sent successfully.
+Not Found: /static/js/_site_dashboard_free/assets/js/dashboard-free.js.map
+Connecting to group notifications_12
+Not Found: /static/js/_site_dashboard_free/assets/js/dashboard-free.js.map
+Received get_notifications command
+Got 1 notifications
+Creating chore notification for asd - Assigned to: Drinceanu Iulia
+Sending email to iulia.c.drinceanu@gmail.com about chore: asd
+Email sent successfully.
+Disconnecting from group notifications_12
+Connecting to group notifications_12
+Received get_notifications command
+Not Found: /static/js/_site_dashboard_free/assets/js/dashboard-free.js.map
+Got 2 notifications
+Connecting to group notifications_1
+Received get_notifications command
+Got 2 notifications
+Connecting to group notifications_12
+Received get_notifications command
+Not Found: /static/js/_site_dashboard_free/assets/js/dashboard-free.js.map
+Got 2 notifications
+Not Found: /static/js/_site_dashboard_free/assets/js/dashboard-free.js.map
+Not Found: /static/js/_site_dashboard_free/assets/js/dashboard-free.js.map
+Not Found: /static/js/_site_dashboard_free/assets/js/dashboard-free.js.map
+Not Found: /static/js/_site_dashboard_free/assets/js/dashboard-free.js.map
+Creating chore notification for asd - Assigned to: Drinceanu Iulia
+Sending email to iulia.c.drinceanu@gmail.com about chore: asd
+Email sent successfully.
+Not Found: /static/js/_site_dashboard_free/assets/js/dashboard-free.js.map
+Not Found: /static/js/_site_dashboard_free/assets/js/dashboard-free.js.map
+Connecting to group notifications_12
+Received get_notifications command
+Not Found: /static/js/_site_dashboard_free/assets/js/dashboard-free.js.map
+Got 1 notifications
+Not Found: /profile/leader/drinceanu_adrian/default_image_url
+Creating chore notification for test - Assigned to: Drinceanu Iulia
+Sending email to iulia.c.drinceanu@gmail.com about chore: test
+Email sent successfully.
+Disconnecting from group notifications_12
+Connecting to group notifications_12
+Received get_notifications command
+Not Found: /static/js/_site_dashboard_free/assets/js/dashboard-free.js.map
+Got 2 notifications
+Not Found: /profile/leader/drinceanu_adrian/default_image_url
+Connecting to group notifications_12
+Received get_notifications command
+Not Found: /static/js/_site_dashboard_free/assets/js/dashboard-free.js.map
+Got 2 notifications
+Not Found: /profile/leader/drinceanu_adrian/default_image_url
+Disconnecting from group notifications_12
+Not Found: /static/js/_site_dashboard_free/assets/js/dashboard-free.js.map
+Connecting to group notifications_12
+Received get_notifications command
+Not Found: /static/js/_site_dashboard_free/assets/js/dashboard-free.js.map
+Got 2 notifications
+Not Found: /profile/leader/drinceanu_adrian/default_image_url
+Disconnecting from group notifications_12
+Connecting to group notifications_12
+Received get_notifications command
+Got 2 notifications
+Not Found: /profile/leader/drinceanu_adrian/default_image_url
+Not Found: /static/js/_site_dashboard_free/assets/js/dashboard-free.js.map
+Disconnecting from group notifications_12
+Connecting to group notifications_12
+Received get_notifications command
+Not Found: /static/js/_site_dashboard_free/assets/js/dashboard-free.js.map
+Got 2 notifications
+Not Found: /profile/leader/drinceanu_adrian/default_image_url
+Connecting to group notifications_12
+Received get_notifications command
+Not Found: /static/js/_site_dashboard_free/assets/js/dashboard-free.js.map
+Got 2 notifications
+Connecting to group notifications_14
+Received get_notifications command
+Got 2 notifications
+Not Found: /static/js/_site_dashboard_free/assets/js/dashboard-free.js.map
+Connecting to group notifications_1
+Received get_notifications command
+Got 2 notifications
+Disconnecting from group notifications_1
+Connecting to group notifications_1
+Received get_notifications command
+Got 2 notifications
+Disconnecting from group notifications_1
+Connecting to group notifications_1
+Received get_notifications command
+Got 2 notifications
+Disconnecting from group notifications_1
+Connecting to group notifications_1
+Received get_notifications command
+Got 2 notifications
+Connecting to group notifications_1
+Received get_notifications command
+Got 2 notifications
+Disconnecting from group notifications_1
+Connecting to group notifications_1
+Received get_notifications command
+Got 2 notifications
+Disconnecting from group notifications_1
+Connecting to group notifications_1
+Received get_notifications command
+Got 0 notifications
+Connecting to group notifications_12
+Received get_notifications command
+Got 0 notifications
+Not Found: /static/js/_site_dashboard_free/assets/js/dashboard-free.js.map
+Disconnecting from group notifications_12
+Connecting to group notifications_12
+Received get_notifications command
+Not Found: /static/js/_site_dashboard_free/assets/js/dashboard-free.js.map
+Got 0 notifications
+Creating chore notification for sss - Assigned to: Drinceanu Iulia
+Sending email to iulia.c.drinceanu@gmail.com about chore: sss
+Email sent successfully.
+Disconnecting from group notifications_12
+Connecting to group notifications_12
+Received get_notifications command
+Not Found: /static/js/_site_dashboard_free/assets/js/dashboard-free.js.map
+Got 1 notifications
+Not Found: /static/js/_site_dashboard_free/assets/js/dashboard-free.js.map
+Disconnecting from group notifications_1
+Connecting to group notifications_1
+Received get_notifications command
+Got 1 notifications
+Disconnecting from group notifications_1
+Connecting to group notifications_1
+Received get_notifications command
+Got 1 notifications
+Connecting to group notifications_14
+Received get_notifications command
+Got 1 notifications
+Disconnecting from group notifications_14
+Connecting to group notifications_14
+Received get_notifications command
+Got 1 notifications
+Disconnecting from group notifications_14
+Connecting to group notifications_14
+Received get_notifications command
+Got 1 notifications
+Connecting to group notifications_12
+Not Found: /static/js/_site_dashboard_free/assets/js/dashboard-free.js.map
+Received get_notifications command
+Got 1 notifications
+Connecting to group notifications_1
+Received get_notifications command
+Got 1 notifications
+Disconnecting from group notifications_1
+Connecting to group notifications_1
+Received get_notifications command
+Got 1 notifications
+Not Found: /static/js/_site_dashboard_free/assets/js/dashboard-free.js.map
+Connecting to group notifications_12
+Received get_notifications command
+Got 1 notifications
+Not Found: /profile/leader/drinceanu_adrian/undefined
+Disconnecting from group notifications_12
+Connecting to group notifications_12
+Received get_notifications command
+Not Found: /static/js/_site_dashboard_free/assets/js/dashboard-free.js.map
+Got 1 notifications
+Not Found: /profile/leader/drinceanu_adrian/undefined
+Disconnecting from group notifications_12
+Connecting to group notifications_12
+Received get_notifications command
+Not Found: /static/js/_site_dashboard_free/assets/js/dashboard-free.js.map
+Got 1 notifications
+Not Found: /profile/leader/drinceanu_adrian/undefined
+Disconnecting from group notifications_12
+Connecting to group notifications_12
+Received get_notifications command
+Not Found: /static/js/_site_dashboard_free/assets/js/dashboard-free.js.map
+Got 1 notifications
+Not Found: /profile/leader/drinceanu_adrian/undefined
+Creating chore notification for ddd - Assigned to: Drinceanu Iulia
+Sending email to iulia.c.drinceanu@gmail.com about chore: ddd
+Email sent successfully.
+Disconnecting from group notifications_12
+Connecting to group notifications_12
+Received get_notifications command
+Not Found: /static/js/_site_dashboard_free/assets/js/dashboard-free.js.map
+Got 2 notifications
+Not Found: /profile/leader/drinceanu_adrian/undefined
+Connecting to group notifications_1
+Received get_notifications command
+Got 2 notifications
+Disconnecting from group notifications_1
+Connecting to group notifications_1
+Received get_notifications command
+Got 2 notifications
+Connecting to group notifications_14
+Received get_notifications command
+Got 2 notifications
+Not Found: /profile/member/drinceanu_iulia_1/undefined
+Disconnecting from group notifications_12
+Connecting to group notifications_12
+Received get_notifications command
+Not Found: /static/js/_site_dashboard_free/assets/js/dashboard-free.js.map
+Got 2 notifications
+Not Found: /profile/leader/drinceanu_adrian/undefined
