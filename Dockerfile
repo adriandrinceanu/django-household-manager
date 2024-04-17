@@ -9,7 +9,7 @@ ENV PYTHONUNBUFFERED 1
 COPY requirements.txt .
 RUN pip install --upgrade pip
 RUN pip install --no-cache-dir -r requirements.txt
-# RUN pip install uvicorn[standard]
+RUN pip install uvicorn[standard]
 RUN pip install psycopg2-binary #for postgres database
 # for ngix
 # RUN apt-get update && apt-get install -y netcat-openbsd
