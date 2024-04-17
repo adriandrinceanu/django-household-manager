@@ -40,6 +40,7 @@ class MemberCreationForm(forms.ModelForm):
         user = User()
         username = generate_unique_username_from_str(self.cleaned_data['name'])
         user.username = username
+        user.email = self.cleaned_data['email']  # Set the email on the User instance
         user.set_password(username)
         user.save()
         user.groups.add(self.cleaned_data['role'])
