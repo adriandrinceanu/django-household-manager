@@ -1,53 +1,36 @@
 from django.db.models.signals import post_save
 from django.dispatch import receiver
-from .models import Chore, Notification, Expense
+from channels.layers import get_channel_layer
+from asgiref.sync import async_to_sync
+from .models import Chore, Notification, Expense, Member
+import logging
+logger = logging.getLogger(__name__)
 
-# @receiver(post_save, sender=Chore)
-# def create_notification(sender, instance, created, **kwargs):
-#     if created:
-#         Notification.objects.create(
-#             user=instance.assigned_to.user,
-#             message=f"You have been assigned a new chore: {instance.title}",
-#             family=instance.assigned_to.family,  # this should now work
-#             member=instance.assigned_to,
-#             chore=instance,
-#         )
 
+
+            
 @receiver(post_save, sender=Chore)
 def create_chore_notification(sender, instance, created, **kwargs):
+    logger.info(f"Creating chore notification for {instance}")
     if created:
-        # Get all members of the family
-        family_members = instance.assigned_to.family.family_members.all()
+        # Get the member who created the chore
+        creator_member = Member.objects.get(user=instance.created_by)
+        # Create a notification for the family
+        notification = Notification.objects.create(
+            user=instance.created_by,
+            member=creator_member,  # Set the member field
+            message=f"{instance.created_by.member.name} assigned the chore: {instance.title} to {instance.assigned_to.name}.",
+            family=instance.assigned_to.family,
+            chore=instance  # Set the chore field
+        )
         
-        # Create a notification for each member
-        for member in family_members:
-            Notification.objects.create(
-                user=member.user,
-                message=f"{instance.created_by.member.name} assigned the chore: {instance.title} to {instance.assigned_to.name}.",
-                family=instance.assigned_to.family,
-            )
-            
-            
-# 'NoneType' object has no attribute 'user' - error           
-# @receiver(post_save, sender=Expense)
-# def create_expense_notification(sender, instance, created, **kwargs):
-#     if created:
-#         # Get the names of all members who created the expense
-#         members = ", ".join([member.name for member in instance.created_by.all()])
-#         Notification.objects.create(
-#             user=instance.created_by.first().user,  # Assuming you want to send the notification to the first member
-#             message=f"{members} spent {instance.amount} on {instance.category}.",
-#             family=instance.created_by.first().family,  # Assuming all members belong to the same family
-#         )
-
-
-#untested, might work:
-# @receiver(post_save, sender=Expense)
-# def create_expense_notification(sender, instance, created, **kwargs):
-#     if created:
-#         for member in instance.created_by.all():
-#             Notification.objects.create(
-#                 user=member.user,
-#                 message=f"{member.name} spent {instance.amount} on {instance.category}.",
-#                 family=member.family,
-#             )
+        # Send notification to family's group
+        channel_layer = get_channel_layer()
+        async_to_sync(channel_layer.group_send)(
+            f"notifications_{instance.assigned_to.family.id}",
+            {
+                "type": "send_notification",
+                "text": str(notification),
+            }
+        )
+        
