@@ -599,23 +599,15 @@ def chore_done(request, chore_id):
 
 ###notifications
 
-# def mark_notification_as_read(request, notification_id):
-#     notification = get_object_or_404(Notification, id=notification_id)
-#     notification.is_read = True
-#     notification.save()
-#     # Redirect to the page where you want to go after marking the notification as read
-#     return redirect('/')
+### end notifications
 
-# from django.http import JsonResponse
-# from django.views.decorators.csrf import csrf_exempt
 
-# @csrf_exempt
-# def mark_notification_as_read(request):
-#     if request.method == 'POST':
-#         notification_id = request.POST.get('id')
-#         notification = Notification.objects.get(id=notification_id)
-#         notification.is_read = True
-#         notification.save()
-#         return JsonResponse({'status': 'success'})
-#     else:
-#         return JsonResponse({'status': 'failed', 'error': 'Invalid request method'})
+### chat
+def family_room_view(request, username):
+    user = get_object_or_404(User, username=username)
+    # Get the current user's family
+    member = Member.objects.get(user=user)
+    family_name = member.family.name
+    return render(request, 'pages/family_room.html', {'family_name': family_name, 'segment': 'chat', 'exclude_navigation': True})
+
+### end chat
