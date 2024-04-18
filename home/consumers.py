@@ -45,7 +45,7 @@ class NotificationConsumer(AsyncJsonWebsocketConsumer):
                 'user': notification.user.username if notification.user else None,
                 'message': notification.message,
                 'is_read': notification.is_read,
-                'created_at': notification.created_at.isoformat(),
+                'created_at': str(naturaltime(notification.created_at)),
                 'family': notification.family.name if notification.family else None,
                 'member': {
                     'id': notification.member.id,
