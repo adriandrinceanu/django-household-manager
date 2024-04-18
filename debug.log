@@ -2609,3 +2609,195 @@ Disconnecting from group notifications_15
 Connecting to group notifications_15
 Received get_notifications command
 Got 0 notifications
+Connecting to group notifications_15
+Received get_notifications command
+Got 0 notifications
+Connecting to group notifications_14
+Received get_notifications command
+Got 2 notifications
+Connecting to group notifications_12
+Received get_notifications command
+Got 2 notifications
+Not Found: /static/js/_site_dashboard_free/assets/js/dashboard-free.js.map
+Connecting to group notifications_14
+Received get_notifications command
+Got 2 notifications
+Not Found: /static/js/_site_dashboard_free/assets/js/dashboard-free.js.map
+Connecting to group notifications_14
+Received get_notifications command
+Got 2 notifications
+Internal Server Error: /mark_notification_as_read/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.12/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.12/site-packages/django/core/handlers/base.py", line 253, in _get_response_async
+    response = await wrapped_callback(
+               ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/asgiref/sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/asgiref/current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/asgiref/sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/household-manager/home/views.py", line 616, in mark_notification_as_read
+    notification = Notification.objects.get(id=notification_id)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/db/models/query.py", line 649, in get
+    raise self.model.DoesNotExist(
+home.models.Notification.DoesNotExist: Notification matching query does not exist.
+Not Found: /static/js/_site_dashboard_free/assets/js/dashboard-free.js.map
+Not Found: /favicon.ico
+Connecting to group notifications_14
+Received get_notifications command
+Not Found: /static/js/_site_dashboard_free/assets/js/dashboard-free.js.map
+Got 2 notifications
+Connecting to group notifications_12
+Received get_notifications command
+Got 2 notifications
+Creating chore notification for gatit - Assigned to: Drinceanu Adrian
+Sending email to adrian@drincenii.ro about chore: gatit
+Email sent successfully.
+Disconnecting from group notifications_12
+Connecting to group notifications_12
+Received get_notifications command
+Got 3 notifications
+Disconnecting from group notifications_14
+Connecting to group notifications_14
+Received get_notifications command
+Got 3 notifications
+Not Found: /static/js/_site_dashboard_free/assets/js/dashboard-free.js.map
+Disconnecting from group notifications_14
+Connecting to group notifications_14
+Received get_notifications command
+Not Found: /static/js/_site_dashboard_free/assets/js/dashboard-free.js.map
+Got 3 notifications
+Disconnecting from group notifications_14
+Not Found: /static/js/_site_dashboard_free/assets/js/dashboard-free.js.map
+Not Found: /static/js/_site_dashboard_free/assets/js/dashboard-free.js.map
+Connecting to group notifications_14
+Received get_notifications command
+Got 3 notifications
+Connecting to group notifications_15
+Received get_notifications command
+Got 0 notifications
+Disconnecting from group notifications_15
+Not Found: /static/js/_site_dashboard_free/assets/js/dashboard-free.js.map
+Creating chore notification for awedf - Assigned to: Drinceanu Adrian
+Sending email to adrian@drincenii.ro about chore: awedf
+Email sent successfully.
+Not Found: /static/js/_site_dashboard_free/assets/js/dashboard-free.js.map
+Not Found: /static/js/_site_dashboard_free/assets/js/dashboard-free.js.map
+Not Found: /static/js/_site_dashboard_free/assets/js/dashboard-free.js.map
+Not Found: /static/js/_site_dashboard_free/assets/js/dashboard-free.js.map
+Not Found: /static/js/_site_dashboard_free/assets/js/dashboard-free.js.map
+Not Found: /static/js/_site_dashboard_free/assets/js/dashboard-free.js.map
+Not Found: /static/js/_site_dashboard_free/assets/js/dashboard-free.js.map
+Not Found: /static/js/_site_dashboard_free/assets/js/dashboard-free.js.map
+Not Found: /static/js/_site_dashboard_free/assets/js/dashboard-free.js.map
+Not Found: /static/js/_site_dashboard_free/assets/js/dashboard-free.js.map
+Connecting to group notifications_14
+Received get_notifications command
+Not Found: /static/js/_site_dashboard_free/assets/js/dashboard-free.js.map
+Got 4 notifications
+Creating chore notification for asd - Assigned to: Drinceanu Adrian
+Sending email to adrian@drincenii.ro about chore: asd
+Email sent successfully.
+Connecting to group notifications_12
+Received get_notifications command
+Got 5 notifications
+Not Found: /static/js/_site_dashboard_free/assets/js/dashboard-free.js.map
+Disconnecting from group notifications_14
+Connecting to group notifications_14
+Received get_notifications command
+Not Found: /static/js/_site_dashboard_free/assets/js/dashboard-free.js.map
+Got 5 notifications
+Not Found: /static/js/_site_dashboard_free/assets/js/dashboard-free.js.map
+Not Found: /static/js/_site_dashboard_free/assets/js/dashboard-free.js.map
+Connecting to group notifications_6
+Received get_notifications command
+Got 5 notifications
+Connecting to group notifications_6
+Received get_notifications command
+Not Found: /static/js/_site_dashboard_free/assets/js/dashboard-free.js.map
+Got 5 notifications
+Creating chore notification for asdf - Assigned to: Drinceanu Adrian
+Sending notification: Notification for Drinceanu family: Drinceanu Adrian assigned the chore: asdf to Drinceanu Adrian.
+Sending email to adrian@drincenii.ro about chore: asdf
+Sending notification: Notification for Drinceanu family: Drinceanu Adrian assigned the chore: asdf to Drinceanu Adrian.
+Email sent successfully.
+Disconnecting from group notifications_6
+Not Found: /static/js/_site_dashboard_free/assets/js/dashboard-free.js.map
+Connecting to group notifications_6
+Received get_notifications command
+Got 6 notifications
+Disconnecting from group notifications_6
+Not Found: /static/js/_site_dashboard_free/assets/js/dashboard-free.js.map
+Connecting to group notifications_6
+Received get_notifications command
+Got 6 notifications
+Disconnecting from group notifications_6
+Connecting to group notifications_6
+Received get_notifications command
+Got 6 notifications
+Creating chore notification for sdf - Assigned to: Drinceanu Adrian
+Sending notification: Notification for Drinceanu family: Drinceanu Adrian assigned the chore: sdf to Drinceanu Adrian.
+Sending notification: Notification for Drinceanu family: Drinceanu Adrian assigned the chore: sdf to Drinceanu Adrian.
+Sending email to adrian@drincenii.ro about chore: sdf
+Email sent successfully.
+Disconnecting from group notifications_6
+Connecting to group notifications_6
+Received get_notifications command
+Not Found: /static/js/_site_dashboard_free/assets/js/dashboard-free.js.map
+Got 7 notifications
+Disconnecting from group notifications_6
+Connecting to group notifications_6
+Received get_notifications command
+Got 7 notifications
+Disconnecting from group notifications_6
+Connecting to group notifications_6
+Received get_notifications command
+Not Found: /static/js/_site_dashboard_free/assets/js/dashboard-free.js.map
+Got 6 notifications
+Disconnecting from group notifications_6
+Connecting to group notifications_6
+Not Found: /static/js/_site_dashboard_free/assets/js/dashboard-free.js.map
+Received get_notifications command
+Got 5 notifications
+Disconnecting from group notifications_6
+Not Found: /static/js/_site_dashboard_free/assets/js/dashboard-free.js.map
+Connecting to group notifications_6
+Received get_notifications command
+Got 4 notifications
+Not Found: /static/js/_site_dashboard_free/assets/js/dashboard-free.js.map
+Connecting to group notifications_6
+Received get_notifications command
+Got 4 notifications
+Connecting to group notifications_6
+Received get_notifications command
+Got 4 notifications
+Disconnecting from group notifications_6
+Not Found: /static/js/_site_dashboard_free/assets/js/dashboard-free.js.map
+Connecting to group notifications_6
+Received get_notifications command
+Got 4 notifications
+Creating chore notification for sdf - Assigned to: Drinceanu Adrian
+Sending email to adrian@drincenii.ro about chore: sdf
+Email sent successfully.
+Not Found: /static/js/_site_dashboard_free/assets/js/dashboard-free.js.map
+Connecting to group notifications_6
+Received get_notifications command
+Got 5 notifications

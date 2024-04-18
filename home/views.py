@@ -606,3 +606,16 @@ def chore_done(request, chore_id):
 #     # Redirect to the page where you want to go after marking the notification as read
 #     return redirect('/')
 
+# from django.http import JsonResponse
+# from django.views.decorators.csrf import csrf_exempt
+
+# @csrf_exempt
+# def mark_notification_as_read(request):
+#     if request.method == 'POST':
+#         notification_id = request.POST.get('id')
+#         notification = Notification.objects.get(id=notification_id)
+#         notification.is_read = True
+#         notification.save()
+#         return JsonResponse({'status': 'success'})
+#     else:
+#         return JsonResponse({'status': 'failed', 'error': 'Invalid request method'})

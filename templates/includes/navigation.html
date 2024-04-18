@@ -65,6 +65,8 @@
         <li class="nav-item dropdown pe-3 d-flex align-items-center">
           <a href="javascript:;" class="nav-link text-body p-0" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
             <i class="fa fa-bell cursor-pointer"></i>
+            <!-- Notification counter -->
+          <span id="notificationCounter" class="badge bg-danger"></span>
           </a>
           <ul id="notificationDropdown" class="dropdown-menu  dropdown-menu-end  px-2 py-3 me-sm-n4" aria-labelledby="dropdownMenuButton">
             <!-- Notifications will be added here by JavaScript -->
@@ -102,6 +104,10 @@ socket.addEventListener('message', (event) => {
     let notifications = data.notifications;
     console.log('Notifications: ', notifications);
 
+    // Update the notification counter
+    let counter = document.getElementById("notificationCounter");
+    counter.textContent = notifications.length;
+    
     // Get the notifications dropdown
     let dropdown = document.getElementById("notificationDropdown");
     console.log('Dropdown element: ', dropdown);
@@ -136,7 +142,7 @@ socket.addEventListener('message', (event) => {
                         </h6>
                         <p class="text-xs text-secondary mb-0 ">
                             <i class="fa fa-clock me-1"></i>
-                            ${notification.created_at} ago
+                            ${notification.created_at} | <span class="read-status">${notification.is_read ? 'Read' : 'Unread'}
                         </p>
                     </div>
                 </div>
@@ -144,7 +150,6 @@ socket.addEventListener('message', (event) => {
         `;
 
         console.log('Dropdown item: ', item);
-
         // Add the dropdown item to the dropdown
         dropdown.appendChild(item);
     }

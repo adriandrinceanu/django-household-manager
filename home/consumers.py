@@ -13,8 +13,13 @@ logger = logging.getLogger(__name__)
 class NotificationConsumer(AsyncJsonWebsocketConsumer):
     async def connect(self):
         self.user = self.scope["user"]
-        self.group_name = f"notifications_{self.user.id}"
+        # Get the family id
+        # Get the family id in a synchronous context
+        family_id = await sync_to_async(self.get_family_id)()
+        self.group_name = f"notifications_{family_id}"
         logger.info(f"Connecting to group {self.group_name}")
+        
+        
 
         # Join the group
         await self.channel_layer.group_add(
@@ -23,6 +28,10 @@ class NotificationConsumer(AsyncJsonWebsocketConsumer):
         )
 
         await self.accept()
+        
+    # Synchronous method to get family id
+    def get_family_id(self):
+        return self.user.member.family.id
 
     async def disconnect(self, close_code):
         logger.info(f"Disconnecting from group {self.group_name}")
@@ -71,10 +80,25 @@ class NotificationConsumer(AsyncJsonWebsocketConsumer):
             notifications = await self.get_notifications()
         await self.send_json({"notifications": notifications})
     
-
-    
+    async def new_notification(self, notification):
+        # Send notification to room group
+        await self.channel_layer.group_send(
+            self.group_name,
+            {
+                'type': 'send_notification',
+                'notification': notification
+            }
+        )
 
     # Receive message from room group
     async def send_notification(self, event):
-        logger.info(f"Sending notification: {event['text']}")
-        await self.send_json(event["text"])
+        notification = event['notification']
+        # Send message to WebSocket
+        await self.send_json(notification)
+
+    
+
+    # # Receive message from room group
+    # async def send_notification(self, event):
+    #     logger.info(f"Sending notification: {event['text']}")
+    #     await self.send_json(event["text"])
