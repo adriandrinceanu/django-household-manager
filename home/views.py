@@ -607,7 +607,11 @@ def family_room_view(request, username):
     user = get_object_or_404(User, username=username)
     # Get the current user's family
     member = Member.objects.get(user=user)
-    family_name = member.family.name
+    if member.family is None:
+        # Redirect to the 'no_family' page (or any page you want)
+        return redirect('create_family')
+    else:
+        family_name = member.family.name
     return render(request, 'pages/family_room.html', {'family_name': family_name, 'segment': 'chat', 'exclude_navigation': True})
 
 ### end chat
