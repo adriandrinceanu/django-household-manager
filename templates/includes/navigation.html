@@ -109,6 +109,11 @@ socket.addEventListener('message', (event) => {
     // Clear the current notifications
     dropdown.innerHTML = "";
 
+    // Check if there are any notifications
+    if (notifications.length === 0) {
+        // If not, display a message
+        dropdown.innerHTML = "<li class='mb-2'>No notifications yet</li>";
+      } else {
     // Add each notification to the dropdown
     for (let i = 0; i < notifications.length; i++) {
         let notification = notifications[i];
@@ -143,6 +148,7 @@ socket.addEventListener('message', (event) => {
         // Add the dropdown item to the dropdown
         dropdown.appendChild(item);
     }
+  }
 });
 
 </script>
