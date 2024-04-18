@@ -2801,3 +2801,552 @@ Not Found: /static/js/_site_dashboard_free/assets/js/dashboard-free.js.map
 Connecting to group notifications_6
 Received get_notifications command
 Got 5 notifications
+Not Found: /static/js/_site_dashboard_free/assets/js/dashboard-free.js.map
+Connecting to group notifications_6
+Disconnecting from group notifications_6
+Connecting to group notifications_6
+Not Found: /static/js/_site_dashboard_free/assets/js/dashboard-free.js.map
+Connecting to group notifications_6
+Not Found: /static/js/_site_dashboard_free/assets/js/dashboard-free.js.map
+Not Found: /static/js/_site_dashboard_free/assets/js/dashboard-free.js.map
+Connecting to group notifications_6
+Received get_notifications command
+Got 5 notifications
+Connecting to group notifications_6
+Received get_notifications command
+Not Found: /static/js/_site_dashboard_free/assets/js/dashboard-free.js.map
+Got 5 notifications
+Creating chore notification for asdf - Assigned to: Drinceanu Adrian
+Sending email to adrian@drincenii.ro about chore: asdf
+Email sent successfully.
+Disconnecting from group notifications_6
+Not Found: /static/js/_site_dashboard_free/assets/js/dashboard-free.js.map
+Connecting to group notifications_6
+Received get_notifications command
+Got 6 notifications
+Not Found: /static/js/_site_dashboard_free/assets/js/dashboard-free.js.map
+Connecting to group notifications_6
+Received get_notifications command
+Got 6 notifications
+Not Found: /static/js/_site_dashboard_free/assets/js/dashboard-free.js.map
+Connecting to group notifications_6
+Received get_notifications command
+Got 6 notifications
+Not Found: /static/js/_site_dashboard_free/assets/js/dashboard-free.js.map
+Connecting to group notifications_6
+Received get_notifications command
+Got 6 notifications
+Creating chore notification for asd - Assigned to: Drinceanu Adrian
+Sending email to adrian@drincenii.ro about chore: asd
+Email sent successfully.
+Disconnecting from group notifications_6
+Not Found: /static/js/_site_dashboard_free/assets/js/dashboard-free.js.map
+Connecting to group notifications_6
+Received get_notifications command
+Got 7 notifications
+Not Found: /static/js/_site_dashboard_free/assets/js/dashboard-free.js.map
+Connecting to group notifications_6
+Received get_notifications command
+Got 7 notifications
+Not Found: /static/js/_site_dashboard_free/assets/js/dashboard-free.js.map
+Connecting to group notifications_6
+Received get_notifications command
+Got 7 notifications
+Creating chore notification for sf - Assigned to: Drinceanu Adrian
+Sending email to adrian@drincenii.ro about chore: sf
+Email sent successfully.
+Disconnecting from group notifications_6
+Not Found: /static/js/_site_dashboard_free/assets/js/dashboard-free.js.map
+Connecting to group notifications_6
+Received get_notifications command
+Got 8 notifications
+Connecting to group notifications_6
+Not Found: /static/js/_site_dashboard_free/assets/js/dashboard-free.js.map
+Not Found: /static/js/_site_dashboard_free/assets/js/dashboard-free.js.map
+Connecting to group notifications_6
+Connecting to group notifications_6
+Received get_notifications command
+Got 8 notifications
+Not Found: /static/js/_site_dashboard_free/assets/js/dashboard-free.js.map
+Connecting to group notifications_6
+Received get_notifications command
+Got 8 notifications
+Disconnecting from group notifications_6
+Not Found: /static/js/_site_dashboard_free/assets/js/dashboard-free.js.map
+Connecting to group notifications_6
+Received get_notifications command
+Got 8 notifications
+Disconnecting from group notifications_6
+Not Found: /static/js/_site_dashboard_free/assets/js/dashboard-free.js.map
+Connecting to group notifications_6
+Received get_notifications command
+Got 8 notifications
+Creating chore notification for wer - Assigned to: Drinceanu Adrian
+Sending email to adrian@drincenii.ro about chore: wer
+Email sent successfully.
+Disconnecting from group notifications_6
+Connecting to group notifications_6
+Received get_notifications command
+Got 9 notifications
+Disconnecting from group notifications_6
+Not Found: /static/js/_site_dashboard_free/assets/js/dashboard-free.js.map
+Connecting to group notifications_6
+Received get_notifications command
+Got 9 notifications
+Connecting to group notifications_6
+Received get_notifications command
+Got 9 notifications
+Disconnecting from group notifications_6
+Connecting to group notifications_6
+Received get_notifications command
+Got 9 notifications
+Disconnecting from group notifications_6
+Connecting to group notifications_6
+Received get_notifications command
+Got 9 notifications
+Disconnecting from group notifications_6
+Connecting to group notifications_6
+Received get_notifications command
+Got 9 notifications
+Disconnecting from group notifications_6
+Connecting to group notifications_6
+Received get_notifications command
+Got 9 notifications
+Creating chore notification for asd - Assigned to: Drinceanu Adrian
+Sending email to adrian@drincenii.ro about chore: asd
+Email sent successfully.
+Disconnecting from group notifications_6
+Connecting to group notifications_6
+Received get_notifications command
+Got 10 notifications
+Not Found: /static/js/_site_dashboard_free/assets/js/dashboard-free.js.map
+Connecting to group notifications_6
+Received get_notifications command
+Got 10 notifications
+Creating chore notification for ZXC - Assigned to: Drinceanu Adrian
+Sending email to adrian@drincenii.ro about chore: ZXC
+Email sent successfully.
+Disconnecting from group notifications_6
+Connecting to group notifications_6
+Received get_notifications command
+Got 11 notifications
+Disconnecting from group notifications_6
+Disconnecting from group notifications_6
+Connecting to group notifications_6
+Received get_notifications command
+Got 11 notifications
+Disconnecting from group notifications_6
+Connecting to group notifications_6
+Received get_notifications command
+Got 11 notifications
+Disconnecting from group notifications_6
+Connecting to group notifications_6
+Received get_notifications command
+Got 11 notifications
+Connecting to group notifications_6
+Received get_notifications command
+Got 11 notifications
+Disconnecting from group notifications_6
+Connecting to group notifications_6
+Received get_notifications command
+Got 11 notifications
+Disconnecting from group notifications_6
+Connecting to group notifications_6
+Received get_notifications command
+Got 11 notifications
+Disconnecting from group notifications_6
+Connecting to group notifications_6
+Received get_notifications command
+Got 11 notifications
+Disconnecting from group notifications_6
+Connecting to group notifications_6
+Received get_notifications command
+Got 11 notifications
+Disconnecting from group notifications_6
+Connecting to group notifications_6
+Received get_notifications command
+Got 11 notifications
+Internal Server Error: /profile/family_member/drinceanu_adrian/chat
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.12/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.12/site-packages/django/core/handlers/base.py", line 253, in _get_response_async
+    response = await wrapped_callback(
+               ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/asgiref/sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/asgiref/current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/asgiref/sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/household-manager/home/views.py", line 611, in family_room_view
+    return render(request, 'family_room.html', {'family_name': family_name, 'segment': 'chat',})
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/template/loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/template/loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: family_room.html
+Disconnecting from group notifications_6
+Internal Server Error: /profile/family_member/drinceanu_adrian/chat
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.12/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.12/site-packages/django/core/handlers/base.py", line 253, in _get_response_async
+    response = await wrapped_callback(
+               ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/asgiref/sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/asgiref/current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/asgiref/sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/household-manager/home/views.py", line 611, in family_room_view
+    return render(request, 'pages/family_room.html', {'family_name': family_name, 'segment': 'chat',})
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/template/loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/template/loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: family_room.html
+Connecting to group notifications_6
+Received get_notifications command
+Got 11 notifications
+Not Found: /static/js/_site_dashboard_free/assets/js/dashboard-free.js.map
+Internal Server Error: /profile/family_member/drinceanu_adrian/chat
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/django/template/base.py", line 502, in parse
+    compile_func = self.tags[command]
+                   ~~~~~~~~~^^^^^^^^^
+KeyError: 'exclude'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.12/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.12/site-packages/django/core/handlers/base.py", line 253, in _get_response_async
+    response = await wrapped_callback(
+               ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/asgiref/sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/asgiref/current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/asgiref/sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/household-manager/home/views.py", line 611, in family_room_view
+    return render(request, 'pages/family_room.html', {'family_name': family_name, 'segment': 'chat',})
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/template/loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/template/loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/template/backends/django.py", line 33, in get_template
+    return Template(self.engine.get_template(template_name), self)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/template/engine.py", line 177, in get_template
+    template, origin = self.find_template(template_name)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/template/engine.py", line 159, in find_template
+    template = loader.get_template(name, skip=skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/template/loaders/cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/template/loaders/base.py", line 28, in get_template
+    return Template(
+           ^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/template/base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/template/base.py", line 196, in compile_nodelist
+    return parser.parse()
+           ^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/template/base.py", line 510, in parse
+    raise self.error(token, e)
+  File "/usr/local/lib/python3.12/site-packages/django/template/base.py", line 508, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/template/loader_tags.py", line 295, in do_extends
+    nodelist = parser.parse()
+               ^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/template/base.py", line 504, in parse
+    self.invalid_block_tag(token, command, parse_until)
+  File "/usr/local/lib/python3.12/site-packages/django/template/base.py", line 565, in invalid_block_tag
+    raise self.error(
+django.template.exceptions.TemplateSyntaxError: Invalid block tag on line 3: 'exclude'. Did you forget to register or load this tag?
+Not Found: /static/js/_site_dashboard_free/assets/js/dashboard-free.js.map
+Room group: chat_Drinceanu
+Not Found: /static/js/_site_dashboard_free/assets/js/dashboard-free.js.map
+Connected to Drinceanu
+Joined room group: chat_Drinceanu
+Room group: chat_Drinceanu
+Not Found: /static/js/_site_dashboard_free/assets/js/dashboard-free.js.map
+Connected to Drinceanu
+Joined room group: chat_Drinceanu
+Received message: ccc
+Sending message: ccc
+Connecting to group notifications_6
+Received get_notifications command
+Got 11 notifications
+Disconnecting from group notifications_6
+Room group: chat_Drinceanu
+Connected to Drinceanu
+Joined room group: chat_Drinceanu
+Not Found: /static/js/_site_dashboard_free/assets/js/dashboard-free.js.map
+Received message: sf
+Sending message: sf
+Sending message: sf
+Left room group: chat_Drinceanu
+Room group: chat_Drinceanu
+Connected to Drinceanu
+Joined room group: chat_Drinceanu
+Left room group: chat_Drinceanu
+Room group: chat_Drinceanu
+Not Found: /static/js/_site_dashboard_free/assets/js/dashboard-free.js.map
+Connected to Drinceanu
+Joined room group: chat_Drinceanu
+Received message: asdasdf
+Sending message: asdasdf
+Sending message: asdasdf
+Received message: zxczxc
+Sending message: zxczxc
+Sending message: zxczxc
+Received message: ccc
+Sending message: ccc
+Sending message: ccc
+Left room group: chat_Drinceanu
+Connecting to group notifications_6
+Received get_notifications command
+Not Found: /static/js/_site_dashboard_free/assets/js/dashboard-free.js.map
+Got 11 notifications
+Disconnecting from group notifications_6
+Room group: chat_Drinceanu
+Not Found: /static/js/_site_dashboard_free/assets/js/dashboard-free.js.map
+Connected to Drinceanu
+Joined room group: chat_Drinceanu
+Room group: chat_Drinceanu
+Connected to Drinceanu
+Joined room group: chat_Drinceanu
+Received message: XZDf
+Sending message: XZDf
+Room group: chat_Drinceanu
+Not Found: /static/js/_site_dashboard_free/assets/js/dashboard-free.js.map
+Connected to Drinceanu
+Joined room group: chat_Drinceanu
+Left room group: chat_Drinceanu
+Room group: chat_Drinceanu
+Not Found: /static/js/_site_dashboard_free/assets/js/dashboard-free.js.map
+Connected to Drinceanu
+Joined room group: chat_Drinceanu
+Received message: zxcxc
+Sending message: zxcxc
+Sending message: zxcxc
+Received message: xxx
+Sending message: xxx
+Sending message: xxx
+Not Found: /static/js/_site_dashboard_free/assets/js/dashboard-free.js.map
+Not Found: /api/past-messages/Drinceanu
+Not Found: /static/js/_site_dashboard_free/assets/js/dashboard-free.js.map
+Room group: chat_Drinceanu
+Connected to Drinceanu
+Joined room group: chat_Drinceanu
+Not Found: /api/past-messages/Drinceanu
+Room group: chat_Drinceanu
+Not Found: /static/js/_site_dashboard_free/assets/js/dashboard-free.js.map
+Connected to Drinceanu
+Joined room group: chat_Drinceanu
+Not Found: /api/past-messages/Drinceanu
+Not Found: /static/js/_site_dashboard_free/assets/js/dashboard-free.js.map
+Room group: chat_Drinceanu
+Connected to Drinceanu
+Joined room group: chat_Drinceanu
+Not Found: /api/past-messages/Drinceanu
+Room group: chat_Drinceanu
+Not Found: /static/js/_site_dashboard_free/assets/js/dashboard-free.js.map
+Connected to Drinceanu
+Joined room group: chat_Drinceanu
+Not Found: /static/js/_site_dashboard_free/assets/js/dashboard-free.js.map
+Room group: chat_Drinceanu
+Connected to Drinceanu
+Joined room group: chat_Drinceanu
+Received message: asdasd
+Sending message: asdasd
+Room group: chat_Drinceanu
+Not Found: /static/js/_site_dashboard_free/assets/js/dashboard-free.js.map
+Connected to Drinceanu
+Joined room group: chat_Drinceanu
+Received message: asdasd
+Sending message: asdasd
+Sending message: asdasd
+Received message: ddd
+Sending message: ddd
+Sending message: ddd
+Left room group: chat_Drinceanu
+Not Found: /static/js/_site_dashboard_free/assets/js/dashboard-free.js.map
+Room group: chat_Drinceanu
+Connected to Drinceanu
+Joined room group: chat_Drinceanu
+Not Found: /static/js/_site_dashboard_free/assets/js/dashboard-free.js.map
+Room group: chat_Drinceanu
+Connected to Drinceanu
+Joined room group: chat_Drinceanu
+Received message: ggg
+Sending message: ggg
+Room group: chat_Drinceanu
+Not Found: /static/js/_site_dashboard_free/assets/js/dashboard-free.js.map
+Connected to Drinceanu
+Joined room group: chat_Drinceanu
+Received message: ggdd
+Sending message: ggdd
+Sending message: ggdd
+Room group: chat_Drinceanu
+Not Found: /static/js/_site_dashboard_free/assets/js/dashboard-free.js.map
+Connected to Drinceanu
+Joined room group: chat_Drinceanu
+Room group: chat_Drinceanu
+Not Found: /static/js/_site_dashboard_free/assets/js/dashboard-free.js.map
+Connected to Drinceanu
+Joined room group: chat_Drinceanu
+Received message: ffsdf
+Sending message: ffsdf
+Room group: chat_Drinceanu
+Not Found: /static/js/_site_dashboard_free/assets/js/dashboard-free.js.map
+Connected to Drinceanu
+Joined room group: chat_Drinceanu
+Received message: vvv
+Sending message: vvv
+Sending message: vvv
+Not Found: /static/js/_site_dashboard_free/assets/js/dashboard-free.js.map
+Room group: chat_Drinceanu
+Connected to Drinceanu
+Joined room group: chat_Drinceanu
+Received message: ASDASD
+Sending message: ASDASD
+Room group: chat_Drinceanu
+Not Found: /static/js/_site_dashboard_free/assets/js/dashboard-free.js.map
+Connected to Drinceanu
+Joined room group: chat_Drinceanu
+Received message: saasdasd
+Sending message: saasdasd
+Sending message: saasdasd
+Left room group: chat_Drinceanu
+Not Found: /static/js/_site_dashboard_free/assets/js/dashboard-free.js.map
+Connecting to group notifications_6
+Received get_notifications command
+Got 11 notifications
+Left room group: chat_Drinceanu
+Room group: chat_Drinceanu
+Not Found: /static/js/_site_dashboard_free/assets/js/dashboard-free.js.map
+Connected to Drinceanu
+Joined room group: chat_Drinceanu
+Left room group: chat_Drinceanu
+Not Found: /static/js/_site_dashboard_free/assets/js/dashboard-free.js.map
+Connecting to group notifications_6
+Received get_notifications command
+Got 11 notifications
+Disconnecting from group notifications_6
+Connecting to group notifications_6
+Received get_notifications command
+Got 11 notifications
+Not Found: /static/js/_site_dashboard_free/assets/js/dashboard-free.js.map
+Room group: chat_Drinceanu
+Not Found: /static/js/_site_dashboard_free/assets/js/dashboard-free.js.map
+Connected to Drinceanu
+Joined room group: chat_Drinceanu
+Received message: h
+Sending message: h
+Not Found: /static/js/_site_dashboard_free/assets/js/dashboard-free.js.map
+Room group: chat_Drinceanu
+Connected to Drinceanu
+Joined room group: chat_Drinceanu
+Received message: asd
+Sending message: asd
+Room group: chat_Drinceanu
+Not Found: /static/js/_site_dashboard_free/assets/js/dashboard-free.js.map
+Connected to Drinceanu
+Joined room group: chat_Drinceanu
+Received message: sdf
+Sending message: sdf
+Room group: chat_Drinceanu
+Not Found: /static/js/_site_dashboard_free/assets/js/dashboard-free.js.map
+Connected to Drinceanu
+Joined room group: chat_Drinceanu
+Received message: dsdsdf
+Sending message: dsdsdf
+Sending message: dsdsdf
+Left room group: chat_Drinceanu
+Room group: chat_Drinceanu
+Not Found: /static/js/_site_dashboard_free/assets/js/dashboard-free.js.map
+Connected to Drinceanu
+Joined room group: chat_Drinceanu
+Left room group: chat_Drinceanu
+Room group: chat_Drinceanu
+Not Found: /static/js/_site_dashboard_free/assets/js/dashboard-free.js.map
+Connected to Drinceanu
+Joined room group: chat_Drinceanu
+Left room group: chat_Drinceanu
+Room group: chat_Drinceanu
+Not Found: /static/js/_site_dashboard_free/assets/js/dashboard-free.js.map
+Connected to Drinceanu
+Joined room group: chat_Drinceanu
+Left room group: chat_Drinceanu
+Room group: chat_Drinceanu
+Not Found: /static/js/_site_dashboard_free/assets/js/dashboard-free.js.map
+Connected to Drinceanu
+Joined room group: chat_Drinceanu
+Left room group: chat_Drinceanu
+Room group: chat_Drinceanu
+Not Found: /static/js/_site_dashboard_free/assets/js/dashboard-free.js.map
+Connected to Drinceanu
+Joined room group: chat_Drinceanu
+Left room group: chat_Drinceanu
+Room group: chat_Drinceanu
+Not Found: /static/js/_site_dashboard_free/assets/js/dashboard-free.js.map
+Connected to Drinceanu
+Joined room group: chat_Drinceanu
+Received message: zxfsd
+Sending message: zxfsd
+Sending message: zxfsd
+Left room group: chat_Drinceanu
+Room group: chat_Drinceanu
+Not Found: /static/js/_site_dashboard_free/assets/js/dashboard-free.js.map
+Connected to Drinceanu
+Joined room group: chat_Drinceanu
