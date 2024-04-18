@@ -5,7 +5,6 @@ from asgiref.sync import async_to_sync
 from channels.db import database_sync_to_async
 import json
 import logging
-from datetime import datetime
 from django.contrib.humanize.templatetags.humanize import naturaltime
 
 
@@ -36,7 +35,10 @@ class NotificationConsumer(AsyncJsonWebsocketConsumer):
     @database_sync_to_async
     def get_notifications(self):
         from home.models import Notification
-        notifications = Notification.objects.all()
+        # Get the current user's family
+        current_user_family = self.user.member.family
+        # Fetch notifications for the current user's family
+        notifications = Notification.objects.filter(family=current_user_family)
         notifications_json = []
 
         for notification in notifications:
