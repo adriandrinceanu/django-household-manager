@@ -158,4 +158,15 @@ class Notification(models.Model):
     def __str__(self):
         return f"Notification for {self.family} family: {self.message}"
     
+class Message(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
+    family = models.ForeignKey(Family, on_delete=models.CASCADE, null=True, blank=True)
+    username = models.CharField(max_length=255, null=True, blank=True)
+    content = models.TextField()
+    timestamp = models.DateTimeField(auto_now_add=True)
+    chat_id = models.CharField(max_length=255, null=True, blank=True)  
+
+    def __str__(self):
+        return self.user.username if self.user else 'Anonymous'
+    
     
