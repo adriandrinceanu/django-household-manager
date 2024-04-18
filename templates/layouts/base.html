@@ -45,7 +45,9 @@
     <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
 
       {% block navigation %}
+      {% if not exclude_navigation %}
         {% include "includes/navigation.html" %} 
+      {% endif %}
       {% endblock navigation %}
 
         {% block content %}{% endblock content %}
