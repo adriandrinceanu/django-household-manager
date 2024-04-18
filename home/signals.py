@@ -15,7 +15,6 @@ def create_chore_notification(sender, instance, created, **kwargs):
     if created:
         # Get the member who created the chore
         creator_member = Member.objects.get(user=instance.created_by)
-        # Create a notification for the family
         notification = Notification.objects.create(
             user=instance.created_by,
             member=creator_member,  # Set the member field
@@ -23,7 +22,6 @@ def create_chore_notification(sender, instance, created, **kwargs):
             family=instance.assigned_to.family,
             chore=instance  # Set the chore field
         )
-        
         # Send notification to family's group
         channel_layer = get_channel_layer()
         async_to_sync(channel_layer.group_send)(
