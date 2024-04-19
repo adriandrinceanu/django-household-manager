@@ -163,25 +163,33 @@ class FamilyChatConsumer(AsyncWebsocketConsumer):
     
         
         
-    # Receive message from WebSocket
+   # Receive message from WebSocket
     async def receive(self, text_data):
+        from .models import Member, UnreadMessage
+        
         text_data_json = json.loads(text_data)
-        message = text_data_json['message']
-        username = text_data_json['username']  #Extract the username
+        message_content = text_data_json['message']
+        username = text_data_json['username']  # Extract the username
         
         # Save the message to the database
-        await self.save_message(username, message)
+        message_instance, family = await self.save_message(username, message_content)
+        
+        # Create UnreadMessage instances for each user in the family
+        family_members = await sync_to_async(Member.objects.filter)(family=family)
+        family_members = await sync_to_async(list)(family_members.exclude(user=self.user))
+        for member in family_members:
+            await sync_to_async(UnreadMessage.objects.create)(member=member, message=message_instance)
 
         # Send message to room group
         await self.channel_layer.group_send(
             self.room_group_name,
             {
                 'type': 'chat_message',
-                'message': message,
+                'message': message_content,
                 'username': username
             }
         )
-        logger.info(f"Received message: {message}")
+        logger.info(f"Received message: {message_content}")
         
     async def chat_message(self, event):
         # This method is called whenever a 'chat_message' is received
@@ -192,6 +200,7 @@ class FamilyChatConsumer(AsyncWebsocketConsumer):
         
          # Humanize the timestamp
         timestamp = str(naturaltime(now))
+
 
         # Send the message to the WebSocket
         await self.send(text_data=json.dumps({
@@ -217,7 +226,8 @@ class FamilyChatConsumer(AsyncWebsocketConsumer):
                 family = member.family  # Get the family
                 username = self.user.username
                 # Save the message with the user and family
-                Message.objects.create(user=self.user, family=family, username=username, content=message, chat_id=self.room_name)
+                message = Message.objects.create(user=self.user, family=family, username=username, content=message, chat_id=self.room_name)
+                return message, family
             else:
                 print("Error: Member not found for username", username)
         except Member.DoesNotExist:
