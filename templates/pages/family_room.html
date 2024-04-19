@@ -143,6 +143,19 @@ document.querySelector('#chat-message-input').onkeydown = function(e) {
         messageInputDom.value = '';
     }
 };
+
+window.onload = function() {
+    fetch('{% url "mark_messages_as_read" %}', {
+        method: 'POST',
+        headers: {
+            'X-CSRFToken': '{{ csrf_token }}'
+        },
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log(data);
+    });
+}
 </script>
 
 
