@@ -17,10 +17,10 @@
               <thead>
                 <tr>
                   <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Type</th>
-                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Message</th>
                   <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Status</th>
                   <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Assigned to you by</th>
                   <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Created at</th>
+                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Deadline</th>
                   <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Mark as done</th>
                   <th class="text-secondary opacity-7"></th>
                 </tr>
@@ -31,9 +31,7 @@
                     <td class="align-middle text-center text-sm">
                         <h6 class="text-xs font-weight-bold mb-0">{{ chore.title }}</h6>
                     </td>
-                    <td class="align-middle text-center text-sm">
-                      <h6 class="text-xs font-weight-bold mb-0">{{ chore.description }}</h6>
-                  </td>
+                   
                     <td class="align-middle text-center text-sm">
                         {% if chore.is_done %}
                         <span class="badge badge-sm bg-gradient-success">Done</span>
@@ -47,11 +45,18 @@
                     <td class="align-middle text-center">
                         <span class="text-secondary text-xs font-weight-bold">{{ chore.created_at }}</span>
                     </td>
+                    <td class="align-middle text-center">
+                      <span class="text-secondary text-xs font-weight-bold">{{ chore.deadline }}</span>
+                  </td>
                     <td class="align-middle text-center text-sm">
                         {% if not chore.is_done %}
                         <a href="{% url 'chore_done' chore.id %}" class="btn btn-sm bg-gradient-primary">Mark as Done</a>
                         {% endif %}
                     </td>
+                    {% empty %}
+                  <tr>
+                      <td colspan="7" class="align-middle text-center text-sm font-weight-bold">No chores yet :D</td>
+                  </tr>
                 </tr>
                 {% endfor %}
 
