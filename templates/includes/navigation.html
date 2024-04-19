@@ -61,7 +61,7 @@
             </div>
           </a>
         </li>
-
+        <!-- notificari -->
         <li class="nav-item dropdown pe-3 d-flex align-items-center">
           <a href="javascript:;" class="nav-link text-body p-0" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
             <i class="fa fa-bell cursor-pointer"></i>
@@ -72,6 +72,18 @@
             <!-- Notifications will be added here by JavaScript -->
         </ul>
         </li>
+        <!-- mesaje -->
+        <li class="nav-item dropdown pe-3 d-flex align-items-center">
+          <a href="{% url 'chat' username=request.user.username %}" class="nav-link text-body p-0">
+            <i class="fa fa-envelope cursor-pointer"></i>
+            <!-- Messages counter -->
+          <span id="messagesCounter" class="badge bg-danger"></span>
+          </a>
+          <!-- <ul id="messagesDropdown" class="dropdown-menu  dropdown-menu-end  px-2 py-3 me-sm-n4" aria-labelledby="dropdownMenuButton">
+             Messages will be added here by JavaScript like this: member.name messaged the Family Room x time ago. 
+          </ul> -->
+        </li>
+
         <li class="nav-item pe-2 d-flex align-items-center">
           <label for="theme-switch" class="nav-link text-body p-0 m-0">
             <i class="fa fa-sun fixed-plugin-button-nav cursor-pointer" id="theme-indicator"></i>
@@ -183,6 +195,58 @@ socket.onmessage = function(event) {
   socket.onclose = function(e) {
       console.error('Chat socket closed unexpectedly');
   };
+
+
+//   function updateMessageCounter() {
+//     fetch('{% url "unread_messages_count" %}')
+//         .then(response => response.json())
+//         .then(data => {
+//             let unread_messages = data.unread_messages;;
+//             for (let i = 0; i < unread_messages.length; i++) {
+//                 let unread_message = unread_messages[i];
+//                 console.log('Current unread message: ', unread_message);
+
+//                 // Create a new dropdown item
+//                 let item = document.createElement("li");
+//                 item.classList.add("mb-2");
+//                 // Create the dropdown item content
+//                 item.innerHTML = `
+//                     <a class="dropdown-item border-radius-md" href="javascript:;">
+//                         <div class="d-flex py-1">
+//                             <div class="my-auto">
+//                                 <img src="${unread_message.member.profile_pic}" class="avatar avatar-sm  me-3 ">
+//                             </div>
+//                             <div class="d-flex flex-column justify-content-center">
+//                                 <h6 class="text-sm font-weight-normal mb-1">
+//                                     <span class="font-weight-bold">${unread_message.member.name} messaged the family room</span>
+//                                 </h6>
+//                                 <p class="text-xs text-secondary mb-0 ">
+//                                     <i class="fa fa-clock me-1"></i>
+//                                     ${unread_message.created_at} | <span class="read-status">${unread_message.is_read ? 'Read' : 'Unread'}
+//                                 </p>
+//                             </div>
+//                         </div>
+//                     </a>
+//                 `;
+
+//                 console.log('Dropdown item: ', item);
+//                 // Add the dropdown item to the dropdown
+//                 document.getElementById('messagesDropdown').appendChild(item);
+//             }
+//             document.getElementById('messagesCounter').textContent = data.count;
+//         });
+// }
+
+function updateMessageCounter() {
+    fetch('{% url "unread_messages_count" %}')
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById('messagesCounter').textContent = data.count;
+        });
+}
+
+// Update the message counter every 5 seconds
+setInterval(updateMessageCounter, 5000);
 </script>
 
 <!-- 
