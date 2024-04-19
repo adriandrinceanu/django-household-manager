@@ -210,6 +210,15 @@ def create_family(request, username):
     }
     return render(request, 'pages/profile_leader_family_creation.html', context)
 
+@login_required
+def delete_member(request, username, member_id):
+    user = get_object_or_404(User, username=username)
+    member_to_remove = get_object_or_404(Member, id=member_id)
+    member_to_remove.delete()
+    messages.success(request, 'Member deleted successfully.')
+    return redirect('create_family', username=username)
+
+
 ### end family leader
 
 
@@ -600,7 +609,7 @@ def family_room_view(request, username):
 
 ### end chat
 
-
+### messages
 
 def get_unread_messages_count(request):
     try:
@@ -641,3 +650,5 @@ def mark_messages_as_read(request):
         return JsonResponse({'error': 'Member does not exist'})
     except Exception as e:
         return JsonResponse({'error': str(e)})
+    
+### end messages
