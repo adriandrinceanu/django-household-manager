@@ -67,12 +67,20 @@ class FamilyCreationForm(forms.ModelForm):
         super().__init__(*args, **kwargs)
         self.fields['profile_pic'].widget.attrs.update({'required': True})
         
-        
+class DateInput(forms.DateInput):
+    input_type = 'date'       
         
 class ChoreCreationForm(forms.ModelForm):
     class Meta:
         model = Chore
-        fields = ['title', 'description', 'assigned_to']
+        fields = ['title', 'deadline', 'assigned_to']
+        widgets = {
+            'deadline': DateInput(),
+        }
+    def __init__(self, *args: Any, **kwargs: Any) -> None:
+        super().__init__(*args, **kwargs)
+        for field_name, field in self.fields.items():
+            field.widget.attrs.update({'class': 'form-control'})
 
 class MonthlyBudgetCreationForm(forms.ModelForm):
     class Meta:
