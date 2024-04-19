@@ -166,4 +166,10 @@ class Message(models.Model):
     def __str__(self):
         return self.user.username if self.user else 'Anonymous'
     
+class UnreadMessage(models.Model):
+    member = models.ForeignKey(Member, on_delete=models.CASCADE, null=True, blank=True)
+    message = models.ForeignKey(Message, on_delete=models.CASCADE, null=True, blank=True)
+    created_at = models.DateTimeField(auto_now_add=True, null=True, blank=True)
+    is_read = models.BooleanField(default=False)
+    
     
