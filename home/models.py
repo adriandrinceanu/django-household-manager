@@ -1,7 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.utils import timezone
-import calendar
 
 
 
@@ -35,8 +34,8 @@ class Member(models.Model):
 
 class Chore(models.Model):
     title = models.CharField(max_length=255)
-    description = models.TextField(blank=True)
     assigned_to = models.ForeignKey(Member, related_name='chores', on_delete=models.CASCADE)
+    deadline = models.DateField()
     is_done = models.BooleanField(default=False)
     created_by = models.ForeignKey(User, related_name='assigned_chores', on_delete=models.CASCADE, null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
@@ -48,16 +47,14 @@ class Expense(models.Model):
     CURRENT_YEAR = timezone.now().year
     YEAR_CHOICES = [(r,r) for r in range(CURRENT_YEAR, CURRENT_YEAR+20)]
     CATEGORY_CHOICES = [
-        ('food', 'Food'),
-        ('clothing', 'Clothing'),
-        ('movies', 'Movies'),
-        ('transportation', 'Transportation'),
         ('groceries', 'Groceries'),
-        ('snacks', 'Snacks'),
+        ('entertainment', 'Entertainment'),
+        ('clothing', 'Clothing'),
+        ('transportation', 'Transportation'),
         ('utilities', 'Utilities'),
         ('healthcare', 'Healthcare'),
-        ('entertainment', 'Entertainment'),
         ('education', 'Education'),
+        ('other', 'Other'),
     ]
     
     MONTH_CHOICES = [
