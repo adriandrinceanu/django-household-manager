@@ -3358,3 +3358,1818 @@ Room group: chat_Drinceanu
 Not Found: /static/js/_site_dashboard_free/assets/js/dashboard-free.js.map
 Connected to Drinceanu
 Joined room group: chat_Drinceanu
+Not Found: /static/js/_site_dashboard_free/assets/js/dashboard-free.js.map
+Connecting to group notifications_6
+Received get_notifications command
+Got 11 notifications
+tag: Orientation (274) - type: short (3) - value: b'\x01\x00'
+tag: XResolution (282) - type: rational (5) Tag Location: 34 - Data Location: 86 - value: b'/\x19\x01\x00\xe8\x03\x00\x00'
+tag: YResolution (283) - type: rational (5) Tag Location: 46 - Data Location: 94 - value: b'/\x19\x01\x00\xe8\x03\x00\x00'
+tag: ResolutionUnit (296) - type: short (3) - value: b'\x02\x00'
+tag: YCbCrPositioning (531) - type: short (3) - value: b'\x01\x00'
+tag: ExifIFD (34665) - type: long (4) - value: b'f\x00\x00\x00'
+Importing BlpImagePlugin
+Importing BmpImagePlugin
+Importing BufrStubImagePlugin
+Importing CurImagePlugin
+Importing DcxImagePlugin
+Importing DdsImagePlugin
+Importing EpsImagePlugin
+Importing FitsImagePlugin
+Importing FliImagePlugin
+Importing FpxImagePlugin
+Image: failed to import FpxImagePlugin: No module named 'olefile'
+Importing FtexImagePlugin
+Importing GbrImagePlugin
+Importing GifImagePlugin
+Importing GribStubImagePlugin
+Importing Hdf5StubImagePlugin
+Importing IcnsImagePlugin
+Importing IcoImagePlugin
+Importing ImImagePlugin
+Importing ImtImagePlugin
+Importing IptcImagePlugin
+Importing JpegImagePlugin
+Importing Jpeg2KImagePlugin
+Importing McIdasImagePlugin
+Importing MicImagePlugin
+Image: failed to import MicImagePlugin: No module named 'olefile'
+Importing MpegImagePlugin
+Importing MpoImagePlugin
+Importing MspImagePlugin
+Importing PalmImagePlugin
+Importing PcdImagePlugin
+Importing PcxImagePlugin
+Importing PdfImagePlugin
+Importing PixarImagePlugin
+Importing PngImagePlugin
+Importing PpmImagePlugin
+Importing PsdImagePlugin
+Importing QoiImagePlugin
+Importing SgiImagePlugin
+Importing SpiderImagePlugin
+Importing SunImagePlugin
+Importing TgaImagePlugin
+Importing TiffImagePlugin
+Importing WebPImagePlugin
+Importing WmfImagePlugin
+Importing XbmImagePlugin
+Importing XpmImagePlugin
+Importing XVThumbImagePlugin
+Disconnecting from group notifications_6
+Not Found: /static/js/_site_dashboard_free/assets/js/dashboard-free.js.map
+Connecting to group notifications_6
+Received get_notifications command
+Got 11 notifications
+Internal Server Error: /profile/family_member/coman_andrei/chat
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.12/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.12/site-packages/django/core/handlers/base.py", line 253, in _get_response_async
+    response = await wrapped_callback(
+               ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/asgiref/sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/asgiref/current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/asgiref/sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/household-manager/home/views.py", line 610, in family_room_view
+    family_name = member.family.name
+                  ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'name'
+Not Found: /favicon.ico
+Connecting to group notifications_7
+Received get_notifications command
+Got 0 notifications
+Disconnecting from group notifications_7
+Room group: chat_coman
+Connected to coman
+Joined room group: chat_coman
+Left room group: chat_coman
+Connecting to group notifications_7
+Received get_notifications command
+Got 0 notifications
+Disconnecting from group notifications_7
+Connecting to group notifications_6
+Received get_notifications command
+Got 11 notifications
+Disconnecting from group notifications_6
+Room group: chat_Drinceanu
+Connected to Drinceanu
+Joined room group: chat_Drinceanu
+Received message: hello, am venit si eu
+Sending message: hello, am venit si eu
+Disconnecting from group notifications_6
+Room group: chat_Drinceanu
+Connected to Drinceanu
+Joined room group: chat_Drinceanu
+Not Found: /static/js/_site_dashboard_free/assets/js/dashboard-free.js.map
+Connecting to group notifications_7
+Received get_notifications command
+Got 0 notifications
+Disconnecting from group notifications_7
+Room group: chat_coman
+Connected to coman
+Joined room group: chat_coman
+Received message: hei
+Sending message: hei
+Left room group: chat_Drinceanu
+Connecting to group notifications_6
+Received get_notifications command
+Not Found: /static/js/_site_dashboard_free/assets/js/dashboard-free.js.map
+Got 11 notifications
+Left room group: chat_Drinceanu
+Left room group: chat_coman
+Connecting to group notifications_6
+Received get_notifications command
+Got 11 notifications
+Disconnecting from group notifications_6
+Connecting to group notifications_6
+Received get_notifications command
+Got 11 notifications
+Disconnecting from group notifications_6
+Connecting to group notifications_6
+Received get_notifications command
+Got 11 notifications
+Disconnecting from group notifications_6
+Connecting to group notifications_6
+Received get_notifications command
+Got 11 notifications
+Disconnecting from group notifications_6
+Connecting to group notifications_6
+Received get_notifications command
+Got 11 notifications
+Disconnecting from group notifications_6
+Connecting to group notifications_6
+Received get_notifications command
+Got 11 notifications
+Disconnecting from group notifications_6
+Connecting to group notifications_6
+Received get_notifications command
+Got 11 notifications
+Disconnecting from group notifications_6
+Connecting to group notifications_6
+Received get_notifications command
+Got 11 notifications
+Connecting to group notifications_6
+Received get_notifications command
+Got 11 notifications
+Disconnecting from group notifications_6
+Connecting to group notifications_6
+Received get_notifications command
+Got 11 notifications
+Disconnecting from group notifications_6
+Room group: chat_Drinceanu
+Connected to Drinceanu
+Joined room group: chat_Drinceanu
+Left room group: chat_Drinceanu
+Connecting to group notifications_6
+Received get_notifications command
+Got 11 notifications
+Connecting to group notifications_6
+Received get_notifications command
+Got 11 notifications
+Disconnecting from group notifications_6
+Connecting to group notifications_6
+Received get_notifications command
+Got 11 notifications
+Disconnecting from group notifications_6
+Connecting to group notifications_6
+Received get_notifications command
+Got 11 notifications
+Not Found: /static/js/_site_dashboard_free/assets/js/dashboard-free.js.map
+Room group: chat_Drinceanu
+Connected to Drinceanu
+Joined room group: chat_Drinceanu
+Left room group: chat_Drinceanu
+Disconnecting from group notifications_6
+Not Found: /static/js/_site_dashboard_free/assets/js/dashboard-free.js.map
+Connecting to group notifications_6
+Received get_notifications command
+Got 11 notifications
+Disconnecting from group notifications_6
+Connecting to group notifications_6
+Received get_notifications command
+Not Found: /static/js/_site_dashboard_free/assets/js/dashboard-free.js.map
+Got 11 notifications
+Disconnecting from group notifications_6
+Connecting to group notifications_6
+Received get_notifications command
+Not Found: /static/js/_site_dashboard_free/assets/js/dashboard-free.js.map
+Got 11 notifications
+Disconnecting from group notifications_6
+Connecting to group notifications_6
+Received get_notifications command
+Not Found: /static/js/_site_dashboard_free/assets/js/dashboard-free.js.map
+Got 11 notifications
+Disconnecting from group notifications_6
+Connecting to group notifications_6
+Received get_notifications command
+Got 11 notifications
+Not Found: /static/js/_site_dashboard_free/assets/js/dashboard-free.js.map
+Disconnecting from group notifications_6
+Connecting to group notifications_6
+Received get_notifications command
+Got 11 notifications
+Disconnecting from group notifications_6
+Connecting to group notifications_6
+Received get_notifications command
+Got 11 notifications
+Disconnecting from group notifications_6
+Connecting to group notifications_6
+Received get_notifications command
+Not Found: /static/js/_site_dashboard_free/assets/js/dashboard-free.js.map
+Got 11 notifications
+Disconnecting from group notifications_6
+Connecting to group notifications_6
+Not Found: /static/js/_site_dashboard_free/assets/js/dashboard-free.js.map
+Received get_notifications command
+Got 11 notifications
+Disconnecting from group notifications_6
+Connecting to group notifications_6
+Received get_notifications command
+Not Found: /static/js/_site_dashboard_free/assets/js/dashboard-free.js.map
+Got 11 notifications
+Disconnecting from group notifications_6
+Connecting to group notifications_6
+Received get_notifications command
+Not Found: /static/js/_site_dashboard_free/assets/js/dashboard-free.js.map
+Got 10 notifications
+Disconnecting from group notifications_6
+Not Found: /static/js/_site_dashboard_free/assets/js/dashboard-free.js.map
+Connecting to group notifications_6
+Received get_notifications command
+Got 9 notifications
+Disconnecting from group notifications_6
+Not Found: /static/js/_site_dashboard_free/assets/js/dashboard-free.js.map
+Connecting to group notifications_6
+Received get_notifications command
+Got 8 notifications
+Disconnecting from group notifications_6
+Connecting to group notifications_6
+Received get_notifications command
+Not Found: /static/js/_site_dashboard_free/assets/js/dashboard-free.js.map
+Got 7 notifications
+Disconnecting from group notifications_6
+Connecting to group notifications_6
+Received get_notifications command
+Not Found: /static/js/_site_dashboard_free/assets/js/dashboard-free.js.map
+Got 6 notifications
+Disconnecting from group notifications_6
+Connecting to group notifications_6
+Received get_notifications command
+Not Found: /static/js/_site_dashboard_free/assets/js/dashboard-free.js.map
+Got 5 notifications
+Disconnecting from group notifications_6
+Connecting to group notifications_6
+Received get_notifications command
+Not Found: /static/js/_site_dashboard_free/assets/js/dashboard-free.js.map
+Got 4 notifications
+Disconnecting from group notifications_6
+Not Found: /static/js/_site_dashboard_free/assets/js/dashboard-free.js.map
+Connecting to group notifications_6
+Received get_notifications command
+Got 3 notifications
+Disconnecting from group notifications_6
+Connecting to group notifications_6
+Received get_notifications command
+Not Found: /static/js/_site_dashboard_free/assets/js/dashboard-free.js.map
+Got 2 notifications
+Disconnecting from group notifications_6
+Not Found: /static/js/_site_dashboard_free/assets/js/dashboard-free.js.map
+Connecting to group notifications_6
+Received get_notifications command
+Got 2 notifications
+Disconnecting from group notifications_6
+Not Found: /static/js/_site_dashboard_free/assets/js/dashboard-free.js.map
+Connecting to group notifications_6
+Received get_notifications command
+Got 2 notifications
+Disconnecting from group notifications_6
+Not Found: /static/js/_site_dashboard_free/assets/js/dashboard-free.js.map
+Connecting to group notifications_6
+Received get_notifications command
+Got 2 notifications
+Not Found: /static/js/_site_dashboard_free/assets/js/dashboard-free.js.map
+Connecting to group notifications_6
+Received get_notifications command
+Got 2 notifications
+Disconnecting from group notifications_6
+Not Found: /static/js/_site_dashboard_free/assets/js/dashboard-free.js.map
+Not Found: /static/js/_site_dashboard_free/assets/js/dashboard-free.js.map
+Not Found: /static/js/_site_dashboard_free/assets/js/dashboard-free.js.map
+Not Found: /static/js/_site_dashboard_free/assets/js/dashboard-free.js.map
+Connecting to group notifications_6
+Received get_notifications command
+Got 2 notifications
+Disconnecting from group notifications_6
+Not Found: /static/js/_site_dashboard_free/assets/js/dashboard-free.js.map
+Connecting to group notifications_6
+Received get_notifications command
+Got 2 notifications
+Disconnecting from group notifications_6
+Room group: chat_Drinceanu
+Not Found: /static/js/_site_dashboard_free/assets/js/dashboard-free.js.map
+Connected to Drinceanu
+Joined room group: chat_Drinceanu
+Left room group: chat_Drinceanu
+Connecting to group notifications_6
+Received get_notifications command
+Got 2 notifications
+Not Found: /static/js/_site_dashboard_free/assets/js/dashboard-free.js.map
+Disconnecting from group notifications_6
+Connecting to group notifications_6
+Received get_notifications command
+Not Found: /static/js/_site_dashboard_free/assets/js/dashboard-free.js.map
+Got 2 notifications
+Not Found: /accounts/login/{url 'login'}
+Not Found: /favicon.ico
+Connecting to group notifications_6
+Received get_notifications command
+Got 2 notifications
+Connecting to group notifications_6
+Received get_notifications command
+Got 2 notifications
+Creating chore notification for test - Assigned to: Drinceanu Adrian
+Internal Server Error: /profile/leader/drinceanu_adrian/chores
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.12/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.12/site-packages/django/core/handlers/base.py", line 253, in _get_response_async
+    response = await wrapped_callback(
+               ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/asgiref/sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/asgiref/current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/asgiref/sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/contrib/auth/decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/household-manager/home/views.py", line 100, in create_chore_view
+    chore.save()
+  File "/usr/local/lib/python3.12/site-packages/django/db/models/base.py", line 822, in save
+    self.save_base(
+  File "/usr/local/lib/python3.12/site-packages/django/db/models/base.py", line 924, in save_base
+    post_save.send(
+  File "/usr/local/lib/python3.12/site-packages/django/dispatch/dispatcher.py", line 202, in send
+    responses.extend(async_to_sync(asend)())
+                     ^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/asgiref/sync.py", line 254, in __call__
+    return call_result.result()
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/concurrent/futures/_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+  File "/usr/local/lib/python3.12/site-packages/asgiref/sync.py", line 331, in main_wrap
+    result = await self.awaitable(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/dispatch/dispatcher.py", line 194, in asend
+    async_responses = await asyncio.gather(
+                      ^^^^^^^^^^^^^^^^^^^^^
+  File "/household-manager/home/signals.py", line 16, in create_chore_notification
+    creator_member = Member.objects.get(user=instance.created_by)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/db/models/query.py", line 645, in get
+    num = len(clone)
+          ^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/db/models/query.py", line 382, in __len__
+    self._fetch_all()
+  File "/usr/local/lib/python3.12/site-packages/django/db/models/query.py", line 1928, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/db/models/query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/db/models/sql/compiler.py", line 1560, in execute_sql
+    cursor = self.connection.cursor()
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/utils/asyncio.py", line 24, in inner
+    raise SynchronousOnlyOperation(message)
+django.core.exceptions.SynchronousOnlyOperation: You cannot call this from an async context - use a thread or sync_to_async.
+Disconnecting from group notifications_6
+Connecting to group notifications_6
+Received get_notifications command
+Got 2 notifications
+Disconnecting from group notifications_6
+Connecting to group notifications_6
+Received get_notifications command
+Got 2 notifications
+Disconnecting from group notifications_6
+Connecting to group notifications_6
+Received get_notifications command
+Got 2 notifications
+Disconnecting from group notifications_6
+Connecting to group notifications_6
+Received get_notifications command
+Got 2 notifications
+Creating chore notification for sdf - Assigned to: Drinceanu Adrian
+Internal Server Error: /profile/leader/drinceanu_adrian/chores
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.12/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.12/site-packages/django/core/handlers/base.py", line 253, in _get_response_async
+    response = await wrapped_callback(
+               ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/asgiref/sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/asgiref/current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/asgiref/sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/contrib/auth/decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/household-manager/home/views.py", line 100, in create_chore_view
+    chore.save()
+  File "/usr/local/lib/python3.12/site-packages/django/db/models/base.py", line 822, in save
+    self.save_base(
+  File "/usr/local/lib/python3.12/site-packages/django/db/models/base.py", line 924, in save_base
+    post_save.send(
+  File "/usr/local/lib/python3.12/site-packages/django/dispatch/dispatcher.py", line 202, in send
+    responses.extend(async_to_sync(asend)())
+                     ^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/asgiref/sync.py", line 254, in __call__
+    return call_result.result()
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/concurrent/futures/_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+  File "/usr/local/lib/python3.12/site-packages/asgiref/sync.py", line 331, in main_wrap
+    result = await self.awaitable(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/dispatch/dispatcher.py", line 194, in asend
+    async_responses = await asyncio.gather(
+                      ^^^^^^^^^^^^^^^^^^^^^
+  File "/household-manager/home/signals.py", line 16, in create_chore_notification
+    creator_member = await async_to_sync(Member.objects.get)(user=instance.created_by)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/asgiref/sync.py", line 187, in __call__
+    raise RuntimeError(
+RuntimeError: You cannot use AsyncToSync in the same thread as an async event loop - just await the async function directly.
+Disconnecting from group notifications_6
+Connecting to group notifications_6
+Received get_notifications command
+Got 2 notifications
+Disconnecting from group notifications_6
+Connecting to group notifications_6
+Received get_notifications command
+Got 2 notifications
+Disconnecting from group notifications_6
+Connecting to group notifications_6
+Received get_notifications command
+Got 2 notifications
+Creating chore notification for sd - Assigned to: Drinceanu Adrian
+Internal Server Error: /profile/leader/drinceanu_adrian/chores
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.12/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.12/site-packages/django/core/handlers/base.py", line 253, in _get_response_async
+    response = await wrapped_callback(
+               ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/asgiref/sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/asgiref/current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/asgiref/sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/contrib/auth/decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/household-manager/home/views.py", line 100, in create_chore_view
+    chore.save()
+  File "/usr/local/lib/python3.12/site-packages/django/db/models/base.py", line 822, in save
+    self.save_base(
+  File "/usr/local/lib/python3.12/site-packages/django/db/models/base.py", line 924, in save_base
+    post_save.send(
+  File "/usr/local/lib/python3.12/site-packages/django/dispatch/dispatcher.py", line 202, in send
+    responses.extend(async_to_sync(asend)())
+                     ^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/asgiref/sync.py", line 254, in __call__
+    return call_result.result()
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/concurrent/futures/_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+  File "/usr/local/lib/python3.12/site-packages/asgiref/sync.py", line 331, in main_wrap
+    result = await self.awaitable(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/dispatch/dispatcher.py", line 194, in asend
+    async_responses = await asyncio.gather(
+                      ^^^^^^^^^^^^^^^^^^^^^
+  File "/household-manager/home/signals.py", line 16, in create_chore_notification
+    creator_member = await Member.objects.get(user=instance.created_by)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/db/models/query.py", line 645, in get
+    num = len(clone)
+          ^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/db/models/query.py", line 382, in __len__
+    self._fetch_all()
+  File "/usr/local/lib/python3.12/site-packages/django/db/models/query.py", line 1928, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/db/models/query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/db/models/sql/compiler.py", line 1560, in execute_sql
+    cursor = self.connection.cursor()
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/utils/asyncio.py", line 24, in inner
+    raise SynchronousOnlyOperation(message)
+django.core.exceptions.SynchronousOnlyOperation: You cannot call this from an async context - use a thread or sync_to_async.
+Disconnecting from group notifications_6
+Connecting to group notifications_6
+Received get_notifications command
+Got 2 notifications
+Disconnecting from group notifications_6
+Connecting to group notifications_6
+Received get_notifications command
+Got 2 notifications
+Disconnecting from group notifications_6
+Connecting to group notifications_6
+Received get_notifications command
+Got 2 notifications
+Disconnecting from group notifications_6
+Connecting to group notifications_6
+Received get_notifications command
+Got 2 notifications
+Disconnecting from group notifications_6
+Connecting to group notifications_6
+Received get_notifications command
+Got 2 notifications
+Creating chore notification for asd - Assigned to: Drinceanu Adrian
+Internal Server Error: /profile/leader/drinceanu_adrian/chores
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/django/db/models/fields/related_descriptors.py", line 506, in __get__
+    rel_obj = self.related.get_cached_value(instance)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/db/models/fields/mixins.py", line 15, in get_cached_value
+    return instance._state.fields_cache[cache_name]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+KeyError: 'member'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.12/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.12/site-packages/django/core/handlers/base.py", line 253, in _get_response_async
+    response = await wrapped_callback(
+               ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/asgiref/sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/asgiref/current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/asgiref/sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/contrib/auth/decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/household-manager/home/views.py", line 100, in create_chore_view
+    chore.save()
+  File "/usr/local/lib/python3.12/site-packages/django/db/models/base.py", line 822, in save
+    self.save_base(
+  File "/usr/local/lib/python3.12/site-packages/django/db/models/base.py", line 924, in save_base
+    post_save.send(
+  File "/usr/local/lib/python3.12/site-packages/django/dispatch/dispatcher.py", line 202, in send
+    responses.extend(async_to_sync(asend)())
+                     ^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/asgiref/sync.py", line 254, in __call__
+    return call_result.result()
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/concurrent/futures/_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+  File "/usr/local/lib/python3.12/site-packages/asgiref/sync.py", line 331, in main_wrap
+    result = await self.awaitable(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/dispatch/dispatcher.py", line 194, in asend
+    async_responses = await asyncio.gather(
+                      ^^^^^^^^^^^^^^^^^^^^^
+  File "/household-manager/home/signals.py", line 24, in create_chore_notification
+    message=f"{instance.created_by.member.name} assigned the chore: {instance.title} to {instance.assigned_to.name}.",
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/utils/functional.py", line 253, in inner
+    return func(_wrapped, *args)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/db/models/fields/related_descriptors.py", line 514, in __get__
+    rel_obj = self.get_queryset(instance=instance).get(**filter_args)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/db/models/query.py", line 645, in get
+    num = len(clone)
+          ^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/db/models/query.py", line 382, in __len__
+    self._fetch_all()
+  File "/usr/local/lib/python3.12/site-packages/django/db/models/query.py", line 1928, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/db/models/query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/db/models/sql/compiler.py", line 1560, in execute_sql
+    cursor = self.connection.cursor()
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/utils/asyncio.py", line 24, in inner
+    raise SynchronousOnlyOperation(message)
+django.core.exceptions.SynchronousOnlyOperation: You cannot call this from an async context - use a thread or sync_to_async.
+Disconnecting from group notifications_6
+Connecting to group notifications_6
+Received get_notifications command
+Got 2 notifications
+Disconnecting from group notifications_6
+Connecting to group notifications_6
+Received get_notifications command
+Got 2 notifications
+Creating chore notification for asd - Assigned to: Drinceanu Adrian
+Sending email to adrian@drincenii.ro about chore: asd
+Email sent successfully.
+Disconnecting from group notifications_6
+Connecting to group notifications_6
+Received get_notifications command
+Got 3 notifications
+Connecting to group notifications_6
+Received get_notifications command
+Got 3 notifications
+Disconnecting from group notifications_6
+Connecting to group notifications_6
+Received get_notifications command
+Got 3 notifications
+Disconnecting from group notifications_6
+Connecting to group notifications_6
+Received get_notifications command
+Got 3 notifications
+Disconnecting from group notifications_6
+Disconnecting from group notifications_6
+Connecting to group notifications_6
+Received get_notifications command
+Got 3 notifications
+Disconnecting from group notifications_6
+Room group: chat_Drinceanu
+Connected to Drinceanu
+Joined room group: chat_Drinceanu
+Left room group: chat_Drinceanu
+Connecting to group notifications_6
+Received get_notifications command
+Got 3 notifications
+Disconnecting from group notifications_6
+Connecting to group notifications_6
+Received get_notifications command
+Got 3 notifications
+Disconnecting from group notifications_6
+Connecting to group notifications_6
+Received get_notifications command
+Got 3 notifications
+Disconnecting from group notifications_6
+Connecting to group notifications_6
+Received get_notifications command
+Got 3 notifications
+Importing BlpImagePlugin
+Importing BmpImagePlugin
+Importing BufrStubImagePlugin
+Importing CurImagePlugin
+Importing DcxImagePlugin
+Importing DdsImagePlugin
+Importing EpsImagePlugin
+Importing FitsImagePlugin
+Importing FliImagePlugin
+Importing FpxImagePlugin
+Image: failed to import FpxImagePlugin: No module named 'olefile'
+Importing FtexImagePlugin
+Importing GbrImagePlugin
+Importing GifImagePlugin
+Importing GribStubImagePlugin
+Importing Hdf5StubImagePlugin
+Importing IcnsImagePlugin
+Importing IcoImagePlugin
+Importing ImImagePlugin
+Importing ImtImagePlugin
+Importing IptcImagePlugin
+Importing JpegImagePlugin
+Importing Jpeg2KImagePlugin
+Importing McIdasImagePlugin
+Importing MicImagePlugin
+Image: failed to import MicImagePlugin: No module named 'olefile'
+Importing MpegImagePlugin
+Importing MpoImagePlugin
+Importing MspImagePlugin
+Importing PalmImagePlugin
+Importing PcdImagePlugin
+Importing PcxImagePlugin
+Importing PdfImagePlugin
+Importing PixarImagePlugin
+Importing PngImagePlugin
+Importing PpmImagePlugin
+Importing PsdImagePlugin
+Importing QoiImagePlugin
+Importing SgiImagePlugin
+Importing SpiderImagePlugin
+Importing SunImagePlugin
+Importing TgaImagePlugin
+Importing TiffImagePlugin
+Importing WebPImagePlugin
+Importing WmfImagePlugin
+Importing XbmImagePlugin
+Importing XpmImagePlugin
+Importing XVThumbImagePlugin
+Disconnecting from group notifications_6
+Connecting to group notifications_6
+Received get_notifications command
+Got 3 notifications
+Disconnecting from group notifications_6
+Connecting to group notifications_6
+Received get_notifications command
+Got 3 notifications
+Creating chore notification for vasele - Assigned to: COman Andrei
+Sending email to comandrei@gmail.com about chore: vasele
+Email sent successfully.
+Disconnecting from group notifications_6
+Connecting to group notifications_6
+Received get_notifications command
+Got 4 notifications
+Disconnecting from group notifications_6
+Connecting to group notifications_6
+Received get_notifications command
+Got 4 notifications
+Disconnecting from group notifications_6
+Connecting to group notifications_6
+Received get_notifications command
+Got 4 notifications
+Disconnecting from group notifications_6
+Connecting to group notifications_6
+Received get_notifications command
+Got 4 notifications
+Disconnecting from group notifications_6
+Connecting to group notifications_6
+Received get_notifications command
+Got 4 notifications
+Disconnecting from group notifications_6
+Connecting to group notifications_6
+Received get_notifications command
+Got 4 notifications
+Disconnecting from group notifications_6
+Connecting to group notifications_6
+Received get_notifications command
+Got 4 notifications
+Disconnecting from group notifications_6
+Connecting to group notifications_6
+Received get_notifications command
+Got 4 notifications
+Disconnecting from group notifications_6
+Connecting to group notifications_6
+Received get_notifications command
+Got 4 notifications
+Disconnecting from group notifications_6
+Connecting to group notifications_6
+Received get_notifications command
+Got 4 notifications
+Disconnecting from group notifications_6
+Connecting to group notifications_6
+Received get_notifications command
+Got 4 notifications
+Disconnecting from group notifications_6
+Connecting to group notifications_6
+Received get_notifications command
+Got 4 notifications
+Disconnecting from group notifications_6
+Room group: chat_Drinceanu
+Connected to Drinceanu
+Joined room group: chat_Drinceanu
+Received message: ce faci andrei
+Sending message: ce faci andrei
+Left room group: chat_Drinceanu
+Connecting to group notifications_6
+Received get_notifications command
+Got 4 notifications
+Disconnecting from group notifications_6
+Connecting to group notifications_7
+Received get_notifications command
+Got 0 notifications
+Disconnecting from group notifications_7
+Connecting to group notifications_7
+Received get_notifications command
+Got 0 notifications
+Disconnecting from group notifications_7
+Connecting to group notifications_6
+Received get_notifications command
+Got 4 notifications
+Disconnecting from group notifications_6
+Connecting to group notifications_6
+Received get_notifications command
+Got 4 notifications
+Creating chore notification for vasele - Assigned to: COman Andrei
+Disconnecting from group notifications_6
+Connecting to group notifications_6
+Received get_notifications command
+Got 4 notifications
+Disconnecting from group notifications_6
+Connecting to group notifications_6
+Received get_notifications command
+Got 4 notifications
+Disconnecting from group notifications_6
+Connecting to group notifications_6
+Received get_notifications command
+Got 4 notifications
+Disconnecting from group notifications_6
+Connecting to group notifications_6
+Received get_notifications command
+Got 4 notifications
+Disconnecting from group notifications_6
+Room group: chat_Drinceanu
+Connected to Drinceanu
+Joined room group: chat_Drinceanu
+Received message: bine
+Sending message: bine
+Left room group: chat_Drinceanu
+Connecting to group notifications_6
+Received get_notifications command
+Got 4 notifications
+Disconnecting from group notifications_6
+Connecting to group notifications_6
+Received get_notifications command
+Got 4 notifications
+Disconnecting from group notifications_6
+Connecting to group notifications_6
+Received get_notifications command
+Got 4 notifications
+Disconnecting from group notifications_6
+Connecting to group notifications_6
+Received get_notifications command
+Got 4 notifications
+Disconnecting from group notifications_6
+Room group: chat_Drinceanu
+Connected to Drinceanu
+Joined room group: chat_Drinceanu
+Left room group: chat_Drinceanu
+Connecting to group notifications_6
+Received get_notifications command
+Got 4 notifications
+Disconnecting from group notifications_6
+Connecting to group notifications_6
+Received get_notifications command
+Got 4 notifications
+Disconnecting from group notifications_6
+Room group: chat_Drinceanu
+Connected to Drinceanu
+Joined room group: chat_Drinceanu
+Left room group: chat_Drinceanu
+Connecting to group notifications_6
+Received get_notifications command
+Got 4 notifications
+Disconnecting from group notifications_6
+Room group: chat_Drinceanu
+Connected to Drinceanu
+Joined room group: chat_Drinceanu
+Left room group: chat_Drinceanu
+Connecting to group notifications_6
+Received get_notifications command
+Got 4 notifications
+Disconnecting from group notifications_6
+Connecting to group notifications_6
+Received get_notifications command
+Got 4 notifications
+Disconnecting from group notifications_6
+Connecting to group notifications_6
+Received get_notifications command
+Got 4 notifications
+Disconnecting from group notifications_6
+Connecting to group notifications_6
+Received get_notifications command
+Got 4 notifications
+Disconnecting from group notifications_6
+Connecting to group notifications_6
+Received get_notifications command
+Got 4 notifications
+Disconnecting from group notifications_6
+Connecting to group notifications_6
+Received get_notifications command
+Got 4 notifications
+Disconnecting from group notifications_6
+Room group: chat_Drinceanu
+Connected to Drinceanu
+Joined room group: chat_Drinceanu
+Left room group: chat_Drinceanu
+Connecting to group notifications_6
+Received get_notifications command
+Got 4 notifications
+Disconnecting from group notifications_6
+Connecting to group notifications_6
+Received get_notifications command
+Got 4 notifications
+Disconnecting from group notifications_6
+Connecting to group notifications_6
+Received get_notifications command
+Got 4 notifications
+Disconnecting from group notifications_6
+Connecting to group notifications_6
+Received get_notifications command
+Got 4 notifications
+Disconnecting from group notifications_6
+Forbidden (CSRF token from POST incorrect.): /accounts/login/
+Not Found: /favicon.ico
+Connecting to group notifications_6
+Received get_notifications command
+Got 4 notifications
+Disconnecting from group notifications_6
+Connecting to group notifications_6
+Received get_notifications command
+Got 4 notifications
+Disconnecting from group notifications_6
+Connecting to group notifications_6
+Received get_notifications command
+Got 4 notifications
+Disconnecting from group notifications_6
+Connecting to group notifications_6
+Received get_notifications command
+Got 4 notifications
+Disconnecting from group notifications_6
+Connecting to group notifications_6
+Received get_notifications command
+Got 4 notifications
+Disconnecting from group notifications_6
+Room group: chat_Drinceanu
+Connected to Drinceanu
+Joined room group: chat_Drinceanu
+Left room group: chat_Drinceanu
+Connecting to group notifications_6
+Received get_notifications command
+Got 4 notifications
+Disconnecting from group notifications_6
+Connecting to group notifications_6
+Received get_notifications command
+Got 4 notifications
+Disconnecting from group notifications_6
+Connecting to group notifications_6
+Received get_notifications command
+Got 4 notifications
+Disconnecting from group notifications_6
+Connecting to group notifications_6
+Received get_notifications command
+Got 4 notifications
+Disconnecting from group notifications_6
+Connecting to group notifications_6
+Received get_notifications command
+Got 4 notifications
+Disconnecting from group notifications_6
+tag: Orientation (274) - type: short (3) - value: b'\x01\x00'
+tag: XResolution (282) - type: rational (5) Tag Location: 34 - Data Location: 86 - value: b'/\x19\x01\x00\xe8\x03\x00\x00'
+tag: YResolution (283) - type: rational (5) Tag Location: 46 - Data Location: 94 - value: b'/\x19\x01\x00\xe8\x03\x00\x00'
+tag: ResolutionUnit (296) - type: short (3) - value: b'\x02\x00'
+tag: YCbCrPositioning (531) - type: short (3) - value: b'\x01\x00'
+tag: ExifIFD (34665) - type: long (4) - value: b'f\x00\x00\x00'
+Importing BlpImagePlugin
+Importing BmpImagePlugin
+Importing BufrStubImagePlugin
+Importing CurImagePlugin
+Importing DcxImagePlugin
+Importing DdsImagePlugin
+Importing EpsImagePlugin
+Importing FitsImagePlugin
+Importing FliImagePlugin
+Importing FpxImagePlugin
+Image: failed to import FpxImagePlugin: No module named 'olefile'
+Importing FtexImagePlugin
+Importing GbrImagePlugin
+Importing GifImagePlugin
+Importing GribStubImagePlugin
+Importing Hdf5StubImagePlugin
+Importing IcnsImagePlugin
+Importing IcoImagePlugin
+Importing ImImagePlugin
+Importing ImtImagePlugin
+Importing IptcImagePlugin
+Importing JpegImagePlugin
+Importing Jpeg2KImagePlugin
+Importing McIdasImagePlugin
+Importing MicImagePlugin
+Image: failed to import MicImagePlugin: No module named 'olefile'
+Importing MpegImagePlugin
+Importing MpoImagePlugin
+Importing MspImagePlugin
+Importing PalmImagePlugin
+Importing PcdImagePlugin
+Importing PcxImagePlugin
+Importing PdfImagePlugin
+Importing PixarImagePlugin
+Importing PngImagePlugin
+Importing PpmImagePlugin
+Importing PsdImagePlugin
+Importing QoiImagePlugin
+Importing SgiImagePlugin
+Importing SpiderImagePlugin
+Importing SunImagePlugin
+Importing TgaImagePlugin
+Importing TiffImagePlugin
+Importing WebPImagePlugin
+Importing WmfImagePlugin
+Importing XbmImagePlugin
+Importing XpmImagePlugin
+Importing XVThumbImagePlugin
+Connecting to group notifications_8
+Received get_notifications command
+Got 0 notifications
+Disconnecting from group notifications_8
+Connecting to group notifications_8
+Received get_notifications command
+Got 0 notifications
+Disconnecting from group notifications_8
+Connecting to group notifications_8
+Received get_notifications command
+Got 0 notifications
+Creating chore notification for Laundry - Assigned to: Adrian
+Sending email to drinceanuadrian@gmail.com about chore: Laundry
+Email sent successfully.
+Disconnecting from group notifications_8
+Connecting to group notifications_8
+Received get_notifications command
+Got 1 notifications
+Disconnecting from group notifications_8
+Connecting to group notifications_8
+Received get_notifications command
+Got 1 notifications
+Disconnecting from group notifications_8
+Connecting to group notifications_8
+Received get_notifications command
+Got 1 notifications
+Disconnecting from group notifications_8
+Connecting to group notifications_8
+Received get_notifications command
+Got 1 notifications
+Disconnecting from group notifications_8
+Connecting to group notifications_8
+Received get_notifications command
+Got 1 notifications
+Disconnecting from group notifications_8
+Connecting to group notifications_8
+Received get_notifications command
+Got 1 notifications
+Disconnecting from group notifications_8
+Connecting to group notifications_8
+Received get_notifications command
+Got 1 notifications
+Disconnecting from group notifications_8
+Room group: chat_Drincenii
+Connected to Drincenii
+Joined room group: chat_Drincenii
+Received message: hey
+Sending message: hey
+Left room group: chat_Drincenii
+Connecting to group notifications_8
+Received get_notifications command
+Got 1 notifications
+Disconnecting from group notifications_8
+Connecting to group notifications_8
+Received get_notifications command
+Got 1 notifications
+Disconnecting from group notifications_8
+Connecting to group notifications_8
+Received get_notifications command
+Got 1 notifications
+Disconnecting from group notifications_8
+Connecting to group notifications_8
+Received get_notifications command
+Got 1 notifications
+Disconnecting from group notifications_8
+Connecting to group notifications_8
+Received get_notifications command
+Got 1 notifications
+Creating chore notification for Laundry - Assigned to: Adrian
+Disconnecting from group notifications_8
+Connecting to group notifications_8
+Received get_notifications command
+Got 1 notifications
+Disconnecting from group notifications_8
+Room group: chat_Drincenii
+Connected to Drincenii
+Joined room group: chat_Drincenii
+Received message: hello
+Sending message: hello
+Left room group: chat_Drincenii
+Connecting to group notifications_8
+Received get_notifications command
+Got 1 notifications
+Disconnecting from group notifications_8
+Connecting to group notifications_8
+Received get_notifications command
+Got 1 notifications
+Disconnecting from group notifications_8
+Connecting to group notifications_8
+Received get_notifications command
+Got 1 notifications
+Disconnecting from group notifications_8
+Connecting to group notifications_8
+Received get_notifications command
+Got 1 notifications
+Disconnecting from group notifications_8
+Connecting to group notifications_8
+Received get_notifications command
+Got 1 notifications
+Disconnecting from group notifications_8
+Connecting to group notifications_8
+Received get_notifications command
+Got 1 notifications
+Disconnecting from group notifications_8
+Connecting to group notifications_8
+Received get_notifications command
+Got 1 notifications
+Disconnecting from group notifications_8
+Connecting to group notifications_8
+Received get_notifications command
+Got 1 notifications
+Disconnecting from group notifications_8
+Connecting to group notifications_8
+Received get_notifications command
+Got 1 notifications
+Disconnecting from group notifications_8
+Connecting to group notifications_8
+Received get_notifications command
+Got 1 notifications
+Disconnecting from group notifications_8
+Connecting to group notifications_8
+Received get_notifications command
+Got 1 notifications
+Disconnecting from group notifications_8
+Connecting to group notifications_8
+Received get_notifications command
+Got 1 notifications
+Disconnecting from group notifications_8
+Connecting to group notifications_8
+Received get_notifications command
+Got 1 notifications
+Disconnecting from group notifications_8
+Room group: chat_Drincenii
+Connected to Drincenii
+Joined room group: chat_Drincenii
+Left room group: chat_Drincenii
+Connecting to group notifications_8
+Received get_notifications command
+Got 1 notifications
+Disconnecting from group notifications_8
+Connecting to group notifications_8
+Received get_notifications command
+Got 1 notifications
+Disconnecting from group notifications_8
+Connecting to group notifications_8
+Received get_notifications command
+Got 1 notifications
+Disconnecting from group notifications_8
+Connecting to group notifications_9
+Received get_notifications command
+Got 0 notifications
+Disconnecting from group notifications_9
+Connecting to group notifications_9
+Received get_notifications command
+Got 0 notifications
+Disconnecting from group notifications_9
+Connecting to group notifications_9
+Received get_notifications command
+Got 0 notifications
+Disconnecting from group notifications_9
+Connecting to group notifications_9
+Received get_notifications command
+Got 0 notifications
+Disconnecting from group notifications_9
+Connecting to group notifications_9
+Received get_notifications command
+Got 0 notifications
+Disconnecting from group notifications_9
+Connecting to group notifications_9
+Received get_notifications command
+Got 0 notifications
+Disconnecting from group notifications_9
+Connecting to group notifications_9
+Received get_notifications command
+Got 0 notifications
+Creating chore notification for wash the dishes - Assigned to: Adrian
+Sending email to drinceanuadrian@gmail.com about chore: wash the dishes
+Email sent successfully.
+Disconnecting from group notifications_9
+Connecting to group notifications_9
+Received get_notifications command
+Got 1 notifications
+Disconnecting from group notifications_9
+Connecting to group notifications_9
+Received get_notifications command
+Got 1 notifications
+Disconnecting from group notifications_9
+Connecting to group notifications_9
+Received get_notifications command
+Got 1 notifications
+Disconnecting from group notifications_9
+Connecting to group notifications_9
+Received get_notifications command
+Got 1 notifications
+Disconnecting from group notifications_9
+Connecting to group notifications_9
+Received get_notifications command
+Got 1 notifications
+Disconnecting from group notifications_9
+Room group: chat_Drinceanu
+Connected to Drinceanu
+Joined room group: chat_Drinceanu
+Left room group: chat_Drinceanu
+Connecting to group notifications_9
+Received get_notifications command
+Got 1 notifications
+Disconnecting from group notifications_9
+Connecting to group notifications_9
+Received get_notifications command
+Got 1 notifications
+Disconnecting from group notifications_9
+Connecting to group notifications_9
+Received get_notifications command
+Got 1 notifications
+Disconnecting from group notifications_9
+Connecting to group notifications_9
+Received get_notifications command
+Got 1 notifications
+Disconnecting from group notifications_9
+Connecting to group notifications_9
+Received get_notifications command
+Got 1 notifications
+Disconnecting from group notifications_9
+Connecting to group notifications_9
+Received get_notifications command
+Got 1 notifications
+Disconnecting from group notifications_9
+Connecting to group notifications_6
+Received get_notifications command
+Got 4 notifications
+Disconnecting from group notifications_6
+Connecting to group notifications_6
+Received get_notifications command
+Got 4 notifications
+Connecting to group notifications_9
+Received get_notifications command
+Got 1 notifications
+Disconnecting from group notifications_9
+Room group: chat_Drinceanu
+Connected to Drinceanu
+Joined room group: chat_Drinceanu
+Left room group: chat_Drinceanu
+Connecting to group notifications_9
+Received get_notifications command
+Got 1 notifications
+Disconnecting from group notifications_9
+Connecting to group notifications_9
+Received get_notifications command
+Got 1 notifications
+Disconnecting from group notifications_9
+Connecting to group notifications_9
+Received get_notifications command
+Got 1 notifications
+Disconnecting from group notifications_9
+Connecting to group notifications_9
+Received get_notifications command
+Got 1 notifications
+Disconnecting from group notifications_9
+Connecting to group notifications_9
+Received get_notifications command
+Got 1 notifications
+Not Found: /static/js/_site_dashboard_free/assets/js/dashboard-free.js.map
+Disconnecting from group notifications_9
+Connecting to group notifications_9
+Received get_notifications command
+Not Found: /static/js/_site_dashboard_free/assets/js/dashboard-free.js.map
+Got 1 notifications
+Connecting to group notifications_9
+Received get_notifications command
+Got 1 notifications
+Disconnecting from group notifications_9
+Connecting to group notifications_9
+Received get_notifications command
+Got 1 notifications
+Disconnecting from group notifications_9
+Connecting to group notifications_9
+Received get_notifications command
+Got 1 notifications
+Connecting to group notifications_6
+Received get_notifications command
+Got 4 notifications
+Disconnecting from group notifications_6
+Connecting to group notifications_6
+Received get_notifications command
+Got 4 notifications
+Disconnecting from group notifications_6
+Connecting to group notifications_6
+Received get_notifications command
+Got 4 notifications
+Disconnecting from group notifications_9
+Connecting to group notifications_9
+Received get_notifications command
+Got 1 notifications
+Disconnecting from group notifications_6
+Connecting to group notifications_6
+Received get_notifications command
+Got 4 notifications
+Disconnecting from group notifications_6
+Connecting to group notifications_6
+Received get_notifications command
+Got 4 notifications
+Disconnecting from group notifications_6
+Connecting to group notifications_6
+Received get_notifications command
+Got 4 notifications
+Disconnecting from group notifications_9
+Connecting to group notifications_9
+Received get_notifications command
+Got 1 notifications
+Disconnecting from group notifications_9
+Connecting to group notifications_9
+Received get_notifications command
+Got 1 notifications
+Disconnecting from group notifications_9
+Connecting to group notifications_9
+Received get_notifications command
+Got 1 notifications
+Disconnecting from group notifications_9
+Connecting to group notifications_7
+Received get_notifications command
+Got 0 notifications
+Disconnecting from group notifications_7
+Connecting to group notifications_7
+Received get_notifications command
+Got 0 notifications
+Disconnecting from group notifications_7
+Connecting to group notifications_7
+Received get_notifications command
+Got 0 notifications
+Disconnecting from group notifications_7
+Connecting to group notifications_7
+Received get_notifications command
+Got 0 notifications
+Disconnecting from group notifications_6
+Connecting to group notifications_6
+Received get_notifications command
+Got 4 notifications
+Disconnecting from group notifications_6
+Connecting to group notifications_6
+Received get_notifications command
+Got 4 notifications
+Disconnecting from group notifications_6
+Connecting to group notifications_6
+Received get_notifications command
+Got 4 notifications
+Disconnecting from group notifications_6
+Connecting to group notifications_6
+Received get_notifications command
+Got 4 notifications
+Disconnecting from group notifications_6
+Connecting to group notifications_6
+Received get_notifications command
+Got 4 notifications
+Disconnecting from group notifications_7
+Connecting to group notifications_7
+Received get_notifications command
+Got 0 notifications
+Disconnecting from group notifications_7
+Connecting to group notifications_7
+Received get_notifications command
+Got 0 notifications
+Disconnecting from group notifications_7
+Connecting to group notifications_7
+Received get_notifications command
+Got 0 notifications
+Disconnecting from group notifications_7
+Connecting to group notifications_7
+Received get_notifications command
+Got 0 notifications
+Disconnecting from group notifications_7
+Connecting to group notifications_7
+Received get_notifications command
+Got 0 notifications
+Disconnecting from group notifications_6
+Connecting to group notifications_6
+Received get_notifications command
+Got 4 notifications
+Disconnecting from group notifications_6
+Connecting to group notifications_6
+Received get_notifications command
+Got 4 notifications
+Disconnecting from group notifications_6
+Connecting to group notifications_6
+Received get_notifications command
+Got 4 notifications
+Disconnecting from group notifications_6
+Connecting to group notifications_6
+Received get_notifications command
+Got 4 notifications
+Disconnecting from group notifications_6
+Connecting to group notifications_6
+Received get_notifications command
+Got 4 notifications
+Disconnecting from group notifications_6
+Connecting to group notifications_6
+Received get_notifications command
+Got 4 notifications
+Disconnecting from group notifications_6
+Connecting to group notifications_6
+Received get_notifications command
+Got 4 notifications
+Disconnecting from group notifications_6
+Room group: chat_Drinceanu
+Connected to Drinceanu
+Joined room group: chat_Drinceanu
+Left room group: chat_Drinceanu
+Connecting to group notifications_6
+Received get_notifications command
+Got 4 notifications
+Disconnecting from group notifications_6
+Connecting to group notifications_6
+Received get_notifications command
+Got 4 notifications
+Disconnecting from group notifications_6
+Connecting to group notifications_6
+Received get_notifications command
+Got 4 notifications
+Internal Server Error: /profile/leader/coman_andrei/chores
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.errors.UndefinedColumn: column home_chore.description does not exist
+LINE 1: SELECT "home_chore"."id", "home_chore"."title", "home_chore"...
+                                                        ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.12/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.12/site-packages/django/core/handlers/base.py", line 253, in _get_response_async
+    response = await wrapped_callback(
+               ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/asgiref/sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/asgiref/current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/asgiref/sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/contrib/auth/decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/household-manager/home/views.py", line 137, in create_chore_view
+    return render(request, 'pages/profile_leader_create_chore.html', context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/template/loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/template/base.py", line 171, in render
+    return self._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/template/base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/template/base.py", line 961, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/template/loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/template/base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/template/base.py", line 961, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/template/loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/template/base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/template/base.py", line 961, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/template/defaulttags.py", line 198, in render
+    len_values = len(values)
+                 ^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/db/models/query.py", line 382, in __len__
+    self._fetch_all()
+  File "/usr/local/lib/python3.12/site-packages/django/db/models/query.py", line 1928, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/db/models/query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/db/models/sql/compiler.py", line 1562, in execute_sql
+    cursor.execute(sql, params)
+  File "/usr/local/lib/python3.12/site-packages/django/db/backends/utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/db/backends/utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/db/backends/utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/db/backends/utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+  File "/usr/local/lib/python3.12/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/usr/local/lib/python3.12/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.ProgrammingError: column home_chore.description does not exist
+LINE 1: SELECT "home_chore"."id", "home_chore"."title", "home_chore"...
+                                                        ^
+
+Disconnecting from group notifications_7
+Not Found: /favicon.ico
+Internal Server Error: /profile/leader/drinceanu_adrian/chores
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.errors.UndefinedColumn: column home_chore.description does not exist
+LINE 1: SELECT "home_chore"."id", "home_chore"."title", "home_chore"...
+                                                        ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.12/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.12/site-packages/django/core/handlers/base.py", line 253, in _get_response_async
+    response = await wrapped_callback(
+               ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/asgiref/sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/asgiref/current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/asgiref/sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/contrib/auth/decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/household-manager/home/views.py", line 137, in create_chore_view
+    return render(request, 'pages/profile_leader_create_chore.html', context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/template/loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/template/base.py", line 171, in render
+    return self._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/template/base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/template/base.py", line 961, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/template/loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/template/base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/template/base.py", line 961, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/template/loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/template/base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/template/base.py", line 961, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/template/defaulttags.py", line 198, in render
+    len_values = len(values)
+                 ^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/db/models/query.py", line 382, in __len__
+    self._fetch_all()
+  File "/usr/local/lib/python3.12/site-packages/django/db/models/query.py", line 1928, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/db/models/query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/db/models/sql/compiler.py", line 1562, in execute_sql
+    cursor.execute(sql, params)
+  File "/usr/local/lib/python3.12/site-packages/django/db/backends/utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/db/backends/utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/db/backends/utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/django/db/backends/utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+  File "/usr/local/lib/python3.12/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/usr/local/lib/python3.12/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.ProgrammingError: column home_chore.description does not exist
+LINE 1: SELECT "home_chore"."id", "home_chore"."title", "home_chore"...
+                                                        ^
+
+Disconnecting from group notifications_6
+Not Found: /favicon.ico
+Connecting to group notifications_7
+Received get_notifications command
+Got 0 notifications
+Disconnecting from group notifications_7
+Connecting to group notifications_7
+Received get_notifications command
+Got 0 notifications
+Disconnecting from group notifications_7
+Connecting to group notifications_7
+Received get_notifications command
+Got 0 notifications
+Disconnecting from group notifications_7
+Connecting to group notifications_7
+Received get_notifications command
+Got 0 notifications
+Disconnecting from group notifications_7
+Connecting to group notifications_7
+Received get_notifications command
+Got 0 notifications
+Connecting to group notifications_7
+Received get_notifications command
+Got 0 notifications
+Disconnecting from group notifications_7
+Connecting to group notifications_7
+Received get_notifications command
+Got 0 notifications
+Connecting to group notifications_7
+Received get_notifications command
+Got 0 notifications
+Connecting to group notifications_7
+Received get_notifications command
+Got 0 notifications
+Creating chore notification for vase - Assigned to: coman andrei
+Sending email to salut@drincenii.ro about chore: vase
+Email sent successfully.
+Disconnecting from group notifications_7
+Connecting to group notifications_7
+Received get_notifications command
+Got 1 notifications
+Connecting to group notifications_7
+Received get_notifications command
+Got 1 notifications
+Disconnecting from group notifications_7
+Connecting to group notifications_7
+Received get_notifications command
+Got 0 notifications
+Disconnecting from group notifications_7
+Connecting to group notifications_7
+Received get_notifications command
+Got 0 notifications
+Connecting to group notifications_6
+Received get_notifications command
+Got 4 notifications
+Connecting to group notifications_6
+Received get_notifications command
+Got 4 notifications
+Disconnecting from group notifications_6
+Connecting to group notifications_6
+Received get_notifications command
+Got 4 notifications
+Connecting to group notifications_6
+Received get_notifications command
+Got 4 notifications
+Connecting to group notifications_7
+Received get_notifications command
+Got 0 notifications
+Disconnecting from group notifications_7
+Connecting to group notifications_7
+Received get_notifications command
+Got 0 notifications
+Connecting to group notifications_7
+Received get_notifications command
+Got 0 notifications
+Disconnecting from group notifications_7
+Connecting to group notifications_7
+Received get_notifications command
+Got 0 notifications
+Disconnecting from group notifications_7
+Connecting to group notifications_7
+Received get_notifications command
+Got 0 notifications
+Connecting to group notifications_7
+Received get_notifications command
+Got 0 notifications
+Connecting to group notifications_6
+Received get_notifications command
+Got 4 notifications
+Disconnecting from group notifications_6
+Connecting to group notifications_6
+Received get_notifications command
+Got 4 notifications
+Disconnecting from group notifications_7
+Connecting to group notifications_7
+Received get_notifications command
+Got 0 notifications
+Connecting to group notifications_7
+Received get_notifications command
+Got 0 notifications
+Disconnecting from group notifications_7
+Connecting to group notifications_7
+Received get_notifications command
+Got 0 notifications
+Disconnecting from group notifications_7
+Connecting to group notifications_7
+Received get_notifications command
+Got 0 notifications

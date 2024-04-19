@@ -29,6 +29,16 @@ The family members can chat with each other via this app.
 <li>Html Templates</li>
 <li>Ready the app for deploy?</li>
 
+Remove form after family creation
+Remove members
+Deadline chore
+Scos descriere chore
+Notificări mesaje
+ Family name duplicates in chat
+ Notificări expenses
+ Fix expenses - Fixed, to be tested
+ 2 categorii scoase la buget (food and movies)
+
 
 
 
