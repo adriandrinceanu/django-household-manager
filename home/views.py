@@ -177,6 +177,7 @@ def create_family(request, username):
     family_members = Member.objects.filter(family=member.family)
     family_form = FamilyCreationForm()
     member_form = MemberCreationForm()
+    family_created = False
 
     if request.method == 'POST':
         if 'create_family' in request.POST:
@@ -189,6 +190,7 @@ def create_family(request, username):
                 member.save()  # Save the updated member object
                 my_family = member.family
                 messages.success(request, 'Family created successfully')
+                family_created = True
                 return redirect('create_family', username=username)  
         elif 'create_member' in request.POST:
             member_form = MemberCreationForm(request.POST, request.FILES, family=my_family)
@@ -206,6 +208,7 @@ def create_family(request, username):
         'family': family_members,
         'family_form': family_form,
         'member_form': member_form,
+        'family_created': family_created,
         'segment': 'create_family',
     }
     return render(request, 'pages/profile_leader_family_creation.html', context)
@@ -217,6 +220,7 @@ def delete_member(request, username, member_id):
     member_to_remove.delete()
     messages.success(request, 'Member deleted successfully.')
     return redirect('create_family', username=username)
+
 
 
 ### end family leader

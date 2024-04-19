@@ -8,6 +8,7 @@ urlpatterns = [
     path('accounts/register/', views.registerPage, name='register'),
     path('profile/leader/<str:username>/', views.familyLeader, name='family_leader'),
     path('profile/leader/<str:username>/family', views.create_family, name='create_family'),
+    path('profile/leader/<str:username>/<int:member_id>/member/delete', views.delete_member, name='delete_member'),
     path('profile/leader/<str:username>/chores', views.create_chore_view, name='create_chore'),
     path('profile/leader/<str:username>/<int:chore_id>/chores/delete', views.delete_chore_view, name='delete_chore'),
     path('profile/leader/<str:username>/budgets', views.budget_view, name='budgets'),
