@@ -29,10 +29,10 @@ The family members can chat with each other via this app.
 <li>Html Templates</li>
 <li>Ready the app for deploy?</li>
 
-Remove form after family creation
-Remove members
-Notificări mesaje
 Notificări expenses
+Remove form after family creation - done
+Remove members - done
+Notificări mesaje - done
 Fix expenses - Fixed, to be tested
 2 categorii scoase la buget (food and movies) - done
 Family name duplicates in chat - fixed
