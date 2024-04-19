@@ -91,12 +91,19 @@
               <div class="d-flex flex-column">
                 <h6 class="mb-3 text-sm">{{ chore.assigned_to.name }}</h6>
                 <span class="mb-2 text-xs">Title <span class="text-dark font-weight-bold ms-sm-2">{{ chore.title }}</span></span>
-                <span class="mb-2 text-xs">Description: <span class="text-dark ms-sm-2 font-weight-bold">{{ chore.description }}</span></span>
+                <span class="mb-2 text-xs">Deadline: <span class="text-dark ms-sm-2 font-weight-bold">{{ chore.deadline }}</span></span>
              
               </div>
               <div class="ms-auto text-end">
                 <a class="btn btn-link text-danger text-gradient px-3 mb-0" href="{% url 'delete_chore' chore_id=chore.id username=request.user.username  %}"><i class="far fa-trash-alt me-2"></i>Delete</a>
               </div>
+            </li>
+            {% empty %}
+            <li class="list-group-item border-0 d-flex p-4 mb-2 bg-gray-100 border-radius-lg">
+              <div class="d-flex flex-column">
+                <h6 class="mb-3 text-sm">No chores assigned</h6>
+              </div>
+              
             </li>
             {% endfor %}
           </ul>
@@ -117,6 +124,7 @@
                   <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Type</th>
                   <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Status</th>
                   <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Created at</th>
+                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Deadline</th>
                   <th class="text-secondary opacity-7"></th>
                 </tr>
               </thead>
@@ -149,7 +157,14 @@
                   <td class="align-middle text-center">
                     <span class="text-secondary text-xs font-weight-bold">{{ chore.created_at }}</span>
                   </td>
+                  <td class="align-middle text-center">
+                    <span class="text-secondary text-xs font-weight-bold">{{ chore.deadline }}</span>
+                  </td>
                 </tr>
+                {% empty %}
+                  <tr>
+                      <td colspan="7" class="align-middle text-center text-sm font-weight-bold">No chores yet :D</td>
+                  </tr>
                 {% endfor %}
 
               </tbody>
