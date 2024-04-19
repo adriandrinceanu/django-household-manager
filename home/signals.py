@@ -26,7 +26,7 @@ def create_chore_notification(sender, instance, created, **kwargs):
         async_to_sync(channel_layer.group_send)(
             f"notifications_{instance.assigned_to.family.id}",
             {
-                "type": "send_notification",
+                "type": "new_notification",
                 "notification": {
                     'id': notification.id,
                     'user': notification.user.username if notification.user else None,
