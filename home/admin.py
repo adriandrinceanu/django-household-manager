@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Family, Member, Chore, Expense, Budget, Notification, MonthlyBudget, Message
+from .models import Family, Member, Chore, Expense, Budget, Notification, MonthlyBudget, Message, UnreadMessage
 from django.contrib.auth import get_user_model
 from django.contrib.auth.models import User
 
@@ -38,3 +38,5 @@ admin.site.register(Budget)
 admin.site.register(MonthlyBudget)
 admin.site.register(Notification)
 admin.site.register(Message)
+admin.site.register(UnreadMessage)
+
