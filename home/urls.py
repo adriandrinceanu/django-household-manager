@@ -24,6 +24,8 @@ urlpatterns = [
     path('profile/member/<str:username>/view_budgets', views.budget_view, name='view_budgets'),
     path('profile/member/<str:username>/expenses', views.expense_view, name='member_expenses'),
     path('profile/family_member/<str:username>/chat', views.family_room_view, name='chat'),
+    path('unread_messages_count/', views.get_unread_messages_count, name='unread_messages_count'),
+    path('mark_messages_as_read/', views.mark_messages_as_read, name='mark_messages_as_read'),
 
 ]
 
