@@ -593,6 +593,7 @@ def family_room_view(request, username):
         return redirect('create_family')
     else:
         family_name = member.family.name
-    return render(request, 'pages/family_room.html', {'family_name': family_name, 'segment': 'chat', 'exclude_navigation': True})
+        family_id = member.family.id
+    return render(request, 'pages/family_room.html', {'family_name': family_name, 'family_id': family_id, 'segment': 'chat', 'exclude_navigation': True})
 
 ### end chat

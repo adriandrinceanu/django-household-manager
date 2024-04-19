@@ -121,7 +121,9 @@ class FamilyChatConsumer(AsyncWebsocketConsumer):
     
     async def connect(self):
         from .models import Message 
-        self.room_name = self.scope['url_route']['kwargs']['family_name']
+        self.family_name = self.scope['url_route']['kwargs']['family_name']
+        self.family_id = self.scope['url_route']['kwargs']['family_id']
+        self.room_name = f"{self.family_name}_chatroom{self.family_id}"
         self.room_group_name = f"chat_{self.room_name}"
         logger.info(f"Room group: {self.room_group_name}")
         # Accept the WebSocket connection

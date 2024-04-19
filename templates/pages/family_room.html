@@ -60,7 +60,8 @@
 <script>
   let my_username = "{{ request.user.username }}";
 let family_name = "{{ family_name }}";
-let room_name = family_name + '_chatroom';
+let family_id = "{{ family_id }}";
+let room_name = family_name + '_chatroom' + family_id;
 
 let socket = new WebSocket(
     'ws://' + window.location.host +
