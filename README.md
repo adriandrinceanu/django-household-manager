@@ -31,13 +31,13 @@ The family members can chat with each other via this app.
 
 Remove form after family creation
 Remove members
-Deadline chore
-Scos descriere chore
 Notificări mesaje
- Family name duplicates in chat
- Notificări expenses
- Fix expenses - Fixed, to be tested
- 2 categorii scoase la buget (food and movies)
+Notificări expenses
+Fix expenses - Fixed, to be tested
+2 categorii scoase la buget (food and movies) - done
+Family name duplicates in chat - fixed
+Deadline chore - fixed
+Scos descriere chore - fixed
 
 
 
