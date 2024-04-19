@@ -11,7 +11,7 @@ from django.contrib.humanize.templatetags.humanize import naturaltime
 
 logger = logging.getLogger(__name__)
 
-class NotificationConsumer(AsyncJsonWebsocketConsumer):
+class NotificationConsumer(AsyncWebsocketConsumer):
     async def connect(self):
         self.user = self.scope["user"]
         # Get the family id
@@ -72,40 +72,40 @@ class NotificationConsumer(AsyncJsonWebsocketConsumer):
 
         logger.info(f"Got {len(notifications_json)} notifications")
         return notifications_json
-    
-    # Receive message from WebSocket
-    async def receive_json(self, content):
-        command = content.get("command", None)
-        if command == "get_notifications":
-            logger.info("Received get_notifications command")
-            notifications = await self.get_notifications()
-        await self.send_json({"notifications": notifications})
+
     
     async def new_notification(self, notification):
         # Send notification to room group
         await self.channel_layer.group_send(
             self.group_name,
             {
-                'type': 'send_notification',
+                'type': 'new_notification',
                 'notification': notification
             }
         )
+
+
+
+    #switched to AsyncWebsocketConsumer
+        # Receive message from WebSocket
+    async def receive(self, text_data):
+        content = json.loads(text_data)
+        command = content.get("command", None)
+        if command == "get_notifications":
+            logger.info("Received get_notifications command")
+            notifications = await self.get_notifications()
+        await self.send(text_data=json.dumps({"notifications": notifications}))
 
     # Receive message from room group
     async def send_notification(self, event):
         notification = event['notification']
         # Send message to WebSocket
-        await self.send_json({
-        'notification': notification,
-    })
-
+        await self.send(text_data=json.dumps({
+            'notification': notification,
+        }))
     
 
-    # # Receive message from room group
-    # async def send_notification(self, event):
-    #     logger.info(f"Sending notification: {event['text']}")
-    #     await self.send_json(event["text"])
-    
+
     
 class FamilyChatConsumer(AsyncWebsocketConsumer):
     @sync_to_async
