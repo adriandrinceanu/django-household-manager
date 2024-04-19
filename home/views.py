@@ -1,16 +1,18 @@
 from django.shortcuts import render, redirect, get_object_or_404, HttpResponse
 from django.contrib.auth import login,logout,authenticate
-from django.contrib.auth.decorators import login_required, user_passes_test
-from django.contrib.auth import get_user_model
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import Group
 from django.contrib import messages
 from django.db.models import Sum
 from datetime import datetime
-from .models import Chore, Family, Member, Notification, Budget, MonthlyBudget, Expense
+from .models import Chore, Family, Member, Notification, Budget, MonthlyBudget, Expense, UnreadMessage
 from django.contrib.auth.models import Group, User
 from .forms import MemberCreationForm, FamilyCreationForm, ChoreCreationForm, BudgetCreationForm, MonthlyBudgetCreationForm, ExpenseCreationForm
 from django.core.mail import send_mail
 import logging
+from django.views.decorators.http import require_POST
+from django.http import JsonResponse
+
 
 def index(request):
     if request.user.is_authenticated:
@@ -597,3 +599,45 @@ def family_room_view(request, username):
     return render(request, 'pages/family_room.html', {'family_name': family_name, 'family_id': family_id, 'segment': 'chat', 'exclude_navigation': True})
 
 ### end chat
+
+
+
+def get_unread_messages_count(request):
+    try:
+        # Get the member associated with the current user
+        member = Member.objects.get(user=request.user)
+        
+        # Get the unread messages for the member
+        unread_messages = UnreadMessage.objects.filter(member=member, is_read=False)
+        
+        # Count the number of unread messages
+        count = unread_messages.count()
+        
+        # Serialize the unread messages to JSON
+        # unread_messages_json = [model_to_dict(message) for message in unread_messages]
+        
+        return JsonResponse({'count': count, })
+    except Member.DoesNotExist:
+        return JsonResponse({'error': 'Member does not exist'})
+    except Exception as e:
+        return JsonResponse({'error': str(e)})
+    
+
+
+@require_POST
+def mark_messages_as_read(request):
+    try:
+        # Get the member associated with the current user
+        member = Member.objects.get(user=request.user)
+        
+        # Get the unread messages for the member
+        unread_messages = UnreadMessage.objects.filter(member=member, is_read=False)
+        
+        # Mark all unread messages as read
+        unread_messages.update(is_read=True)
+        
+        return JsonResponse({'status': 'success'})
+    except Member.DoesNotExist:
+        return JsonResponse({'error': 'Member does not exist'})
+    except Exception as e:
+        return JsonResponse({'error': str(e)})
