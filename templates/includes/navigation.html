@@ -121,7 +121,7 @@
 <!-- End Navbar -->
 
 <script>
-  let socket = new WebSocket("ws://localhost:8000/ws/notifications/");
+  let socket1 = new WebSocket("ws://localhost:8000/ws/notifications/");
   let notifications = [];  // Declare notifications array here
 
   // Function to update the notification counter
@@ -166,7 +166,7 @@
   }
 
   // Add an event listener for incoming messages
-  socket.onmessage = function(event) {
+  socket1.onmessage = function(event) {
       let data = JSON.parse(event.data);
       if (data.type === 'send_notification') {
           let notification = data.notification;
@@ -177,14 +177,14 @@
   };
 
   // Connection opened
-  socket.addEventListener('open', (event) => {
-      socket.send(JSON.stringify({
+  socket1.addEventListener('open', (event) => {
+      socket1.send(JSON.stringify({
           'command': 'get_notifications'
       }));
   });
 
   // Listen for messages
-  socket.addEventListener('message', (event) => {
+  socket1.addEventListener('message', (event) => {
       console.log('Message from server: ', event.data);
       let data = JSON.parse(event.data);
       console.log('Parsed data: ', data);
@@ -201,7 +201,7 @@
       updateNotificationsDropdown();
   });
 
-  socket.onclose = function(e) {
+  socket1.onclose = function(e) {
       console.error('Chat socket closed unexpectedly');
   };
 //////////////////////////////////////////////////////////////////
@@ -266,87 +266,3 @@ window.onload = function() {
 
 </script>
 
-<!-- 
-<script>
-  let socket = new WebSocket("ws://localhost:8000/ws/notifications/");
-
-
-// Connection opened
-socket.addEventListener('open', (event) => {
-    socket.send(JSON.stringify({
-        'command': 'get_notifications'
-    }));
-});
-
-// Listen for messages
-socket.addEventListener('message', (event) => {
-    console.log('Message from server: ', event.data);
-    let data = JSON.parse(event.data);
-    console.log('Parsed data: ', data);
-
-    // Check if the message is a notification
-    if (data.type === 'send_notification') {
-        // If it is, add the notification to the notifications array
-        let notification = data.notification;
-        notifications.push(notification);
-    } else if (data.notifications) {
-        // If the message contains a notifications array, use it to update the notifications
-        notifications = data.notifications;
-    }
-    
-    let notifications = data.notifications;
-    console.log('Notifications: ', notifications);
-
-    // Update the notification counter
-    let counter = document.getElementById("notificationCounter");
-    counter.textContent = notifications.length;
-
-    // Get the notifications dropdown
-    let dropdown = document.getElementById("notificationDropdown");
-    console.log('Dropdown element: ', dropdown);
-
-    // Clear the current notifications
-    dropdown.innerHTML = "";
-
-    // Check if there are any notifications
-    if (notifications.length === 0) {
-        // If not, display a message
-        dropdown.innerHTML = "<li class='mb-2'>No notifications yet</li>";
-      } else {
-    // Add each notification to the dropdown
-    for (let i = 0; i < notifications.length; i++) {
-        let notification = notifications[i];
-        console.log('Current notification: ', notification);
-        console.log('Current member: ', notification.member);
-
-        // Create a new dropdown item
-        let item = document.createElement("li");
-        item.classList.add("mb-2");
-        // Create the dropdown item content
-        item.innerHTML = `
-            <a class="dropdown-item border-radius-md" href="javascript:;">
-                <div class="d-flex py-1">
-                    <div class="my-auto">
-                        <img src="${notification.member.profile_pic}" class="avatar avatar-sm  me-3 ">
-                    </div>
-                    <div class="d-flex flex-column justify-content-center">
-                        <h6 class="text-sm font-weight-normal mb-1">
-                            <span class="font-weight-bold">${notification.message}</span>
-                        </h6>
-                        <p class="text-xs text-secondary mb-0 ">
-                            <i class="fa fa-clock me-1"></i>
-                            ${notification.created_at} | <span class="read-status">${notification.is_read ? 'Read' : 'Unread'}
-                        </p>
-                    </div>
-                </div>
-            </a>
-        `;
-
-        console.log('Dropdown item: ', item);
-        // Add the dropdown item to the dropdown
-        dropdown.appendChild(item);
-    }
-  }
-});
-
-</script> -->
