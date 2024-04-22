@@ -144,8 +144,10 @@ document.querySelector('#chat-message-input').onkeydown = function(e) {
     }
 };
 
-window.onload = function() {
-    fetch('{% url "mark_messages_as_read" %}', {
+
+
+window.addEventListener('load', function() {
+  fetch('{% url "mark_messages_as_read" %}', {
         method: 'POST',
         headers: {
             'X-CSRFToken': '{{ csrf_token }}'
@@ -155,7 +157,8 @@ window.onload = function() {
     .then(data => {
         console.log(data);
     });
-}
+});
+
 </script>
 
 
