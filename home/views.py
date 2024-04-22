@@ -673,8 +673,11 @@ def mark_messages_as_read(request):
 def get_family_expenses_counter(request, username):
     # Get the member associated with the current user
     user = get_object_or_404(User, username=username)
-    member = Member.objects.get(user=user)
-    
+    members = Member.objects.filter(user=user)
+    if not members.exists():
+        return JsonResponse({'message': 'No member found for this user.'})
+    member = members.first()
+        
     # Get the family of the member
     family = member.family
     
@@ -682,7 +685,7 @@ def get_family_expenses_counter(request, username):
     family_members = Member.objects.filter(family=family)
     
     # Get the expenses for all members of the family
-    expenses = Expense.objects.filter(created_by__in=family_members).order_by('-created_at')
+    expenses = Expense.objects.filter(created_by__in=family_members, is_read=False).order_by('-created_at')
     
   
     
@@ -692,6 +695,32 @@ def get_family_expenses_counter(request, username):
     
     return JsonResponse({'count': count, })
 
+
+
+@require_POST
+def mark_expenses_as_read(request, username):
+    try:
+        # Get the member associated with the current user
+        user = get_object_or_404(User, username=username)
+        member = Member.objects.get(user=user)
+        
+        # Get the family of the member
+        family = member.family
+        
+        # Get all members of the family
+        family_members = Member.objects.filter(family=family).exclude(user=user)
+        
+        # Get the expenses for all members of the family
+        expenses = Expense.objects.filter(created_by__in=family_members, is_read=False)
+        
+        # Mark all expenses as read
+        expenses.update(is_read=True)
+        
+        return JsonResponse({'status': 'success'})
+    except Member.DoesNotExist:
+        return JsonResponse({'error': 'Member does not exist'})
+    except Exception as e:
+        return JsonResponse({'error': str(e)})
 
 
 # @login_required
