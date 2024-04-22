@@ -32,7 +32,10 @@ class NotificationConsumer(AsyncWebsocketConsumer):
         
     # Synchronous method to get family id
     def get_family_id(self):
-        return self.user.member.family.id
+        if self.user.member.family is not None:
+            return self.user.member.family.id
+        else:
+            return None
 
     async def disconnect(self, close_code):
         # Leave the group
@@ -68,6 +71,7 @@ class NotificationConsumer(AsyncWebsocketConsumer):
                     'id': notification.chore.id,
                     'title': notification.chore.title,
                 } if notification.chore else None,
+                
             })
 
         logger.info(f"Got {len(notifications_json)} notifications")
