@@ -313,11 +313,13 @@ def add_budget(request, username):
             total_allocated_budget = Budget.objects.filter(monthly_budget=budget.monthly_budget).aggregate(Sum('amount'))['amount__sum'] or 0
             # Check if the new budget exceeds the monthly budget
             if total_allocated_budget + budget.amount > total_monthly_budget:
-                messages.error(request, f"Your monthly budget exceeds the monthly budget. You have only {total_monthly_budget - total_allocated_budget} RON left for assigning category budgets.")
+                messages.error(request, f"Your budget exceeds the monthly budget. You have only {total_monthly_budget - total_allocated_budget} RON left for assigning category budgets.")
                 return redirect('budgets', username=username)
+            budget.save()  # Save the budget if it passes the check
+            return redirect('budgets', username=username)
     else:
         form = BudgetCreationForm(family=family)
-    return render(request, 'pages/add_budget.html', {'form': form, 'username': username})
+    return render(request, 'pages/add_budget.html', {'form': form, 'username': username}) 
 
 
 
