@@ -1,4 +1,5 @@
 {% load static %}
+{% load my-form-tags %}
 <!-- Navbar -->
 <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur" navbar-scroll="true">
   <div class="container-fluid py-1 px-3">
@@ -84,6 +85,29 @@
           </ul> -->
         </li>
 
+        {% if request.user|in_group:"Family Leader" and not request.user.is_superuser %}
+        <!-- expenses -->
+        <li class="nav-item dropdown pe-3 d-flex align-items-center">
+          <a href="{% url 'expenses' username=request.user.username %}" class="nav-link text-body p-0" >
+            <i class="fa fa-credit-card-alt cursor-pointer"></i>
+            <!-- Messages counter -->
+          <span id="expensesCounter" class="badge bg-danger"></span>
+          </a>
+          <!-- <ul id="expensesDropdown" class="dropdown-menu  dropdown-menu-end  px-2 py-3 me-sm-n4" aria-labelledby="dropdownMenuButton">
+          </ul> -->
+        </li>
+        {% else %}
+        <li class="nav-item dropdown pe-3 d-flex align-items-center">
+          <a href="{% url 'member_expenses' username=request.user.username %}" class="nav-link text-body p-0" >
+            <i class="fa fa-credit-card-alt cursor-pointer"></i>
+            <!-- Messages counter -->
+          <span id="expensesCounter" class="badge bg-danger"></span>
+          </a>
+          <!-- <ul id="expensesDropdown" class="dropdown-menu  dropdown-menu-end  px-2 py-3 me-sm-n4" aria-labelledby="dropdownMenuButton">
+          </ul> -->
+        </li>
+        {% endif %}
+
         <li class="nav-item pe-2 d-flex align-items-center">
           <label for="theme-switch" class="nav-link text-body p-0 m-0">
             <i class="fa fa-sun fixed-plugin-button-nav cursor-pointer" id="theme-indicator"></i>
@@ -132,6 +156,7 @@
                                   <i class="fa fa-clock me-1"></i>
                                   ${notification.created_at} | <span class="read-status">${notification.is_read ? 'Read' : 'Unread'}
                               </p>
+                              ${notification.expense ? `<p class="text-xs text-secondary mb-0 ">Expense: ${notification.expense.category} - ${notification.expense.amount}</p>` : ''}
                           </div>
                       </div>
                   </a>
@@ -180,56 +205,66 @@
   socket.onclose = function(e) {
       console.error('Chat socket closed unexpectedly');
   };
-//   function updateMessageCounter() {
-//     fetch('{% url "unread_messages_count" %}')
-//         .then(response => response.json())
-//         .then(data => {
-//             let unread_messages = data.unread_messages;;
-//             for (let i = 0; i < unread_messages.length; i++) {
-//                 let unread_message = unread_messages[i];
-//                 console.log('Current unread message: ', unread_message);
+//////////////////////////////////////////////////////////////////
 
-//                 // Create a new dropdown item
-//                 let item = document.createElement("li");
-//                 item.classList.add("mb-2");
-//                 // Create the dropdown item content
-//                 item.innerHTML = `
-//                     <a class="dropdown-item border-radius-md" href="javascript:;">
-//                         <div class="d-flex py-1">
-//                             <div class="my-auto">
-//                                 <img src="${unread_message.member.profile_pic}" class="avatar avatar-sm  me-3 ">
-//                             </div>
-//                             <div class="d-flex flex-column justify-content-center">
-//                                 <h6 class="text-sm font-weight-normal mb-1">
-//                                     <span class="font-weight-bold">${unread_message.member.name} messaged the family room</span>
-//                                 </h6>
-//                                 <p class="text-xs text-secondary mb-0 ">
-//                                     <i class="fa fa-clock me-1"></i>
-//                                     ${unread_message.created_at} | <span class="read-status">${unread_message.is_read ? 'Read' : 'Unread'}
-//                                 </p>
-//                             </div>
-//                         </div>
-//                     </a>
-//                 `;
 
-//                 console.log('Dropdown item: ', item);
-//                 // Add the dropdown item to the dropdown
-//                 document.getElementById('messagesDropdown').appendChild(item);
-//             }
-//             document.getElementById('messagesCounter').textContent = data.count;
-//         });
-// }
 
+
+
+/// messages
 function updateMessageCounter() {
     fetch('{% url "unread_messages_count" %}')
         .then(response => response.json())
         .then(data => {
+            // Save the count to localStorage
+            localStorage.setItem('messageCount', data.count);
+            
+            // Update the counter on the page
             document.getElementById('messagesCounter').textContent = data.count;
         });
 }
 
+
 // Update the message counter every 5 seconds
 setInterval(updateMessageCounter, 5000);
+
+
+
+
+///// expenses
+
+let username = "{{ request.user.username }}"
+
+function updateExpenseCounter() {
+    // Fetch family expenses count from the server
+    fetch(`/expenses_count/${username}/`)
+        .then(response => response.json())
+        .then(data => {
+            // Save the count to localStorage
+            localStorage.setItem('expenseCount', data.count);
+            // Update the counter on the page
+            document.getElementById('expensesCounter').textContent = data.count;
+        });
+}
+
+
+// Update the expenses data every 5 seconds
+setInterval(updateExpenseCounter, 5000);
+
+window.onload = function() {
+    // Load the message count from localStorage
+    var messageCount = localStorage.getItem('messageCount');
+    if (messageCount) {
+        document.getElementById('messagesCounter').textContent = messageCount;
+    }
+
+    // Load the expense count from localStorage
+    var expenseCount = localStorage.getItem('expenseCount');
+    if (expenseCount) {
+        document.getElementById('expensesCounter').textContent = expenseCount;
+    }
+};
+
 </script>
 
 <!-- 
