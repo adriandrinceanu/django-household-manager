@@ -12,6 +12,9 @@ from django.core.mail import send_mail
 import logging
 from django.views.decorators.http import require_POST
 from django.http import JsonResponse
+from django.urls import reverse
+
+
 
 
 def index(request):
@@ -524,9 +527,9 @@ def delete_expense(request, username, expense_id):
     # Get the Expense object
     expense = get_object_or_404(Expense, id=expense_id)
     # Check if the current user is one of the creators of the expense
-    if request.user.member in expense.created_by.all():
+    # if request.user.member in expense.created_by.all():
         # If so, delete the expense
-        expense.delete()
+    expense.delete()
     return redirect('expenses',username=username)
 
 
@@ -602,7 +605,7 @@ def family_room_view(request, username):
     member = Member.objects.get(user=user)
     if member.family is None:
         # Redirect to the 'no_family' page (or any page you want)
-        return redirect('create_family')
+        return redirect('create_family', username=username )
     else:
         family_name = member.family.name
         family_id = member.family.id
@@ -653,3 +656,64 @@ def mark_messages_as_read(request):
         return JsonResponse({'error': str(e)})
     
 ### end messages
+
+
+### expenses
+
+@login_required
+def get_family_expenses_counter(request, username):
+    # Get the member associated with the current user
+    user = get_object_or_404(User, username=username)
+    member = Member.objects.get(user=user)
+    
+    # Get the family of the member
+    family = member.family
+    
+    # Get all members of the family
+    family_members = Member.objects.filter(family=family)
+    
+    # Get the expenses for all members of the family
+    expenses = Expense.objects.filter(created_by__in=family_members).order_by('-created_at')
+    
+  
+    
+    # Get the count of expenses
+    count = expenses.count()
+    
+    
+    return JsonResponse({'count': count, })
+
+
+
+# @login_required
+# def get_family_expenses(request, username):
+#     # Get the member associated with the current user
+#     user = get_object_or_404(User, username=username)
+#     member = Member.objects.get(user=user)
+    
+#     # Get the family of the member
+#     family = member.family
+    
+#     # Get all members of the family
+#     family_members = Member.objects.filter(family=family)
+    
+#     # Get the expenses for all members of the family
+#     expenses = Expense.objects.filter(created_by__in=family_members).order_by('-created_at')
+    
+#     # Prepare the expenses for JSON serialization
+#     expenses_json = []
+#     for expense in expenses:
+#         expenses_json.append({
+#             'id': expense.id,
+#             'amount': str(expense.amount),
+#             'description': expense.description,
+#             'category': expense.category,
+#             'month': expense.month,
+#             'year': expense.year,
+#             'created_at': str(expense.created_at),
+#             'created_by': [member.name for member in expense.created_by.all()],
+#         })
+    
+
+    
+#     return JsonResponse({'expenses': expenses_json,})
