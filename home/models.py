@@ -79,6 +79,7 @@ class Expense(models.Model):
     created_by = models.ManyToManyField(Member, related_name='expenses')
     created_at = models.DateTimeField(auto_now_add=True)
     budget = models.ForeignKey('Budget', related_name='expense', on_delete=models.CASCADE, null=True, blank=True)
+    is_read = models.BooleanField(default=False)
     
     def is_current_month(self):
         # Get the current date
@@ -151,7 +152,6 @@ class Notification(models.Model):
     family = models.ForeignKey(Family, on_delete=models.CASCADE, related_name="notifications", null=True)
     member = models.ForeignKey(Member, on_delete=models.CASCADE, related_name="member", null=True )
     chore = models.ForeignKey(Chore, on_delete=models.CASCADE, null=True, blank=True)  
-    expense = models.ForeignKey(Expense, on_delete=models.CASCADE, null=True, blank=True)
 
     def __str__(self):
         return f"Notification for {self.family} family: {self.message}"
