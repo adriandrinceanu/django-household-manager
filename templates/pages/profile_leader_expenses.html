@@ -710,6 +710,21 @@ $(document).ready(function(){
         },
       },
     });
+
+
+    window.addEventListener('load', function() {
+      fetch('{% url "mark_expenses_as_read" username=request.user.username %}', {
+          method: 'POST',
+          headers: {
+              'X-CSRFToken': '{{ csrf_token }}'
+          },
+      })
+      .then(response => response.json())
+      .then(data => {
+          console.log(data);
+      });
+    });
+
   </script>
 
 {% endblock scripts %}
