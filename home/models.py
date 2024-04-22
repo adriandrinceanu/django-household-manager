@@ -150,7 +150,8 @@ class Notification(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     family = models.ForeignKey(Family, on_delete=models.CASCADE, related_name="notifications", null=True)
     member = models.ForeignKey(Member, on_delete=models.CASCADE, related_name="member", null=True )
-    chore = models.ForeignKey(Chore, on_delete=models.CASCADE, null=True, blank=True)  # Optional field for chore notifications
+    chore = models.ForeignKey(Chore, on_delete=models.CASCADE, null=True, blank=True)  
+    expense = models.ForeignKey(Expense, on_delete=models.CASCADE, null=True, blank=True)
 
     def __str__(self):
         return f"Notification for {self.family} family: {self.message}"
