@@ -5,14 +5,14 @@ services:
         - "6379:6379"
       networks:
       - web_network
-  db:
-    image: postgres:16
-    env_file:
-      - .env
-    volumes:
-      - ./postgres_data:/var/lib/postgresql/data/
-    networks:
-      - db_network
+  # db:
+  #   image: postgres:16
+  #   env_file:
+  #     - .env
+  #   volumes:
+  #     - ./postgres_data:/var/lib/postgresql/data/
+  #   networks:
+  #     - db_network
   household-manager:
     container_name: household-manager
     restart: unless-stopped

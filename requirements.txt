@@ -13,6 +13,7 @@ django-admin-soft-dashboard==1.0.12
 # Deployment
 whitenoise==6.6.0
 gunicorn==21.2.0
+dj-database-url==2.1.0
 
 #asgi
 channels==4.0.0
