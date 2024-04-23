@@ -23,7 +23,7 @@ services:
       - 8000:8000
     volumes:
       - .:/household-manager
-      - media_uploads:/media
+      - ./media:/media  # Bind mount
     networks:
       - db_network
       - web_network
@@ -51,4 +51,3 @@ networks:
 
 volumes:
   postgres_data:
-  media_uploads:
