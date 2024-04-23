@@ -121,7 +121,7 @@
 <!-- End Navbar -->
 
 <script>
-  let socket1 = new WebSocket('wss://' + window.location.host + '/ws/notifications/');
+  let socket1 = new WebSocket('wss://' + window.location.host + '/wss/notifications/');
   let notifications = [];  // Declare notifications array here
 
   // Function to update the notification counter
@@ -202,7 +202,7 @@
   });
 
   socket1.onclose = function(e) {
-      console.error('Chat socket closed unexpectedly');
+      console.error('Notifications socket closed unexpectedly');
   };
 //////////////////////////////////////////////////////////////////
 
