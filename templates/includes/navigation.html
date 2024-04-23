@@ -121,7 +121,7 @@
 <!-- End Navbar -->
 
 <script>
-  let socket1 = new WebSocket("wss://django-household-manager.onrender.com/ws/notifications/");
+  let socket1 = new WebSocket('wss://' + window.location.host + '/ws/notifications/');
   let notifications = [];  // Declare notifications array here
 
   // Function to update the notification counter
