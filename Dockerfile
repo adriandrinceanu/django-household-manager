@@ -5,7 +5,7 @@ ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 
 # Install dependencies
-# RUN apt-get update && apt-get install build-essential graphviz graphviz-dev --assume-yes
+RUN apt-get update && apt-get install build-essential graphviz graphviz-dev --assume-yes
 COPY requirements.txt .
 RUN pip install --upgrade pip
 RUN pip install --no-cache-dir -r requirements.txt
