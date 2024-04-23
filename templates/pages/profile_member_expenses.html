@@ -5,7 +5,11 @@
 {% block content %}
 
     <div class="container-fluid py-4">
-      <h5 class="font-weight-bolder">Add your spendings | Current Month: {{ category_budgets.food.monthly_budget.get_month_display }}</h5>
+      <h5 class="font-weight-bolder">Add your spendings | Current Month:
+        {% for monthly_data in monthly_budget_data %}
+          {{ monthly_data.monthly_budget.get_month_display }}
+        {% endfor %}
+      </h5>
       <div class="row pb-2">
         <!-- groceries -->
         <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
@@ -18,11 +22,15 @@
                     <p class="text-sm mb-0 text-capitalize font-weight-bold">Groceries Expense</p>
                     <h5 class="font-weight-bolder mb-0">
                       {{ category_expenses.groceries|default:"0" }}
-                      <span class="text-success text-sm font-weight-bolder">RON /
+                      <span class="text-secondary text-sm font-weight-bolder">RON /
                         {% if remaining_category_budgets.groceries %}
-                          <p class="text-secondary text-sm">Remaining Budget: {{ remaining_category_budgets.groceries }} RON</p>
-                          {% else %}
-                              <p class="text-secondary text-sm">No budget this month.</p>
+                            {% if remaining_category_budgets.groceries < 0 %}
+                            <p class="text-danger text-sm font-weight-bolder">Overbudget: {{ remaining_category_budgets.groceries }} RON</p>
+                            {% else %}
+                            <p class="text-success text-sm font-weight-bolder">Remaining Budget: {{ remaining_category_budgets.groceries }} RON</p>
+                            {% endif %}
+                            {% else %}
+                            <p class="text-secondary text-sm">No budget this month.</p>
                           {% endif %}
                       </span>
                     </h5>
@@ -50,11 +58,15 @@
                       <p class="text-sm mb-0 text-capitalize font-weight-bold">Clothing Expense</p>
                       <h5 class="font-weight-bolder mb-0">
                         {{ category_expenses.clothing|default:"0" }}
-                        <span class="text-success text-sm font-weight-bolder">RON /
+                        <span class="text-secondary text-sm font-weight-bolder">RON /
                           {% if remaining_category_budgets.clothing %}
-                          <p class="text-secondary text-sm">Remaining Budget: {{ remaining_category_budgets.clothing }} RON</p>
-                          {% else %}
-                              <p class="text-secondary text-sm">No budget this month.</p>
+                            {% if remaining_category_budgets.clothing < 0 %}
+                            <p class="text-danger text-sm font-weight-bolder">Overbudget: {{ remaining_category_budgets.clothing }} RON</p>
+                            {% else %}
+                            <p class="text-success text-sm font-weight-bolder">Remaining Budget: {{ remaining_category_budgets.clothing }} RON</p>
+                            {% endif %}
+                            {% else %}
+                            <p class="text-secondary text-sm">No budget this month.</p>
                           {% endif %}
                         </span>
                       </h5>
@@ -82,11 +94,15 @@
                       <p class="text-sm mb-0 text-capitalize font-weight-bold">Transport. Exp.</p>
                       <h5 class="font-weight-bolder mb-0">
                         {{ category_expenses.transportation|default:"0" }}
-                        <span class="text-success text-sm font-weight-bolder">RON /
+                        <span class="text-secondary text-sm font-weight-bolder">RON /
                           {% if remaining_category_budgets.transportation %}
-                          <p class="text-secondary text-sm">Remaining: {{ remaining_category_budgets.transportation }} RON</p>
-                          {% else %}
-                              <p class="text-secondary text-sm">No budget.</p>
+                            {% if remaining_category_budgets.transportation < 0 %}
+                            <p class="text-danger text-sm font-weight-bolder">Overbudget: {{ remaining_category_budgets.transportation }} RON</p>
+                            {% else %}
+                            <p class="text-success text-sm font-weight-bolder">Remaining Budget: {{ remaining_category_budgets.transportation }} RON</p>
+                            {% endif %}
+                            {% else %}
+                            <p class="text-secondary text-sm">No budget this month.</p>
                           {% endif %}
                         </span>
                       </h5>
@@ -113,11 +129,15 @@
                       <p class="text-sm mb-0 text-capitalize font-weight-bold">Utilities Exp.</p>
                       <h5 class="font-weight-bolder mb-0">
                         {{ category_expenses.utilities|default:"0" }}
-                        <span class="text-success text-sm font-weight-bolder">RON /
+                        <span class="text-secondary text-sm font-weight-bolder">RON /
                           {% if remaining_category_budgets.utilities %}
-                          <p class="text-secondary text-sm">Remaining: {{ remaining_category_budgets.utilities }} RON</p>
-                          {% else %}
-                              <p class="text-secondary text-sm">No budget.</p>
+                            {% if remaining_category_budgets.utilities < 0 %}
+                            <p class="text-danger text-sm font-weight-bolder">Overbudget: {{ remaining_category_budgets.utilities }} RON</p>
+                            {% else %}
+                            <p class="text-success text-sm font-weight-bolder">Remaining Budget: {{ remaining_category_budgets.utilities }} RON</p>
+                            {% endif %}
+                            {% else %}
+                            <p class="text-secondary text-sm">No budget this month.</p>
                           {% endif %}
                         </span>
                       </h5>
@@ -136,7 +156,8 @@
       </div>
 
       <div class="row">
-        <!-- entertainment -->
+
+      <!-- entertainment -->
         <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
           <a class="btn btn-link p-0 m-0 w-100" data-bs-toggle="modal" data-bs-target="#addExpenseModal" data-category="entertainment">
             <div class="card">
@@ -147,11 +168,15 @@
                       <p class="text-sm mb-0 text-capitalize font-weight-bold">Entertainment Expense</p>
                       <h5 class="font-weight-bolder mb-0">
                         {{ category_expenses.entertainment|default:"0" }}
-                        <span class="text-success text-sm font-weight-bolder">RON /
+                        <span class="text-secondary text-sm font-weight-bolder">RON /
                           {% if remaining_category_budgets.entertainment %}
-                          <p class="text-secondary text-sm">Remaining Budget: {{ remaining_category_budgets.entertainment }} RON</p>
-                          {% else %}
-                              <p class="text-secondary text-sm">No budget this month.</p>
+                            {% if remaining_category_budgets.entertainment < 0 %}
+                            <p class="text-danger text-sm font-weight-bolder">Overbudget: {{ remaining_category_budgets.entertainment }} RON</p>
+                            {% else %}
+                            <p class="text-success text-sm font-weight-bolder">Remaining Budget: {{ remaining_category_budgets.entertainment }} RON</p>
+                            {% endif %}
+                            {% else %}
+                            <p class="text-secondary text-sm">No budget this month.</p>
                           {% endif %}
                         </span>
                       </h5>
@@ -179,11 +204,15 @@
                       <p class="text-sm mb-0 text-capitalize font-weight-bold">Education Expense</p>
                       <h5 class="font-weight-bolder mb-0">
                         {{ category_expenses.education|default:"0" }}
-                        <span class="text-success text-sm font-weight-bolder">RON /
+                        <span class="text-secondary text-sm font-weight-bolder">RON /
                           {% if remaining_category_budgets.education %}
-                          <p class="text-secondary text-sm">Remaining: {{ remaining_category_budgets.education }} RON</p>
-                          {% else %}
-                              <p class="text-secondary text-sm">No budget.</p>
+                            {% if remaining_category_budgets.education < 0 %}
+                            <p class="text-danger text-sm font-weight-bolder">Overbudget: {{ remaining_category_budgets.education }} RON</p>
+                            {% else %}
+                            <p class="text-success text-sm font-weight-bolder">Remaining Budget: {{ remaining_category_budgets.education }} RON</p>
+                            {% endif %}
+                            {% else %}
+                            <p class="text-secondary text-sm">No budget this month.</p>
                           {% endif %}
                         </span>
                       </h5>
@@ -211,11 +240,15 @@
                       <p class="text-sm mb-0 text-capitalize font-weight-bold">Healthcare Expense</p>
                       <h5 class="font-weight-bolder mb-0">
                         {{ category_expenses.healthcare|default:"0" }}
-                        <span class="text-success text-sm font-weight-bolder">RON /
+                        <span class="text-secondary text-sm font-weight-bolder">RON /
                           {% if remaining_category_budgets.healthcare %}
-                          <p class="text-secondary text-sm">Remaining: {{ remaining_category_budgets.healthcare }} RON</p>
-                          {% else %}
-                              <p class="text-secondary text-sm">No budget.</p>
+                            {% if remaining_category_budgets.healthcare < 0 %}
+                            <p class="text-danger text-sm font-weight-bolder">Overbudget: {{ remaining_category_budgets.healthcare }} RON</p>
+                            {% else %}
+                            <p class="text-success text-sm font-weight-bolder">Remaining Budget: {{ remaining_category_budgets.healthcare }} RON</p>
+                            {% endif %}
+                            {% else %}
+                            <p class="text-secondary text-sm">No budget this month.</p>
                           {% endif %}
                         </span>
                       </h5>
@@ -243,11 +276,15 @@
                       <p class="text-sm mb-0 text-capitalize font-weight-bold">Other Expense</p>
                       <h5 class="font-weight-bolder mb-0">
                         {{ category_expenses.other|default:"0" }}
-                        <span class="text-success text-sm font-weight-bolder">RON /
+                        <span class="text-secondary text-sm font-weight-bolder">RON /
                           {% if remaining_category_budgets.other %}
-                          <p class="text-secondary text-sm">Remaining: {{ remaining_category_budgets.other }} RON</p>
-                          {% else %}
-                              <p class="text-secondary text-sm">No budget.</p>
+                            {% if remaining_category_budgets.other < 0 %}
+                            <p class="text-danger text-sm font-weight-bolder">Overbudget: {{ remaining_category_budgets.other }} RON</p>
+                            {% else %}
+                            <p class="text-success text-sm font-weight-bolder">Remaining Budget: {{ remaining_category_budgets.other }} RON</p>
+                            {% endif %}
+                            {% else %}
+                            <p class="text-secondary text-sm">No budget this month.</p>
                           {% endif %}
                         </span>
                       </h5>
@@ -405,9 +442,15 @@
                             </span>
                         </td>
                         <td class="align-middle text-center text-sm">
-                          <span class="text-xs font-weight-bold"> 
+                          {% if data.remaining < 0 %}
+                            <span class="text-danger text-xs font-weight-bold"> 
                             {{ data.remaining }} RON
-                          </span>
+                            </span>
+                            {% else %}
+                            <span class="text-xs font-weight-bold">
+                              {{ data.remaining }} RON
+                            </span>
+                          {% endif %}
                         </td>
                         <td>
                           <div class="avatar-group mt-2">
@@ -490,7 +533,7 @@ $(document).ready(function(){
 
     {% for category, budget in category_budgets.items %}
         labels.push("{{ category }}");
-        data.push("{{ budget.amount }}");
+        data.push("{{ budget }}");
     {% endfor %}
 
     new Chart(ctx, {
