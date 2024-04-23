@@ -89,6 +89,7 @@ def create_chore_view(request, username):
     # Get the current user's family
     member = Member.objects.get(user=user)
     family = member.family
+    name = member.name
 
     # Get the family members and chores
     family_members = Member.objects.filter(family=family)
@@ -137,7 +138,8 @@ def create_chore_view(request, username):
         'notifications': notifications,
         'chores': chores,
         'form': form,
-        'segment': 'create_chore'
+        'segment': 'create_chore',
+        'name': name,
     }
     return render(request, 'pages/profile_leader_create_chore.html', context)
 
@@ -597,8 +599,11 @@ def chore_done(request, chore_id):
     # Mark the chore as done
     chore.is_done = True
     chore.save()
-
-    return redirect('chore_view', username=request.user.username)
+    if request.user.groups.filter(name='Family Leader').exists():
+        return redirect('create_chore', username=request.user.username)
+    else:
+        return redirect('chore_view', username=request.user.username)
+        
 
 ### end family member
 

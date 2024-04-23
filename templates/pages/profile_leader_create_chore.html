@@ -79,7 +79,7 @@
 
   </div>
   <div class="row">
-    <div class="col-md-6 mt-4">
+    <div class="col-md-5 mt-4">
       <div class="card">
         <div class="card-header pb-0 px-3">
           <h6 class="mb-0">Chores</h6>
@@ -87,15 +87,19 @@
         <div class="card-body pt-4 p-3">
           <ul class="list-group">
             {% for chore in chores %}
-            <li class="list-group-item border-0 d-flex p-4 mb-2 bg-gray-100 border-radius-lg">
+            <li class="list-group-item border-0 d-flex p-3 mb-2 bg-gray-100 border-radius-lg">
               <div class="d-flex flex-column">
-                <h6 class="mb-3 text-sm">{{ chore.assigned_to.name }}</h6>
-                <span class="mb-2 text-xs">Title <span class="text-dark font-weight-bold ms-sm-2">{{ chore.title }}</span></span>
-                <span class="mb-2 text-xs">Deadline: <span class="text-dark ms-sm-2 font-weight-bold">{{ chore.deadline }}</span></span>
+                <h6 class="mb-2 text-sm">{{ chore.assigned_to.name }}</h6>
+                <span class="mb-1 text-xs">Title <span class="text-dark font-weight-bold ms-sm-2">{{ chore.title }}</span></span>
+                <span class="mb-1 text-xs">Deadline: <span class="text-dark ms-sm-2 font-weight-bold">{{ chore.deadline }}</span></span>
              
               </div>
-              <div class="ms-auto text-end">
-                <a class="btn btn-link text-danger text-gradient px-3 mb-0" href="{% url 'delete_chore' chore_id=chore.id username=request.user.username  %}"><i class="far fa-trash-alt me-2"></i>Delete</a>
+              <div class="ms-auto text-end d-flex flex-column">
+                <a class="btn btn-link text-danger text-gradient px-3 pb-1 mb-0" href="{% url 'delete_chore' chore_id=chore.id username=request.user.username  %}"><i class="far fa-trash-alt me-2"></i>Delete</a>
+                {% if chore.assigned_to.name == name %}
+                <!-- Add your extra button here -->
+                <a class="btn btn-link text-success text-gradient px-0 pb-1 mb-0" href="{% url 'chore_done' chore.id %}"><i class="far fa-check-circle me-2"></i>Mark as done</a>
+                {% endif %}
               </div>
             </li>
             {% empty %}
@@ -110,7 +114,7 @@
         </div>
       </div>
     </div>
-    <div class="col-md-6 mt-4">
+    <div class="col-md-7 mt-4">
       <div class="card mb-4">
         <div class="card-header pb-0">
           <h6>Chore updates</h6>
