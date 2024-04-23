@@ -64,8 +64,8 @@ let family_id = "{{ family_id }}";
 let room_name = family_name + '_chatroom' + family_id;
 
 let socket = new WebSocket(
-    'ws://' + window.location.host +
-    '/ws/chat/' + room_name + '/',
+    'wss://' + window.location.host +
+    '/wss/chat/' + room_name + '/',
     [],
     {credentials: 'include'} 
 );
