@@ -37,6 +37,7 @@ services:
     volumes:
       - ./nginx:/etc/nginx/conf.d
       - ./media:/media
+      - ./static:/static
       - ./wait-for.sh:/wait-for.sh  # Mount the script into the container
     command: ["/bin/sh", "/wait-for.sh"]  # Run the script when the container starts
     networks:
