@@ -36,7 +36,13 @@ DEBUG = str2bool(os.environ.get('DEBUG'))
 
 ALLOWED_HOSTS = ['*']
 
-CSRF_TRUSTED_ORIGINS = ['http://localhost:8000', 'http://localhost:5085', 'http://127.0.0.1:8000', 'http://127.0.0.1:5085' ]
+CSRF_TRUSTED_ORIGINS = [
+    'https://django-household-manager.onrender.com',
+    'http://localhost:8000', 
+    'http://localhost:5085', 
+    'http://127.0.0.1:8000', 
+    'http://127.0.0.1:5085' 
+    ]
 
 RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
 if RENDER_EXTERNAL_HOSTNAME:    
@@ -207,7 +213,7 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 
 SESSION_COOKIE_AGE = 1209600  # The age of session cookies, in seconds. The default is 2 weeks.
-SESSION_COOKIE_DOMAIN = 'localhost'  # The domain to use for session cookies. Set this to your domain name in production.
+SESSION_COOKIE_DOMAIN = 'django-household-manager.onrender.com'  # The domain to use for session cookies. Set this to your domain name in production.
 SESSION_COOKIE_SECURE = False  # Whether to use a secure cookie for the session cookie. If this is set to True, the cookie will be marked as “secure,” which means browsers may ensure that the cookie is only sent with an HTTPS connection.
 SESSION_COOKIE_SAMESITE = 'Lax'  # Whether to use the SameSite flag on the session cookie. This can be set to 'Strict', 'Lax', or None to disable the flag.
 SESSION_SAVE_EVERY_REQUEST = False  # Whether to save the session data on every request. If this is False (default), then the session data will only be saved if it has been modified.
@@ -277,6 +283,7 @@ CORS_ORIGIN_WHITELIST = [
     "http://127.0.0.1:9000",
     "http://172.19.0.1",
     "http://0.0.0.0:8000",
+    "https://django-household-manager.onrender.com",
  
 ]
 CORS_ALLOW_CREDENTIALS = True
