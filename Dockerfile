@@ -16,7 +16,6 @@ RUN pip install psycopg2-binary
 
 
 WORKDIR /household-manager
-# Mount the media volume
 ADD . .
 COPY . .
 

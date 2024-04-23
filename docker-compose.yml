@@ -23,7 +23,7 @@ services:
       - 8000:8000
     volumes:
       - .:/household-manager
-      - ./media:/media  # Bind mount
+      - ./media:/household-manager/media  # Bind mount
     networks:
       - db_network
       - web_network
