@@ -22,7 +22,7 @@ services:
     ports:
       - 8000:8000
     volumes:
-      - ./media:/household-manager/media  # Bind mount
+      - /media:/household-manager/media  # disk mount
       - .:/household-manager
     networks:
       - db_network
@@ -38,7 +38,7 @@ services:
     volumes:
       - ./nginx:/etc/nginx/conf.d
       - ./wait-for.sh:/wait-for.sh  # Mount the script into the container
-      - ./media:/household-manager/media
+      - /media:/household-manager/media
     command: ["/bin/sh", "/wait-for.sh"]  # Run the script when the container starts
     networks:
       - web_network
