@@ -27,7 +27,7 @@ def index(request, username):
         'name' : name,
     }
     if request.user.is_authenticated:
-        return render(request, 'pages/home.html', context)
+        return render(request, 'pages/index.html', context)
     else:    
         return redirect('login')
 
