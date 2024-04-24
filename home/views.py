@@ -17,14 +17,13 @@ from django.urls import reverse
 
 
 
-def index(request, username):
-    user = get_object_or_404(User, username=username)
-    # Get the current user's family
-    
-    if request.user.groups.filter(name='Family Leader').exists():
-        return redirect('family_leader', username=username)
-    elif request.user.groups.filter(name='Family Member').exists():
-        return redirect('family_member', username=username)
+def index(request):
+    if request.user.is_authenticated:
+        username = request.user.username
+        if request.user.groups.filter(name='Family Leader').exists():
+            return redirect('family_leader', username=username)
+        elif request.user.groups.filter(name='Family Member').exists():
+            return redirect('family_member', username=username)
     else:    
         return redirect('login')
 
