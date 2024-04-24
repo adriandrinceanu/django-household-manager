@@ -20,14 +20,11 @@ from django.urls import reverse
 def index(request, username):
     user = get_object_or_404(User, username=username)
     # Get the current user's family
-    member = Member.objects.get(user=user)
-    name = member.name
-    context = {
-        'segment': 'index',
-        'name' : name,
-    }
-    if request.user.is_authenticated:
-        return render(request, 'pages/index.html', context)
+    
+    if request.user.groups.filter(name='Family Leader').exists():
+        return redirect('family_leader', username=username)
+    elif request.user.groups.filter(name='Family Member').exists():
+        return redirect('family_member', username=username)
     else:    
         return redirect('login')
 
