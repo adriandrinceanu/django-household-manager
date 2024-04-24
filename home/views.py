@@ -17,9 +17,14 @@ from django.urls import reverse
 
 
 
-def index(request):
+def index(request, username):
+    user = get_object_or_404(User, username=username)
+    # Get the current user's family
+    member = Member.objects.get(user=user)
+    name = member.name
     context = {
         'segment': 'index',
+        'name' : name,
     }
     if request.user.is_authenticated:
         return render(request, 'pages/home.html', context)
