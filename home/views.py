@@ -18,8 +18,11 @@ from django.urls import reverse
 
 
 def index(request):
+    context = {
+        'segment': 'index',
+    }
     if request.user.is_authenticated:
-        return render(request, 'pages/home.html')
+        return render(request, 'pages/home.html', context)
     else:    
         return redirect('login')
 
