@@ -8,7 +8,7 @@ body.dark-page {
   color: #d7d7d7 !important;
 }
 body.dark-page .bg-gray-100 {
-  background-color: transparent !important;
+  background-color: transparent;
 }
 body.dark-page .text-body {
   color: #d7d7d7 !important;
